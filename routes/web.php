@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TypeTwoPatientsController;
 use App\Http\Controllers\WaittosubmitController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,20 @@ Route::get('/', function () {
 
 Route::get('/main', function () {
     return view('index');
-})->middleware(['auth','submit'])->name('main');
-Route::get('/submit_others', [WaittosubmitController::class,'getunsubmitusers']);
+})->middleware(['auth', 'submit'])->name('main');
+Route::get('/submit_others', [WaittosubmitController::class, 'get']);
+Route::get('/submit/{id}', [WaittosubmitController::class, 'submit'])->where('id', '[0-9]+');
 
-require __DIR__.'/auth.php';
+
+//for type two patients routes
+Route::prefix('typetwopatients')->group(function(){
+
+    Route::get('/createform', [TypeTwoPatientsController::class, 'createform']);
+    Route::post('/create', [TypeTwoPatientsController::class, 'create']);
+
+}
+
+);
+//end type two patients routes
+
+require __DIR__ . '/auth.php';

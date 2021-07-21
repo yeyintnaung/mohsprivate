@@ -22,12 +22,13 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-    @include('layouts.sidebar')
+        @include('layouts.sidebar')
 
 
-{{--contents--}}
+        {{--contents--}}
         <div class="page-wrapper">
-            <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
@@ -45,10 +46,19 @@
                                 <li class="breadcrumb-item active">Datatable</li>
                             </ol>
                             <button type="button" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i
-                                    class="fa fa-plus-circle"></i> Create New</button>
+                                    class="fa fa-plus-circle"></i> Create New
+                            </button>
                         </div>
                     </div>
                 </div>
+                @if(\Illuminate\Support\Facades\Session::has('submitedmsg'))
+                    <div class="alert alert-success alert-rounded alert-dismissible"><i
+                            class="ti-user"></i> {{Session::get('submitedmsg')}}
+
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true"></span></button>
+                    </div>
+            @endif
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
@@ -76,14 +86,14 @@
                                         @foreach($unsubmitusers as $usu)
 
                                             <tr>
-                                            <td>{{$usu->id}}</td>
-                                            <td>{{$usu->name}}</td>
-                                            <td>{{$usu->email}}</td>
-                                            <td>{{$usu->created_at}}</td>
-                                            <td>yy</td>
+                                                <td>{{$usu->id}}</td>
+                                                <td>{{$usu->name}}</td>
+                                                <td>{{$usu->email}}</td>
+                                                <td>{{$usu->created_at}}</td>
+                                                <td><a href="{{url('/submit/'.$usu->id)}}">submit</a></td>
 
 
-                                        </tr>
+                                            </tr>
                                         @endforeach
 
 
@@ -185,7 +195,7 @@
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
         </div>
-{{--contents--}}
+        {{--contents--}}
 
     </div>
 
