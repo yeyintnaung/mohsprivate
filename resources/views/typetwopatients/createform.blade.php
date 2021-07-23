@@ -1,6 +1,5 @@
-@extends('layouts.layout')
+@extends('layouts.datable')
 @section('content')
-
 
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -37,6 +36,7 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
+
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
@@ -56,16 +56,9 @@
                         </div>
                     </div>
                 </div>
+                {!! Form::open(['url' => 'typetwopatients/create', 'method' => 'post']) !!}
 
 
-
-
-
-
-
-
-
-                <form  method="POST" action="{{url('typetwopatients/create')}}">
 
 
                     {{--First form--}}
@@ -82,8 +75,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Name</label>
-                                                    <input type="text" class="form-control" name="name" id="exampleInputEmail1"
-                                                           aria-describedby="emailHelp" placeholder="Enter Name">
+                                                    <input type="text" class="form-control" name="name"
+                                                           id="exampleInputEmail1"
+                                                           aria-describedby="emailHelp" value="{{old('name')}}"
+                                                           placeholder="Enter Name">
+                                                    @error('name')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
 
                                                 </div>
                                             </div>
@@ -91,9 +89,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Age</label>
-                                                    <input type="text" name="age" class="form-control"
+                                                    <input type="number" name="age" value="{{old('age')}}"
+                                                           class="form-control"
                                                            id="exampleInputPassword1"
                                                            placeholder="age">
+                                                    @error('age')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+
                                                 </div>
                                             </div>
                                             <!--/span-->
@@ -105,17 +108,55 @@
                                                     <label class="control-label">Gender</label>
                                                     <div class="custom-control custom-radio">
                                                         <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio11"
-                                                                       name="gender" value='male' class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label" for="customRadio11">Male</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio12"
-                                                                       name="gender" value='female' class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio12">Female</label>
-                                                            </div>
+                                                            @if(old('gender')=='male')
+                                                                <div class="col-xs-4 mr-5">
+                                                                    <input type="radio" id="customRadio11"
+                                                                           name="gender" value='male'
+                                                                           class="custom-control-input"
+                                                                           checked>
+                                                                    <label class="custom-control-label"
+                                                                           for="customRadio11">Male</label>
+                                                                </div>
+                                                                <div class="col-xs-4">
+                                                                    <input type="radio" id="customRadio12"
+                                                                           name="gender" value='female'
+                                                                           class="custom-control-input">
+                                                                    <label class="custom-control-label"
+                                                                           for="customRadio12">Female</label>
+                                                                </div>
+                                                            @elseif(old('gender')=='female')
+                                                                <div class="col-xs-4 mr-5">
+                                                                    <input type="radio" id="customRadio11"
+                                                                           name="gender" value='male'
+                                                                           class="custom-control-input"
+                                                                    >
+                                                                    <label class="custom-control-label"
+                                                                           for="customRadio11">Male</label>
+                                                                </div>
+                                                                <div class="col-xs-4">
+                                                                    <input type="radio" id="customRadio12"
+                                                                           name="gender" value='female'
+                                                                           class="custom-control-input" checked>
+                                                                    <label class="custom-control-label"
+                                                                           for="customRadio12">Female</label>
+                                                                </div>
+                                                            @else
+                                                                <div class="col-xs-4 mr-5">
+                                                                    <input type="radio" id="customRadio11"
+                                                                           name="gender" value='male'
+                                                                           class="custom-control-input"
+                                                                           checked>
+                                                                    <label class="custom-control-label"
+                                                                           for="customRadio11">Male</label>
+                                                                </div>
+                                                                <div class="col-xs-4">
+                                                                    <input type="radio" id="customRadio12"
+                                                                           name="gender" value='female'
+                                                                           class="custom-control-input">
+                                                                    <label class="custom-control-label"
+                                                                           for="customRadio12">Female</label>
+                                                                </div>
+                                                            @endif
 
 
                                                         </div>
@@ -139,7 +180,6 @@
                                         </div>
 
 
-
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -152,7 +192,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Year of Dx</label>
-                                                    <input type="text" name="year_of_dx"  class="form-control"
+                                                    <input type="text" name="year_of_dx" class="form-control"
                                                            id="exampleInputPassword1"
                                                            placeholder="Year of Dx">
                                                 </div>
@@ -160,7 +200,6 @@
 
                                             <!--/span-->
                                         </div>
-
 
 
                                         <div class="row">
@@ -179,13 +218,15 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio13"
-                                                                       name="family_ho" value='yes' class="custom-control-input"
+                                                                       name="family_ho" value='yes'
+                                                                       class="custom-control-input"
                                                                        checked>
                                                                 <label class="custom-control-label" for="customRadio13">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio14"
-                                                                       name="family_ho" value='no' class="custom-control-input">
+                                                                       name="family_ho" value='no'
+                                                                       class="custom-control-input">
                                                                 <label class="custom-control-label" for="customRadio14">No</label>
                                                             </div>
 
@@ -200,10 +241,6 @@
 
                                             <!--/span-->
                                         </div>
-
-
-
-
 
 
                                     </div>
@@ -232,7 +269,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Hypertension</label>
-                                                    <input type="text" class="form-control" name="hypertension"  id="exampleInputEmail1"
+                                                    <input type="text" class="form-control" name="hypertension"
+                                                           id="exampleInputEmail1"
                                                            aria-describedby="emailHelp" placeholder="Hypertension">
 
                                                 </div>
@@ -283,7 +321,6 @@
                                         </div>
 
 
-
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -304,7 +341,6 @@
 
                                             <!--/span-->
                                         </div>
-
 
 
                                         <div class="row">
@@ -349,7 +385,6 @@
                                         </div>
 
 
-
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -358,13 +393,15 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio16"
-                                                                       name="surgical_history" value="yes" class="custom-control-input"
+                                                                       name="surgical_history" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
                                                                 <label class="custom-control-label" for="customRadio16">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio17"
-                                                                       name="surgical_history" value="no" class="custom-control-input">
+                                                                       name="surgical_history" value="no"
+                                                                       class="custom-control-input">
                                                                 <label class="custom-control-label" for="customRadio17">No</label>
                                                             </div>
 
@@ -380,11 +417,6 @@
 
                                             <!--/span-->
                                         </div>
-
-
-
-
-
 
 
                                     </div>
@@ -412,8 +444,6 @@
                                     <div class="card-body">
 
 
-
-
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -422,13 +452,15 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio19"
-                                                                       name="hbv" value='yes' class="custom-control-input"
+                                                                       name="hbv" value='yes'
+                                                                       class="custom-control-input"
                                                                        checked>
                                                                 <label class="custom-control-label" for="customRadio19">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio20"
-                                                                       name="hbv" value='no' class="custom-control-input">
+                                                                       name="hbv" value='no'
+                                                                       class="custom-control-input">
                                                                 <label class="custom-control-label" for="customRadio20">No</label>
                                                             </div>
 
@@ -449,14 +481,18 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio211"
-                                                                       name="hcv" value="yes" class="custom-control-input"
+                                                                       name="hcv" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio211">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio211">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio222"
-                                                                       name="hcv" value="no" class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio222">No</label>
+                                                                       name="hcv" value="no"
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio222">No</label>
                                                             </div>
 
 
@@ -469,7 +505,6 @@
                                             </div>
 
 
-
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">RVI</label>
@@ -477,13 +512,15 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio23"
-                                                                       name="rvi" value="yes" class="custom-control-input"
+                                                                       name="rvi" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
                                                                 <label class="custom-control-label" for="customRadio23">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio24"
-                                                                       name="rvi" value="no" class="custom-control-input">
+                                                                       name="rvi" value="no"
+                                                                       class="custom-control-input">
                                                                 <label class="custom-control-label" for="customRadio24">No</label>
                                                             </div>
 
@@ -501,11 +538,6 @@
 
                                             <!--/span-->
                                         </div>
-
-
-
-
-
 
 
                                     </div>
@@ -531,8 +563,6 @@
                                     <div class="card-body">
 
 
-
-
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -541,14 +571,18 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio191"
-                                                                       name="smoking" value="yes" class="custom-control-input"
+                                                                       name="smoking" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio191">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio191">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio201"
-                                                                       name="smoking" value="no" class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio201">No</label>
+                                                                       name="smoking" value="no"
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio201">No</label>
                                                             </div>
 
 
@@ -568,14 +602,18 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio2111"
-                                                                       name="alcohol" value='yes' class="custom-control-input"
+                                                                       name="alcohol" value='yes'
+                                                                       class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio2111">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio2111">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio2222"
-                                                                       name="alcohol" value='no' class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio2222">No</label>
+                                                                       name="alcohol" value='no'
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio2222">No</label>
                                                             </div>
 
 
@@ -588,7 +626,6 @@
                                             </div>
 
 
-
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="control-label">Betal Chewing</label>
@@ -596,14 +633,18 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio231"
-                                                                       name="betal_chewing" value="yes" class="custom-control-input"
+                                                                       name="betal_chewing" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio231">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio231">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio241"
-                                                                       name="betal_chewing" value="no" class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio241">No</label>
+                                                                       name="betal_chewing" value="no"
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio241">No</label>
                                                             </div>
 
 
@@ -620,11 +661,6 @@
 
                                             <!--/span-->
                                         </div>
-
-
-
-
-
 
 
                                     </div>
@@ -654,7 +690,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">OAD</label>
-                                                    <input type="text" class="form-control" name="oad" id="exampleInputEmail1"
+                                                    <input type="text" class="form-control" name="oad"
+                                                           id="exampleInputEmail1"
                                                            aria-describedby="emailHelp" placeholder="OAD">
 
                                                 </div>
@@ -671,7 +708,6 @@
                                             <!--/span-->
                                         </div>
                                         <!--/row-->
-
 
 
                                         <div class="row">
@@ -694,7 +730,6 @@
 
                                             <!--/span-->
                                         </div>
-
 
 
                                         <div class="row">
@@ -753,7 +788,6 @@
                                     <div class="card-body">
 
 
-
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -762,14 +796,18 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio1216"
-                                                                       name="dental_problem" value="yes" class="custom-control-input"
+                                                                       name="dental_problem" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio1216">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio1216">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio1217"
-                                                                       name="dental_problem" value="no" class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio1217">No</label>
+                                                                       name="dental_problem" value="no"
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio1217">No</label>
                                                             </div>
 
 
@@ -787,14 +825,18 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio16231"
-                                                                       name="diet_control" value="yes" class="custom-control-input"
+                                                                       name="diet_control" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio16231">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio16231">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio17231"
-                                                                       name="diet_control" value="no"  class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio17231">No</label>
+                                                                       name="diet_control" value="no"
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio17231">No</label>
                                                             </div>
 
 
@@ -818,14 +860,18 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio1623"
-                                                                       name="physical_activity" value="yes" class="custom-control-input"
+                                                                       name="physical_activity" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio1623">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio1623">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio1723"
-                                                                       name="physical_activity" value="no" class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio1723">No</label>
+                                                                       name="physical_activity" value="no"
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio1723">No</label>
                                                             </div>
 
 
@@ -843,14 +889,18 @@
                                                         <div class="row no-gutters">
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio1611"
-                                                                       name="steroid_use" value="yes" class="custom-control-input"
+                                                                       name="steroid_use" value="yes"
+                                                                       class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio1611">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio1611">Yes</label>
                                                             </div>
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio1711"
-                                                                       name="steroid_use" value="no" class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio1711">No</label>
+                                                                       name="steroid_use" value="no"
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio1711">No</label>
                                                             </div>
 
 
@@ -865,11 +915,6 @@
 
                                             <!--/span-->
                                         </div>
-
-
-
-
-
 
 
                                     </div>
@@ -887,8 +932,12 @@
                                 <div class="row">
                                     <div class="offset-sm-4 offset-md-9 col-md-9">
                                         {!! csrf_field() !!}
-                                        <button type="submit" class="btn btn-lg btn-success"> <i class="fa fa-check"></i> Submit</button>
-                                        <button type="button" class="btn waves-effect waves-light btn-lg btn-secondary">Cancel</button>
+                                        <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i>
+                                            Submit
+                                        </button>
+                                        <button type="button" class="btn waves-effect waves-light btn-lg btn-secondary">
+                                            Cancel
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -897,12 +946,7 @@
                     {{--Fifth form--}}
 
 
-                </form>
-
-
-
-
-
+                {!! Form::close() !!}
 
 
                 {{--<div class="right-sidebar">--}}
@@ -982,8 +1026,6 @@
                 {{--</div>--}}
 
 
-
-
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -1002,6 +1044,5 @@
         <!-- End footer -->
         <!-- ============================================================== -->
     </div>
-
 
 @endsection

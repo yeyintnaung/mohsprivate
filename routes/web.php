@@ -29,7 +29,7 @@ Route::get('/submit/{id}', [WaittosubmitController::class, 'submit'])->where('id
 //for type two patients routes
 Route::prefix('typetwopatients')->group(function(){
 
-    Route::get('/createform', [TypeTwoPatientsController::class, 'createform']);
+    Route::get('/create', [TypeTwoPatientsController::class, 'createform']);
     Route::post('/create', [TypeTwoPatientsController::class, 'create']);
 
 }

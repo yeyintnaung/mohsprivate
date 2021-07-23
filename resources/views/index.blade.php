@@ -1,7 +1,6 @@
-@extends('layouts.datable')
+@extends('layouts.layout')
 @section('content')
 
-<body class="skin-megna fixed-layout">
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
