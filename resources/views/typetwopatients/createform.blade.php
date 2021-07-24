@@ -1,4 +1,4 @@
-@extends('layouts.datable')
+@extends('layouts.layout')
 @section('content')
 
     <!-- ============================================================== -->
@@ -61,889 +61,898 @@
 
 
 
-                    {{--First form--}}
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
+                {{--First form--}}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Type Two Patient Register form</h4>
+                            </div>
+                            <hr>
+                            <div class="form-body">
                                 <div class="card-body">
-                                    <h4 class="card-title">Type Two Patient Register form</h4>
-                                </div>
-                                <hr>
-                                <div class="form-body">
-                                    <div class="card-body">
-                                        <div class="row pt-3">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Name</label>
-                                                    <input type="text" class="form-control" name="name"
-                                                           id="exampleInputEmail1"
-                                                           aria-describedby="emailHelp" value="{{old('name')}}"
-                                                           placeholder="Enter Name">
-                                                    @error('name')
-                                                    <p class="text-danger">{{$message}} </p>
-                                                    @enderror
+                                    <div class="row pt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Name</label>
+                                                <input type="text" class="form-control" name="name"
+                                                       id=""
+                                                       aria-describedby="emailHelp" value="{{old('name')}}"
+                                                       placeholder="Enter Name">
+                                                @error('name')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
 
-                                                </div>
                                             </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Age</label>
-                                                    <input type="number" name="age" value="{{old('age')}}"
-                                                           class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="age">
-                                                    @error('age')
-                                                    <p class="text-danger">{{$message}} </p>
-                                                    @enderror
-
-                                                </div>
-                                            </div>
-                                            <!--/span-->
                                         </div>
-                                        <!--/row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Gender</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            @if(old('gender')=='male')
-                                                                <div class="col-xs-4 mr-5">
-                                                                    <input type="radio" id="customRadio11"
-                                                                           name="gender" value='male'
-                                                                           class="custom-control-input"
-                                                                           checked>
-                                                                    <label class="custom-control-label"
-                                                                           for="customRadio11">Male</label>
-                                                                </div>
-                                                                <div class="col-xs-4">
-                                                                    <input type="radio" id="customRadio12"
-                                                                           name="gender" value='female'
-                                                                           class="custom-control-input">
-                                                                    <label class="custom-control-label"
-                                                                           for="customRadio12">Female</label>
-                                                                </div>
-                                                            @elseif(old('gender')=='female')
-                                                                <div class="col-xs-4 mr-5">
-                                                                    <input type="radio" id="customRadio11"
-                                                                           name="gender" value='male'
-                                                                           class="custom-control-input"
-                                                                    >
-                                                                    <label class="custom-control-label"
-                                                                           for="customRadio11">Male</label>
-                                                                </div>
-                                                                <div class="col-xs-4">
-                                                                    <input type="radio" id="customRadio12"
-                                                                           name="gender" value='female'
-                                                                           class="custom-control-input" checked>
-                                                                    <label class="custom-control-label"
-                                                                           for="customRadio12">Female</label>
-                                                                </div>
-                                                            @else
-                                                                <div class="col-xs-4 mr-5">
-                                                                    <input type="radio" id="customRadio11"
-                                                                           name="gender" value='male'
-                                                                           class="custom-control-input"
-                                                                           checked>
-                                                                    <label class="custom-control-label"
-                                                                           for="customRadio11">Male</label>
-                                                                </div>
-                                                                <div class="col-xs-4">
-                                                                    <input type="radio" id="customRadio12"
-                                                                           name="gender" value='female'
-                                                                           class="custom-control-input">
-                                                                    <label class="custom-control-label"
-                                                                           for="customRadio12">Female</label>
-                                                                </div>
-                                                            @endif
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Age</label>
+                                                <input type="number" name="age" value="{{old('age')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="age">
+                                                @error('age')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
 
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
-
-                                                    </div>
-                                                </div>
                                             </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Duration of D/M/Y</label>
-                                                    <input type="text" name="duration_of_dm" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Duration of D/M/Y">
-                                                </div>
-                                            </div>
-
-                                            <!--/span-->
                                         </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Address(Town)</label>
-                                                    <input type="text" name="town" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Address(Town)">
-                                                </div>
-                                            </div>                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Year of Dx</label>
-                                                    <input type="text" name="year_of_dx" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Year of Dx">
-                                                </div>
-                                            </div>
-
-                                            <!--/span-->
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Phone No</label>
-                                                    <input type="number" name="phone" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Phone No">
-                                                </div>
-                                            </div>                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Family H/O</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio13"
-                                                                       name="family_ho" value='yes'
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label" for="customRadio13">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio14"
-                                                                       name="family_ho" value='no'
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio14">No</label>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!--/span-->
-                                        </div>
-
-
                                     </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{--First form--}}
 
-
-
-
-
-                    {{--SEC form--}}
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Medical Problem</h4>
-                                </div>
-                                <hr>
-                                <div class="form-body">
-                                    <div class="card-body">
-                                        <div class="row pt-3">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Hypertension</label>
-                                                    <input type="text" class="form-control" name="hypertension"
-                                                           id="exampleInputEmail1"
-                                                           aria-describedby="emailHelp" placeholder="Hypertension">
-
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Dyslipidaemia</label>
-                                                    <input type="text" name="dyslipidaemia" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Dyslipidaemia">
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                        </div>
-                                        <!--/row-->
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">BMI</label>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Gender</label>
+                                                <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
-                                                        <div class="col-3 mr-2">
-                                                            <input type="text" name="bmi_weight" class="form-control"
-                                                                   id="exampleInputPassword1"
-                                                                   placeholder="Weight">
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <input type="text" class="form-control"
-                                                                   id="exampleInputPassword1"
-                                                                   name="bmi_height"
-                                                                   placeholder="Height">
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Tuberculosis</label>
-                                                    <input type="text" name="tuberculosis" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Tuberculosis">
-                                                </div>
-                                            </div>
-
-                                            <!--/span-->
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Stroke</label>
-                                                    <input type="text" name="stroke" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Stroke">
-                                                </div>
-                                            </div>                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">IHD/MI</label>
-                                                    <input type="text" name="ihd_mi" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="IHD/MI">
-                                                </div>
-                                            </div>
-
-                                            <!--/span-->
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Nephropathy</label>
-                                                    <input type="text" name="nephropathy" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Nephropathy">
-                                                </div>
-                                            </div>                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Neuropathy</label>
-                                                    <input type="text" name="neuropathy" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Neuropathy">
-                                                </div>
-                                            </div>                                            <!--/span-->
-
-                                            <!--/span-->
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">DM foot</label>
-                                                    <input type="text" name='dm_foot' class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="DM foot">
-                                                </div>
-                                            </div>                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Others</label>
-                                                    <input type="text" name="others" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Others">
-                                                </div>
-                                            </div>                                            <!--/span-->
-
-                                            <!--/span-->
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Surgical History</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
+                                                        @if(old('gender')=='male')
                                                             <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio16"
-                                                                       name="surgical_history" value="yes"
+                                                                <input type="radio" id="customRadio11"
+                                                                       name="gender" value='male'
                                                                        class="custom-control-input"
                                                                        checked>
-                                                                <label class="custom-control-label" for="customRadio16">Yes</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio11">Male</label>
                                                             </div>
                                                             <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio17"
-                                                                       name="surgical_history" value="no"
+                                                                <input type="radio" id="customRadio12"
+                                                                       name="gender" value='female'
                                                                        class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio17">No</label>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio12">Female</label>
                                                             </div>
+                                                        @elseif(old('gender')=='female')
+                                                            <div class="col-xs-4 mr-5">
+                                                                <input type="radio" id="customRadio11"
+                                                                       name="gender" value='male'
+                                                                       class="custom-control-input"
+                                                                >
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio11">Male</label>
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <input type="radio" id="customRadio12"
+                                                                       name="gender" value='female'
+                                                                       class="custom-control-input" checked>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio12">Female</label>
+                                                            </div>
+                                                        @else
+                                                            <div class="col-xs-4 mr-5">
+                                                                <input type="radio" id="customRadio11"
+                                                                       name="gender" value='male'
+                                                                       class="custom-control-input"
+                                                                       checked>
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio11">Male</label>
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <input type="radio" id="customRadio12"
+                                                                       name="gender" value='female'
+                                                                       class="custom-control-input">
+                                                                <label class="custom-control-label"
+                                                                       for="customRadio12">Female</label>
+                                                            </div>
+                                                        @endif
 
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
 
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!--/span-->
+                                                <div class="custom-control custom-radio float-right">
 
-                                            <!--/span-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Duration of DM</label>
+                                                <input type="text" name="duration_of_dm"
+                                                       value="{{old('duration_of_dm')}}" class="form-control"
+                                                       id=""
+                                                       placeholder="Years">
+                                                @error('duration_of_dm')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
                                         </div>
 
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Address(Town)</label>
+                                                <input type="text" name="town" value="{{old('town')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Address(Town)">
+                                                @error('town')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Year of Dx</label>
+                                                <input type="text" name="year_of_dx" value="{{old('year_of_dx')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Year of Dx">
+                                                @error('year_of_dx')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+
+                                            </div>
+                                        </div>
 
                                     </div>
-                                    <hr>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Phone No</label>
+                                                <input type="number" name="phone" value="{{old('phone')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Phone No">
+                                                @error('phone')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Family H/O</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            @php
+                                                                if(old('family_ho')=='yes'){
+    $fhochecky='checked';
+    $fhocheckn='';
+
+                                                                        }elseif(old('family_ho')=='no'){
+    $fhocheckn='checked';
+    $fhochecky='';
+                                                                        }else{
+                                                                            $fhochecky='checked';
+                                                                            $fhocheckn='';
+                                                                        }
+                                                            @endphp
+
+                                                            <input type="radio" id="customRadio13"
+                                                                   name="family_ho" value='yes'
+                                                                   class="custom-control-input"
+                                                                {{$fhochecky}}>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio13">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio14"
+                                                                   name="family_ho" value='no'
+                                                                   class="custom-control-input" {{$fhocheckn}}>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio14">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                    {{--SEC form--}}
+                </div>
+                {{--First form--}}
 
 
 
 
 
-
-                    {{--third form--}}
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
+                {{--SEC form--}}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Medical Problem</h4>
+                            </div>
+                            <hr>
+                            <div class="form-body">
                                 <div class="card-body">
-                                    <h4 class="card-title">Infection</h4>
-                                </div>
-                                <hr>
-                                <div class="form-body">
-                                    <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Hypertension</label>
+                                                <input type="text" class="form-control" name="hypertension"
+                                                       id=""
+                                                       aria-describedby="emailHelp" placeholder="Hypertension">
+                                                @error('hypertension')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
 
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">HBV</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio19"
-                                                                       name="hbv" value='yes'
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label" for="customRadio19">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio20"
-                                                                       name="hbv" value='no'
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio20">No</label>
-                                                            </div>
-
-
-                                                        </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Dyslipidaemia</label>
+                                                <input type="text" name="dyslipidaemia" class="form-control"
+                                                       id=""
+                                                       placeholder="Dyslipidaemia">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">BMI</label>
+                                                <div class="row no-gutters">
+                                                    <div class="col-3 mr-2">
+                                                        <input type="text" name="bmi_weight" class="form-control"
+                                                               id=""
+                                                               placeholder="Weight">
                                                     </div>
-                                                    <div class="custom-control custom-radio float-right">
-
+                                                    <div class="col-3">
+                                                        <input type="text" class="form-control"
+                                                               id=""
+                                                               name="bmi_height"
+                                                               placeholder="Height">
                                                     </div>
                                                 </div>
+
                                             </div>
-
-
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">HCV</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio211"
-                                                                       name="hcv" value="yes"
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio211">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio222"
-                                                                       name="hcv" value="no"
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio222">No</label>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
-
-                                                    </div>
-                                                </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Tuberculosis</label>
+                                                <input type="text" name="tuberculosis" class="form-control"
+                                                       id=""
+                                                       placeholder="Tuberculosis">
                                             </div>
-
-
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">RVI</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio23"
-                                                                       name="rvi" value="yes"
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label" for="customRadio23">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio24"
-                                                                       name="rvi" value="no"
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label" for="customRadio24">No</label>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <!--/span-->
-
-                                            <!--/span-->
                                         </div>
 
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Stroke</label>
+                                                <input type="text" name="stroke" class="form-control"
+                                                       id=""
+                                                       placeholder="Stroke">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">IHD/MI</label>
+                                                <input type="text" name="ihd_mi" class="form-control"
+                                                       id=""
+                                                       placeholder="IHD/MI">
+                                            </div>
+                                        </div>
 
                                     </div>
-                                    <hr>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Nephropathy</label>
+                                                <input type="text" name="nephropathy" class="form-control"
+                                                       id=""
+                                                       placeholder="Nephropathy">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Neuropathy</label>
+                                                <input type="text" name="neuropathy" class="form-control"
+                                                       id=""
+                                                       placeholder="Neuropathy">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">DM foot</label>
+                                                <input type="text" name='dm_foot' class="form-control"
+                                                       id=""
+                                                       placeholder="DM foot">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Others</label>
+                                                <input type="text" name="others" class="form-control"
+                                                       id=""
+                                                       placeholder="Others">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Surgical History</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio16"
+                                                                   name="surgical_history" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio16">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio17"
+                                                                   name="surgical_history" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio17">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
                                 </div>
+                                <hr>
                             </div>
                         </div>
                     </div>
-                    {{--third form--}}
+                </div>
+                {{--SEC form--}}
 
 
 
 
-                    {{--Four form--}}
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
+
+
+                {{--third form--}}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Infection</h4>
+                            </div>
+                            <hr>
+                            <div class="form-body">
                                 <div class="card-body">
-                                    <h4 class="card-title">Habitual History</h4>
-                                </div>
-                                <hr>
-                                <div class="form-body">
-                                    <div class="card-body">
 
 
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Smoking</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio191"
-                                                                       name="smoking" value="yes"
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio191">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio201"
-                                                                       name="smoking" value="no"
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio201">No</label>
-                                                            </div>
-
-
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">HBV</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id=""
+                                                                   name="hbv" value='yes'
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio19">Yes</label>
                                                         </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio20"
+                                                                   name="hbv" value='no'
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio20">No</label>
+                                                        </div>
+
 
                                                     </div>
                                                 </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
                                             </div>
+                                        </div>
 
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Alcohol</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio2111"
-                                                                       name="alcohol" value='yes'
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio2111">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio2222"
-                                                                       name="alcohol" value='no'
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio2222">No</label>
-                                                            </div>
-
-
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">HCV</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio211"
+                                                                   name="hcv" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio211">Yes</label>
                                                         </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio222"
+                                                                   name="hcv" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio222">No</label>
+                                                        </div>
+
 
                                                     </div>
                                                 </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
                                             </div>
+                                        </div>
 
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label">Betal Chewing</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio231"
-                                                                       name="betal_chewing" value="yes"
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio231">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio241"
-                                                                       name="betal_chewing" value="no"
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio241">No</label>
-                                                            </div>
-
-
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">RVI</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio23"
+                                                                   name="rvi" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio23">Yes</label>
                                                         </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio24"
+                                                                   name="rvi" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio24">No</label>
+                                                        </div>
+
 
                                                     </div>
                                                 </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
                                             </div>
-
-
-                                            <!--/span-->
-
-                                            <!--/span-->
                                         </div>
 
 
                                     </div>
-                                    <hr>
+
+
                                 </div>
+                                <hr>
                             </div>
                         </div>
                     </div>
-                    {{--Four form--}}
+                </div>
+                {{--third form--}}
 
 
 
 
-
-
-                    {{--Fifth form--}}
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
+                {{--Four form--}}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Habitual History</h4>
+                            </div>
+                            <hr>
+                            <div class="form-body">
                                 <div class="card-body">
-                                    <h4 class="card-title">Drug History</h4>
+
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Smoking</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio191"
+                                                                   name="smoking" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio191">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio201"
+                                                                   name="smoking" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio201">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Alcohol</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio2111"
+                                                                   name="alcohol" value='yes'
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio2111">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio2222"
+                                                                   name="alcohol" value='no'
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio2222">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Betal Chewing</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio231"
+                                                                   name="betal_chewing" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio231">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio241"
+                                                                   name="betal_chewing" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio241">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
                                 </div>
                                 <hr>
-                                <div class="form-body">
-                                    <div class="card-body">
-                                        <div class="row pt-3">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">OAD</label>
-                                                    <input type="text" class="form-control" name="oad"
-                                                           id="exampleInputEmail1"
-                                                           aria-describedby="emailHelp" placeholder="OAD">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{--Four form--}}
 
-                                                </div>
+
+
+
+
+
+                {{--Fifth form--}}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Drug History</h4>
+                            </div>
+                            <hr>
+                            <div class="form-body">
+                                <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">OAD</label>
+                                                <input type="text" class="form-control" name="oad"
+                                                       id=""
+                                                       aria-describedby="emailHelp" placeholder="OAD">
+
                                             </div>
-                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Insulin</label>
-                                                    <input type="text" name="insulin" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Insulin">
-                                                </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Insulin</label>
+                                                <input type="text" name="insulin" class="form-control"
+                                                       id=""
+                                                       placeholder="Insulin">
                                             </div>
-                                            <!--/span-->
                                         </div>
-                                        <!--/row-->
+                                    </div>
+                                    <!--/row-->
 
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Traditional</label>
-                                                    <input type="text" class="form-control"
-                                                           id="exampleInputPassword1" name="traditional"
-                                                           placeholder="Traditional">
-                                                </div>
-                                            </div>                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Native</label>
-                                                    <input type="text" name="native" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Native">
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Traditional</label>
+                                                <input type="text" class="form-control"
+                                                       id="" name="traditional"
+                                                       placeholder="Traditional">
                                             </div>
-
-                                            <!--/span-->
                                         </div>
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Anti H/T</label>
-                                                    <input type="text" name="anti_ht" class="form-control"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Anti H/T">
-                                                </div>
-                                            </div>                                            <!--/span-->
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Anti Lipid</label>
-                                                    <input type="text" class="form-control" name="anti_lipid"
-                                                           id="exampleInputPassword1"
-                                                           placeholder="Anti Lipid">
-                                                </div>
-                                            </div>                                            <!--/span-->
-
-                                            <!--/span-->
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Other</label>
-                                                    <input type="text" class="form-control"
-                                                           id="exampleInputPassword1" name="others_drug_his"
-                                                           placeholder="Other">
-                                                </div>
-                                            </div>                                            <!--/span-->
-                                            <!--/span-->
-
-                                            <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Native</label>
+                                                <input type="text" name="native" class="form-control"
+                                                       id=""
+                                                       placeholder="Native">
+                                            </div>
                                         </div>
 
                                     </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Anti H/T</label>
+                                                <input type="text" name="anti_ht" class="form-control"
+                                                       id=""
+                                                       placeholder="Anti H/T">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Anti Lipid</label>
+                                                <input type="text" class="form-control" name="anti_lipid"
+                                                       id=""
+                                                       placeholder="Anti Lipid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Other</label>
+                                                <input type="text" class="form-control"
+                                                       id="" name="others_drug_his"
+                                                       placeholder="Other">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{--Fifth form--}}
+                </div>
+                {{--Fifth form--}}
 
 
 
 
 
 
-                    {{--Six form--}}
+                {{--Six form--}}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+
+                            <hr>
+                            <div class="form-body">
+                                <div class="card-body">
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Dental Problem</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio1216"
+                                                                   name="dental_problem" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio1216">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio1217"
+                                                                   name="dental_problem" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio1217">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Diet Control</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio16231"
+                                                                   name="diet_control" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio16231">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio17231"
+                                                                   name="diet_control" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio17231">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Physical Activity</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio1623"
+                                                                   name="physical_activity" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio1623">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio1723"
+                                                                   name="physical_activity" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio1723">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Steroid Use</label>
+                                                <div class="custom-control custom-radio">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-xs-4 mr-5">
+                                                            <input type="radio" id="customRadio1611"
+                                                                   name="steroid_use" value="yes"
+                                                                   class="custom-control-input"
+                                                                   checked>
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio1611">Yes</label>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <input type="radio" id="customRadio1711"
+                                                                   name="steroid_use" value="no"
+                                                                   class="custom-control-input">
+                                                            <label class="custom-control-label"
+                                                                   for="customRadio1711">No</label>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{--Fifth form--}}
+
+                {{--Six form--}}
+                <div class="form-actions">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-
-                                <hr>
-                                <div class="form-body">
-                                    <div class="card-body">
-
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Dental Problem</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio1216"
-                                                                       name="dental_problem" value="yes"
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio1216">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio1217"
-                                                                       name="dental_problem" value="no"
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio1217">No</label>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Diet Control</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio16231"
-                                                                       name="diet_control" value="yes"
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio16231">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio17231"
-                                                                       name="diet_control" value="no"
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio17231">No</label>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-
-                                            <!--/span-->
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Physical Activity</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio1623"
-                                                                       name="physical_activity" value="yes"
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio1623">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio1723"
-                                                                       name="physical_activity" value="no"
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio1723">No</label>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Steroid Use</label>
-                                                    <div class="custom-control custom-radio">
-                                                        <div class="row no-gutters">
-                                                            <div class="col-xs-4 mr-5">
-                                                                <input type="radio" id="customRadio1611"
-                                                                       name="steroid_use" value="yes"
-                                                                       class="custom-control-input"
-                                                                       checked>
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio1611">Yes</label>
-                                                            </div>
-                                                            <div class="col-xs-4">
-                                                                <input type="radio" id="customRadio1711"
-                                                                       name="steroid_use" value="no"
-                                                                       class="custom-control-input">
-                                                                <label class="custom-control-label"
-                                                                       for="customRadio1711">No</label>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="custom-control custom-radio float-right">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--/span-->
-
-                                            <!--/span-->
-                                        </div>
-
-
-                                    </div>
-
+                        <div class="col-md-12 mb-4">
+                            <div class="row">
+                                <div class="offset-sm-4 offset-md-9 col-md-9">
+                                    {!! csrf_field() !!}
+                                    <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i>
+                                        Submit
+                                    </button>
+                                    <button type="button" class="btn waves-effect waves-light btn-lg btn-secondary">
+                                        Cancel
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{--Fifth form--}}
-
-                    {{--Six form--}}
-                    <div class="form-actions">
-                        <div class="row">
-                            <div class="col-md-12 mb-4">
-                                <div class="row">
-                                    <div class="offset-sm-4 offset-md-9 col-md-9">
-                                        {!! csrf_field() !!}
-                                        <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i>
-                                            Submit
-                                        </button>
-                                        <button type="button" class="btn waves-effect waves-light btn-lg btn-secondary">
-                                            Cancel
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{--Fifth form--}}
+                </div>
+                {{--Fifth form--}}
 
 
                 {!! Form::close() !!}

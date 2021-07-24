@@ -28,10 +28,13 @@ class TypeTwoPatientsController extends Controller
 
         $input = $request->except('_token');
         $rules=[
-            'name'=>'min:4','age'=>'required|integer|max:120'
+            'name'=>'min:4|max:200','age'=>'required|integer|max:120','duration_of_dm'=>'required|max:100',
+            'town'=>'required','year_of_dx'=>'required|max:140','phone'=>'required|max:11','hypertension'=>'required'
+
         ];
         $messages=[
-            'name.min'=>'Your name must be 4 characters '
+            'name.min'=>'Your name must be 4 characters ','name.max'=>'Your name is too long'
+
         ];
         $validate=Validator::make($input,$rules,$messages);
         if($validate->fails()){
