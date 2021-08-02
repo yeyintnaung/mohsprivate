@@ -31,6 +31,9 @@ Route::prefix('typetwopatients')->group(function(){
 
     Route::get('/create', [TypeTwoPatientsController::class, 'createform']);
     Route::post('/create', [TypeTwoPatientsController::class, 'create']);
+    Route::get('/list', [TypeTwoPatientsController::class, 'list']);
+    Route::get('/detail/{id}', [TypeTwoPatientsController::class, 'detail']);
+    Route::post('/delete', [TypeTwoPatientsController::class, 'delete']);
 
 }
 

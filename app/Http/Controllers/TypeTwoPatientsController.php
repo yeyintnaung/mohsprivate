@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TypeTwoPatients;
+use App\Typetworegister;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,12 @@ class TypeTwoPatientsController extends Controller
         $input = $request->except('_token');
         $rules=[
             'name'=>'min:4|max:200','age'=>'required|integer|max:120','duration_of_dm'=>'required|max:100',
-            'town'=>'required','year_of_dx'=>'required|max:140','phone'=>'required|max:11','hypertension'=>'required'
+            'town'=>'required','year_of_dx'=>'required|max:140','phone'=>'required|max:11','hypertension'=>'required','dyslipidaemia'=>'required',
+            'bmi_weight'=>'required','bmi_height'=>'required','tuberculosis'=>'required','stroke'=>'required','ihd_mi'=>'required',
+            'nephropathy'=>'required','neuropathy'=>'required','dm_foot'=>'required','oad'=>'required','insulin'=>'required','traditional'=>'required',
+            'native'=>'required','anti_ht'=>'required','anti_lipid'=>'required','other'=>'required','others_drug_his'=>'required'
+
+
 
         ];
         $messages=[
@@ -53,6 +59,64 @@ class TypeTwoPatientsController extends Controller
         TypeTwoPatients::create($input);
 
 
-        return redirect('type_two_patients_list');
+        return redirect('typetwopatients/list');
+    }
+    public function list(){
+        $data=TypeTwoPatients::all();
+        return view('typetwopatients.list',['data'=>$data]);
+    }
+    public function detail($id){
+        $data=TypeTwoPatients::where('id',$id)->first();
+
+        return view('typetwopatients.detail',['data'=>$data]);
+    }
+    public function delete(Request $request){
+        TypeTwoPatients::where('id',$request->id)->delete();
+        return redirect('typetwopatients/list');
+
+
+    }
+    public function editform($id)
+    {
+        $data=TypeTwoPatients::where('id',$id)->first();
+
+        return view('typetwopatients.editform');
+
+    }
+    public function edit(Request $request){
+        $input = $request->except('_token');
+        $rules=[
+            'name'=>'min:4|max:200','age'=>'required|integer|max:120','duration_of_dm'=>'required|max:100',
+            'town'=>'required','year_of_dx'=>'required|max:140','phone'=>'required|max:11','hypertension'=>'required','dyslipidaemia'=>'required',
+            'bmi_weight'=>'required','bmi_height'=>'required','tuberculosis'=>'required','stroke'=>'required','ihd_mi'=>'required',
+            'nephropathy'=>'required','neuropathy'=>'required','dm_foot'=>'required','oad'=>'required','insulin'=>'required','traditional'=>'required',
+            'native'=>'required','anti_ht'=>'required','anti_lipid'=>'required','other'=>'required','others_drug_his'=>'required'
+
+
+
+        ];
+        $messages=[
+            'name.min'=>'Your name must be 4 characters ','name.max'=>'Your name is too long'
+
+        ];
+        $validate=Validator::make($input,$rules,$messages);
+        if($validate->fails()){
+            return redirect()->back()->withErrors($validate)->withInput();
+        }
+        foreach ($input as $key => $value) {
+            if ($input[$key] == null) {
+                $input[$key] = '';
+            }
+
+        }
+        $input['created_at'] = Carbon::now();
+        $input['updated_at'] = Carbon::now();
+        $input['admin_id'] = '1';
+
+        TypeTwoPatients::create($input);
+
+
+        return redirect('typetwopatients/list');
+
     }
 }

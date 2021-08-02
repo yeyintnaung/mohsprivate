@@ -20,11 +20,6 @@
     <link href="{{asset('node_modules/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">
-    <style>
-        .dt-buttons{
-            width:100%;
-        }
-    </style>
     <!-- Dashboard 1 Page CSS -->
     <link href="{{asset('dist/css/pages/dashboard1.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -37,7 +32,7 @@
 
 <body class="skin-megna fixed-layout">
 @yield('content')
-</body>
+</div>
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 <!-- ============================================================== -->
@@ -81,14 +76,7 @@
 <script src="{{asset('cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js')}}"></script>
 <script>
     $(function () {
-        $('#myTable').DataTable({
-            dom: 'Blfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ],
-            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
-
-        });
+        $('#myTable').DataTable();
         var table = $('#example').DataTable({
             "columnDefs": [{
                 "visible": false,
@@ -127,17 +115,16 @@
         $('#config-table').DataTable({
             responsive: true
         });
-        $('#example24').DataTable({
+        $('#example23').DataTable({
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+//                'copy', 'csv', 'excel', 'pdf', 'print'
             ]
         });
-        $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary me-1');
+        $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
     });
 
 </script>
-
 
 </body>
 

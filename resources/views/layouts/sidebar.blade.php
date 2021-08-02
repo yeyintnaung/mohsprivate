@@ -28,7 +28,7 @@
                         aria-expanded="false"><i class="ti-align-left"></i><span class="hide-menu">Type Two Patients</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{url('typetwopatients/create')}}">Register</a></li>
-                        <li><a href="{{url('type_two_patients_list')}}">List</a></li>
+                        <li><a href="{{url('typetwopatients/list')}}">List</a></li>
                         <li> <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">Follow up</a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('type_two_followup_insert')}}">Add</a></li>
