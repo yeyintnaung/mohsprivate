@@ -30,6 +30,8 @@ Route::get('/submit/{id}', [WaittosubmitController::class, 'submit'])->where('id
 Route::prefix('typetwopatients')->group(function(){
 
     Route::get('/create', [TypeTwoPatientsController::class, 'createform']);
+    Route::get('/edit/{id}', [TypeTwoPatientsController::class, 'editform']);
+    Route::post('/edit/{id}', [TypeTwoPatientsController::class, 'edit']);
     Route::post('/create', [TypeTwoPatientsController::class, 'create']);
     Route::get('/list', [TypeTwoPatientsController::class, 'list']);
     Route::get('/detail/{id}', [TypeTwoPatientsController::class, 'detail']);

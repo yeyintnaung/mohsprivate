@@ -80,7 +80,7 @@ class TypeTwoPatientsController extends Controller
     {
         $data=TypeTwoPatients::where('id',$id)->first();
 
-        return view('typetwopatients.editform');
+        return view('typetwopatients.editform',['data'=>$data]);
 
     }
     public function edit(Request $request){

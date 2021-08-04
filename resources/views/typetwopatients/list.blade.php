@@ -102,7 +102,7 @@
                                                 <td>{{$d->phone}}</td>
 
                                                 <td> {{\Carbon\Carbon::parse($d->created_at)->toDateString()}}</td>
-                                                <td><a href="" class="btn btn-success mr-2 btn-xs">Edit</a><a href="{{url('/typetwopatients/detail/'.$d->id)}}" class="btn btn-info btn-xs">Detail</a>
+                                                <td><a href="{{url('/typetwopatients/edit/'.$d->id)}}" class="btn btn-success mr-2 btn-xs">Edit</a><a href="{{url('/typetwopatients/detail/'.$d->id)}}" class="btn btn-info btn-xs">Detail</a>
                                                 </td>
                                             </tr>
                                         @endforeach
