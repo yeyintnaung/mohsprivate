@@ -83,7 +83,7 @@ class TypeTwoPatientsController extends Controller
         return view('typetwopatients.editform',['data'=>$data]);
 
     }
-    public function edit(Request $request){
+    public function edit(Request $request,TypeTwoPatients $ttp){
         $input = $request->except('_token');
         $rules=[
             'name'=>'min:4|max:200','age'=>'required|integer|max:120','duration_of_dm'=>'required|max:100',
