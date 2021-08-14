@@ -112,7 +112,7 @@
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio11"
                                                                        name="gender" value='male'
-                                                                       class="custom-control-input"
+                                                                       class="form-check-input"
                                                                        checked>
                                                                 <label class="custom-control-label"
                                                                        for="customRadio11">Male</label>
@@ -120,7 +120,7 @@
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio12"
                                                                        name="gender" value='female'
-                                                                       class="custom-control-input">
+                                                                       class="form-check-input">
                                                                 <label class="custom-control-label"
                                                                        for="customRadio12">Female</label>
                                                             </div>
@@ -128,7 +128,7 @@
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio11"
                                                                        name="gender" value='male'
-                                                                       class="custom-control-input"
+                                                                       class="form-check-input"
                                                                 >
                                                                 <label class="custom-control-label"
                                                                        for="customRadio11">Male</label>
@@ -136,7 +136,7 @@
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio12"
                                                                        name="gender" value='female'
-                                                                       class="custom-control-input" checked>
+                                                                       class="form-check-input" checked>
                                                                 <label class="custom-control-label"
                                                                        for="customRadio12">Female</label>
                                                             </div>
@@ -144,7 +144,7 @@
                                                             <div class="col-xs-4 mr-5">
                                                                 <input type="radio" id="customRadio11"
                                                                        name="gender" value='male'
-                                                                       class="custom-control-input"
+                                                                       class="form-check-input"
                                                                        checked>
                                                                 <label class="custom-control-label"
                                                                        for="customRadio11">Male</label>
@@ -152,7 +152,7 @@
                                                             <div class="col-xs-4">
                                                                 <input type="radio" id="customRadio12"
                                                                        name="gender" value='female'
-                                                                       class="custom-control-input">
+                                                                       class="form-check-input">
                                                                 <label class="custom-control-label"
                                                                        for="customRadio12">Female</label>
                                                             </div>
@@ -247,7 +247,7 @@
 
                                                             <input type="radio" id="customRadio13"
                                                                    name="family_ho" value='yes'
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                 {{$fhochecky}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio13">Yes</label>
@@ -255,7 +255,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio14"
                                                                    name="family_ho" value='no'
-                                                                   class="custom-control-input" {{$fhocheckn}}>
+                                                                   class="form-check-input" {{$fhocheckn}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio14">No</label>
                                                         </div>
@@ -459,7 +459,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio16"
                                                                    name="surgical_history" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio16">Yes</label>
@@ -467,7 +467,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio17"
                                                                    name="surgical_history" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio17">No</label>
                                                         </div>
@@ -518,7 +518,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id=""
                                                                    name="hbv" value='yes'
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio19">Yes</label>
@@ -526,7 +526,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio20"
                                                                    name="hbv" value='no'
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio20">No</label>
                                                         </div>
@@ -549,7 +549,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio211"
                                                                    name="hcv" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio211">Yes</label>
@@ -557,7 +557,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio222"
                                                                    name="hcv" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio222">No</label>
                                                         </div>
@@ -580,7 +580,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio23"
                                                                    name="rvi" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio23">Yes</label>
@@ -588,7 +588,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio24"
                                                                    name="rvi" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio24">No</label>
                                                         </div>
@@ -638,7 +638,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio191"
                                                                    name="smoking" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio191">Yes</label>
@@ -646,7 +646,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio201"
                                                                    name="smoking" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio201">No</label>
                                                         </div>
@@ -669,7 +669,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio2111"
                                                                    name="alcohol" value='yes'
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio2111">Yes</label>
@@ -677,7 +677,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio2222"
                                                                    name="alcohol" value='no'
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio2222">No</label>
                                                         </div>
@@ -700,7 +700,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio231"
                                                                    name="betal_chewing" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio231">Yes</label>
@@ -708,7 +708,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio241"
                                                                    name="betal_chewing" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio241">No</label>
                                                         </div>
@@ -879,7 +879,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio1216"
                                                                    name="dental_problem" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio1216">Yes</label>
@@ -887,7 +887,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio1217"
                                                                    name="dental_problem" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio1217">No</label>
                                                         </div>
@@ -908,7 +908,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio16231"
                                                                    name="diet_control" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio16231">Yes</label>
@@ -916,7 +916,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio17231"
                                                                    name="diet_control" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio17231">No</label>
                                                         </div>
@@ -941,7 +941,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio1623"
                                                                    name="physical_activity" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio1623">Yes</label>
@@ -949,7 +949,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio1723"
                                                                    name="physical_activity" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio1723">No</label>
                                                         </div>
@@ -970,7 +970,7 @@
                                                         <div class="col-xs-4 mr-5">
                                                             <input type="radio" id="customRadio1611"
                                                                    name="steroid_use" value="yes"
-                                                                   class="custom-control-input"
+                                                                   class="form-check-input"
                                                                    checked>
                                                             <label class="custom-control-label"
                                                                    for="customRadio1611">Yes</label>
@@ -978,7 +978,7 @@
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio1711"
                                                                    name="steroid_use" value="no"
-                                                                   class="custom-control-input">
+                                                                   class="form-check-input">
                                                             <label class="custom-control-label"
                                                                    for="customRadio1711">No</label>
                                                         </div>

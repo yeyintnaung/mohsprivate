@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
+<?php
+echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header("Cache-Control:post-check=0,pre-check=0", false);header("Pragma:no-cache");header('Content-Type:text/html');
+?>
 <!-- Mirrored from eliteadmin.themedesigner.in/demos/bt4/hospital/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Dec 2020 11:29:18 GMT -->
 <head>
     <meta charset="utf-8">
@@ -15,13 +16,11 @@
     <title>Elite Hospital Admin Template - Hospital admin dashboard web app kit</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
-    <link href="{{asset('node_modules/morrisjs/morris.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css" integrity="sha512-shT5e46zNSD6lt4dlJHb+7LoUko9QZXTGlmWWx0qjI9UhQrElRb+Q5DM7SVte9G9ZNmovz2qIaV7IWv0xQkBkw==" crossorigin="anonymous" />    <!--Toaster Popup message CSS -->
-    <link href="{{asset('node_modules/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
+
     <!-- Custom CSS -->
-    <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">
+
+    <link href="{{url('dist/css/style.min.css')}}" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
-    <link href="{{asset('dist/css/pages/dashboard1.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,6 +30,12 @@
 </head>
 
 <body class="skin-megna fixed-layout">
+<div class="preloader">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Elite Hospital</p>
+    </div>
+</div>
 @yield('content')
 <!-- ============================================================== -->
 <!-- End Wrapper -->
@@ -38,31 +43,44 @@
 <!-- ============================================================== -->
 <!-- All Jquery -->
 <!-- ============================================================== -->
-<script src="{{asset('node_modules/jquery/jquery-3.2.1.min.js')}}"></script>
-<!-- Bootstrap popper Core JavaScript -->
-<script src="{{asset('node_modules/popper/popper.min.js')}}"></script>
-<script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<!-- slimscrollbar scrollbar JavaScript -->
-<script src="{{asset('dist/js/perfect-scrollbar.jquery.min.js')}}"></script>
-<!--Wave Effects -->
-<script src="{{asset('dist/js/waves.js')}}"></script>
-<!--Menu sidebar -->
-<script src="{{asset('dist/js/sidebarmenu.js')}}"></script>
+
+
 <!--Custom JavaScript -->
-<script src="{{asset('dist/js/custom.min.js')}}"></script>
 <!-- ============================================================== -->
 <!-- This page plugins -->
 <!-- ============================================================== -->
 <!--morris JavaScript -->
-<script src="{{asset('node_modules/raphael/raphael-min.js')}}"></script>
-<script src="{{asset('node_modules/morrisjs/morris.min.js')}}"></script>
-<script src="{{asset('node_modules/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
-<!-- Popup message jquery -->
-<script src="{{asset('node_modules/toast-master/js/jquery.toast.js')}}"></script>
-<!-- jQuery peity -->
-<script src="{{asset('node_modules/peity/jquery.peity.min.js')}}"></script>
-<script src="{{asset('node_modules/peity/jquery.peity.init.js')}}"></script>
-<script src="{{asset('dist/js/dashboard1.js')}}"></script>
+
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="{{url('nm/jquery/dist/jquery.min.js')}}"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{{url('nm/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="{{url('dist/js/perfect-scrollbar.jquery.min.js')}}"></script>
+<!--Wave Effects -->
+<script src="{{url('dist/js/wave.js')}}"></script>
+<!--Menu sidebar -->
+<script src="{{url('dist/js/sidebarmenu.js')}}"></script>
+<!--stickey kit -->
+<script src="{{url('nm/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
+<script src="{{url('nm/sparkline/jquery.sparkline.min.js')}}"></script>
+<!--Custom JavaScript -->
+<script src="{{url('dist/js/custom.min.js')}}"></script>
+<!-- ============================================================== -->
+<!-- This page plugins -->
+<!-- ============================================================== -->
+<script src="{{url('dist/js/pages/jasny-bootstrap.js')}}"></script>
+
+
 </body>
 
 

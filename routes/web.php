@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TypeTwoFollowUpController;
 use App\Http\Controllers\TypeTwoPatientsController;
 use App\Http\Controllers\WaittosubmitController;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +40,18 @@ Route::prefix('typetwopatients')->group(function(){
 
 }
 
+
+
 );
+Route::prefix('typetwofollowup')->group(function(){
+
+    Route::get('/create', [TypeTwoFollowUpController::class, 'createform']);
+    Route::post('/create', [TypeTwoFollowUpController::class, 'create']);
+    Route::get('/list', [TypeTwoFollowUpController::class, 'list']);
+
+
+
+});
 //end type two patients routes
 
 require __DIR__ . '/auth.php';

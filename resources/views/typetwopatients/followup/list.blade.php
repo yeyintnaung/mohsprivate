@@ -64,19 +64,17 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data Export</h4>
                                 <div class="table-responsive m-t-40">
-
                                     <table id="example23"
                                            class="display nowrap table table-hover table-striped table-bordered"
                                            cellspacing="0" width="100%">
                                         <thead>
                                         <tr>
                                             <th>Patient ID</th>
-                                            <th>Name</th>
-                                            <th>Age</th>
-                                            <th>Gender</th>
-                                            <th>Town</th>
-                                            <th>Phone</th>
-                                            <th>Reg Date</th>
+                                            <th>HBA1C</th>
+                                            <th>HB</th>
+                                            <th>CR</th>
+                                            <th>UACR</th>
+                                            <th>CHOL</th>
                                             <th>Action</th>
 
                                         </tr>
@@ -84,28 +82,25 @@
                                         <tfoot>
                                         <tr>
                                             <th>Patient ID</th>
-                                            <th>Name</th>
-                                            <th>Age</th>
-                                            <th>Gender</th>
-                                            <th>Town</th>
-                                            <th>Phone</th>
-                                            <th>Reg Date</th>
+                                            <th>HBA1C</th>
+                                            <th>HB</th>
+                                            <th>CR</th>
+                                            <th>UACR</th>
+                                            <th>CHOL</th>
                                             <th>Action</th>
-
                                         </tr>
                                         </tfoot>
                                         <tbody>
                                         @foreach($data as $d)
                                             <tr>
-                                                <td>{{$d->id}}</td>
-                                                <td>{{$d->name}}</td>
-                                                <td>{{$d->age}}</td>
-                                                <td>{{$d->gender}}</td>
-                                                <td>{{$d->town}}</td>
-                                                <td>{{$d->phone}}</td>
+                                                <td>{{$d->patient_id}}</td>
+                                                <td>{{$d->hba1c}}</td>
+                                                <td>{{$d->hb}}</td>
+                                                <td>{{$d->cr}}</td>
+                                                <td>{{$d->uacr}}</td>
 
-                                                <td> {{\Carbon\Carbon::parse($d->created_at)->toDateString()}}</td>
-                                                <td><a href="{{url('/typetwopatients/edit/'.$d->id)}}" class="btn btn-success mr-2 btn-xs">Edit</a><a href="{{url('/typetwopatients/detail/'.$d->id)}}" class="btn btn-info btn-xs">Detail</a>
+                                                <td> {{$d->chol}}</td>
+                                                <td><a href="" class="btn btn-success mr-2 btn-xs">Edit</a><a href="{{url('/type_two_followup_detail/'.$d->id)}}" class="btn btn-info btn-xs">Detail</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -119,7 +114,6 @@
 
                     </div>
                 </div>
-
 
 
                 {{--<div class="right-sidebar">--}}

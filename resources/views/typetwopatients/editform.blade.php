@@ -56,8 +56,8 @@
                         </div>
                     </div>
                 </div>
-                {!! Form::open(['url' => '/typetwopatients/edit/'.$data->id, 'method' => 'post']) !!}
 
+                <form action="{{url('/typetwopatients/edit/'.$data->id)}}" method="post">
 
 
 
@@ -77,8 +77,8 @@
                                                 <label for="">Name</label>
                                                 <input type="text" class="form-control" name="name"
                                                        id=""
-                                                       aria-describedby="emailHelp" value="{{old('name',$data->name)}}"
-                                                       placeholder="Enter Name" />
+                                                       value="{{old('name',$data->name)}}"
+                                                       placeholder="Enter Name" required/>
                                                 @error('name')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -91,7 +91,7 @@
                                                 <input type="number" name="age" value="{{old('age',$data->age)}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="age" />
+                                                       placeholder="age" required/>
                                                 @error('age')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -113,7 +113,7 @@
                                                                 <div class="col-xs-4 mr-5">
                                                                     <input type="radio" id="customRadio11"
                                                                            name="gender" value='male'
-                                                                           class="custom-control-input"
+                                                                           class="form-check-input"
                                                                            checked>
                                                                     <label class="custom-control-label"
                                                                            for="customRadio11">Male</label>
@@ -121,7 +121,7 @@
                                                                 <div class="col-xs-4">
                                                                     <input type="radio" id="customRadio12"
                                                                            name="gender" value='female'
-                                                                           class="custom-control-input">
+                                                                           class="form-check-input">
                                                                     <label class="custom-control-label"
                                                                            for="customRadio12">Female</label>
                                                                 </div>
@@ -129,7 +129,7 @@
                                                                 <div class="col-xs-4 mr-5">
                                                                     <input type="radio" id="customRadio11"
                                                                            name="gender" value='male'
-                                                                           class="custom-control-input"
+                                                                           class="form-check-input"
                                                                     >
                                                                     <label class="custom-control-label"
                                                                            for="customRadio11">Male</label>
@@ -137,7 +137,7 @@
                                                                 <div class="col-xs-4">
                                                                     <input type="radio" id="customRadio12"
                                                                            name="gender" value='female'
-                                                                           class="custom-control-input" checked>
+                                                                           class="form-check-input" checked>
                                                                     <label class="custom-control-label"
                                                                            for="customRadio12">Female</label>
                                                                 </div>
@@ -145,7 +145,7 @@
                                                                 <div class="col-xs-4 mr-5">
                                                                     <input type="radio" id="customRadio11"
                                                                            name="gender" value='male'
-                                                                           class="custom-control-input"
+                                                                           class="form-check-input"
                                                                            checked>
                                                                     <label class="custom-control-label"
                                                                            for="customRadio11">Male</label>
@@ -153,7 +153,7 @@
                                                                 <div class="col-xs-4">
                                                                     <input type="radio" id="customRadio12"
                                                                            name="gender" value='female'
-                                                                           class="custom-control-input">
+                                                                           class="form-check-input">
                                                                     <label class="custom-control-label"
                                                                            for="customRadio12">Female</label>
                                                                 </div>
@@ -163,7 +163,7 @@
                                                                 <div class="col-xs-4 mr-5">
                                                                     <input type="radio" id="customRadio11"
                                                                            name="gender" value='male'
-                                                                           class="custom-control-input"
+                                                                           class="form-check-input"
                                                                            checked>
                                                                     <label class="custom-control-label"
                                                                            for="customRadio11">Male</label>
@@ -171,7 +171,7 @@
                                                                 <div class="col-xs-4">
                                                                     <input type="radio" id="customRadio12"
                                                                            name="gender" value='female'
-                                                                           class="custom-control-input">
+                                                                           class="form-check-input">
                                                                     <label class="custom-control-label"
                                                                            for="customRadio12">Female</label>
                                                                 </div>
@@ -179,7 +179,7 @@
                                                                 <div class="col-xs-4 mr-5">
                                                                     <input type="radio" id="customRadio11"
                                                                            name="gender" value='male'
-                                                                           class="custom-control-input"
+                                                                           class="form-check-input"
                                                                     >
                                                                     <label class="custom-control-label"
                                                                            for="customRadio11">Male</label>
@@ -187,7 +187,7 @@
                                                                 <div class="col-xs-4">
                                                                     <input type="radio" id="customRadio12"
                                                                            name="gender" value='female'
-                                                                           class="custom-control-input" checked>
+                                                                           class="form-check-input" checked>
                                                                     <label class="custom-control-label"
                                                                            for="customRadio12">Female</label>
                                                                 </div>
@@ -209,7 +209,7 @@
                                                        value="{{old('duration_of_dm',$data->duration_of_dm)}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Years" />
+                                                       placeholder="Years" required/>
                                                 @error('duration_of_dm')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -226,7 +226,7 @@
                                                 <input type="text" name="town" value="{{old('town',$data->town)}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Address(Town)" />
+                                                       placeholder="Address(Town)" required/>
                                                 @error('town')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -239,7 +239,7 @@
                                                        value="{{old('year_of_dx',$data->year_of_dx)}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Year of Dx" />
+                                                       placeholder="Year of Dx" required/>
                                                 @error('year_of_dx')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -257,7 +257,7 @@
                                                 <input type="number" name="phone" value="{{old('phone',$data->phone)}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Phone No" />
+                                                       placeholder="Phone No" required/>
                                                 @error('phone')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -301,7 +301,7 @@
 
                                                         <input type="radio" id="customRadio13"
                                                                name="family_ho" value='yes'
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                             {{$fhochecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio13">Yes</label>
@@ -310,7 +310,7 @@
                                                          <div class="col-xs-4">
                                                         <input type="radio" id="customRadio14"
                                                                name="family_ho" value='no'
-                                                               class="custom-control-input" {{$fhocheckn}}>
+                                                               class="form-check-input" {{$fhocheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio14">No</label>
                                                     </div>
@@ -333,7 +333,7 @@
                     </div>
                 </div>
             </div>
-            {{--First form--}}
+                {{--First form--}}
 
 
 
@@ -370,7 +370,7 @@
                                             <input type="text" name="dyslipidaemia" value="{{old('dyslipidaemia',$data->dyslipidaemia)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Dyslipidaemia" />
+                                                   placeholder="Dyslipidaemia" required/>
                                             @error('dyslipidaemia')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -387,7 +387,7 @@
                                                     <input type="text" name="bmi_weight"
                                                            value="{{old('bmi_weight',$data->bmi_weight)}}" class="form-control"
                                                            id=""
-                                                           placeholder="Weight" />
+                                                           placeholder="Weight" required/>
                                                     @error('bmi_weight')
                                                     <p class="text-danger">{{$message}} </p>
                                                     @enderror
@@ -398,7 +398,7 @@
                                                            class="form-control"
                                                            id=""
                                                            name="bmi_height"
-                                                           placeholder="Height" />
+                                                           placeholder="Height" required/>
                                                     @error('bmi_height')
                                                     <p class="text-danger">{{$message}} </p>
                                                     @enderror
@@ -413,7 +413,7 @@
                                             <input type="text" name="tuberculosis" value="{{old('tuberculosis',$data->tuberculosis)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Tuberculosis" />
+                                                   placeholder="Tuberculosis" required/>
                                             @error('tuberculosis')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -430,7 +430,7 @@
                                             <input type="text" name="stroke" value="{{old('stroke',$data->stroke)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Stroke" />
+                                                   placeholder="Stroke" required/>
                                             @error('stroke')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -442,7 +442,7 @@
                                             <input type="text" name="ihd_mi" value="{{old('ihd_mi',$data->ihd_mi)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="IHD/MI" />
+                                                   placeholder="IHD/MI" required/>
                                             @error('ihd_mi')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -459,7 +459,7 @@
                                             <input type="text" name="nephropathy" value="{{old('nephropathy',$data->nephropathy)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Nephropathy" />
+                                                   placeholder="Nephropathy" required/>
                                             @error('nephropathy')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -471,7 +471,7 @@
                                             <input type="text" name="neuropathy" value="{{old('neuropathy',$data->neuropathy)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Neuropathy" />
+                                                   placeholder="Neuropathy" required/>
                                             @error('neuropathy')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -485,7 +485,7 @@
                                             <input type="text" name='dm_foot' value="{{old('dm_foot',$data->dm_foot)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="DM foot" />
+                                                   placeholder="DM foot" required/>
                                             @error('dm_foot')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -497,7 +497,7 @@
                                             <input type="text" name="others" value="{{old('others',$data->others)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Others" />
+                                                   placeholder="Others" required/>
                                             @error('others')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -545,7 +545,7 @@ $shocheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio16"
                                                                name="surgical_history" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$shchecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio16">Yes</label>
@@ -553,7 +553,7 @@ $shocheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio17"
                                                                name="surgical_history" value="no"
-                                                               class="custom-control-input" {{$shocheckn}}>
+                                                               class="form-check-input" {{$shocheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio17">No</label>
                                                     </div>
@@ -634,7 +634,7 @@ $hbvcheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id=""
                                                                name="hbv" value='yes'
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$hbvchecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio19">Yes</label>
@@ -642,7 +642,7 @@ $hbvcheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio20"
                                                                name="hbv" value='no'
-                                                               class="custom-control-input" {{$hbvcheckn}}>
+                                                               class="form-check-input" {{$hbvcheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio20">No</label>
                                                     </div>
@@ -695,7 +695,7 @@ $hcvcheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio211"
                                                                name="hcv" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$hcvchecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio211">Yes</label>
@@ -703,7 +703,7 @@ $hcvcheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio222"
                                                                name="hcv" value="no"
-                                                               class="custom-control-input" {{$hcvcheckn}}>
+                                                               class="form-check-input" {{$hcvcheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio222">No</label>
                                                     </div>
@@ -755,7 +755,7 @@ $rvicheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio23"
                                                                name="rvi" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$rvichecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio23">Yes</label>
@@ -763,7 +763,7 @@ $rvicheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio24"
                                                                name="rvi" value="no"
-                                                               class="custom-control-input" {{$rvicheckn}}>
+                                                               class="form-check-input" {{$rvicheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio24">No</label>
                                                     </div>
@@ -842,7 +842,7 @@ $smokingcheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio191"
                                                                name="smoking" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$smokingchecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio191">Yes</label>
@@ -850,7 +850,7 @@ $smokingcheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio201"
                                                                name="smoking" value="no"
-                                                               class="custom-control-input" {{$smokingcheckn}}>
+                                                               class="form-check-input" {{$smokingcheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio201">No</label>
                                                     </div>
@@ -902,7 +902,7 @@ $alcoholcheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio2111"
                                                                name="alcohol" value='yes'
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$alcoholchecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio2111">Yes</label>
@@ -910,7 +910,7 @@ $alcoholcheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio2222"
                                                                name="alcohol" value='no'
-                                                               class="custom-control-input" {{$alcoholcheckn}}>
+                                                               class="form-check-input" {{$alcoholcheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio2222">No</label>
                                                     </div>
@@ -962,7 +962,7 @@ $betal_chewingcheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio231"
                                                                name="betal_chewing" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$betal_chewingchecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio231">Yes</label>
@@ -970,7 +970,7 @@ $betal_chewingcheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio241"
                                                                name="betal_chewing" value="no"
-                                                               class="custom-control-input" {{$betal_chewingcheckn}}>
+                                                               class="form-check-input" {{$betal_chewingcheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio241">No</label>
                                                     </div>
@@ -1018,7 +1018,7 @@ $betal_chewingcheckn='checked';
                                             <input type="text" class="form-control" name="oad"
                                                    value="{{old('oad',$data->oad)}}"
                                                    id=""
-                                                   aria-describedby="emailHelp" placeholder="OAD" />
+                                                   aria-describedby="emailHelp" placeholder="OAD" required/>
                                             @error('oad')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -1031,7 +1031,7 @@ $betal_chewingcheckn='checked';
                                             <input type="text" name="insulin" value="{{old('insulin',$data->insulin)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Insulin" />
+                                                   placeholder="Insulin" required/>
                                             @error('insulin')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -1048,7 +1048,7 @@ $betal_chewingcheckn='checked';
                                             <label for="">Traditional</label>
                                             <input type="text" class="form-control"
                                                    id="" name="traditional" value="{{old('traditional',$data->traditional)}}"
-                                                   placeholder="Traditional" />
+                                                   placeholder="Traditional" required/>
                                             @error('traditional')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -1060,7 +1060,7 @@ $betal_chewingcheckn='checked';
                                             <input type="text" name="native" value="{{old('native',$data->native)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Native" />
+                                                   placeholder="Native" required/>
                                             @error('native')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -1077,7 +1077,7 @@ $betal_chewingcheckn='checked';
                                             <input type="text" name="anti_ht" value="{{old('anti_ht',$data->anti_ht)}}"
                                                    class="form-control"
                                                    id=""
-                                                   placeholder="Anti H/T" />
+                                                   placeholder="Anti H/T" required/>
                                             @error('anti_ht')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -1089,7 +1089,7 @@ $betal_chewingcheckn='checked';
                                             <input type="text" class="form-control" name="anti_lipid"
                                                    value="{{old('anti_lipid',$data->anti_lipid)}}"
                                                    id=""
-                                                   placeholder="Anti Lipid" />
+                                                   placeholder="Anti Lipid" required/>
                                             @error('anti_lipid')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -1102,7 +1102,7 @@ $betal_chewingcheckn='checked';
                                             <label for="">Other Drug History</label>
                                             <input type="text" class="form-control"
                                                    id="" name="others_drug_his" value="{{old('others_drug_his',$data->others_drug_his)}}"
-                                                   placeholder="Other" />
+                                                   placeholder="Other" required/>
                                             @error('others_drug_his')
                                             <p class="text-danger">{{$message}} </p>
                                             @enderror
@@ -1170,7 +1170,7 @@ $dental_problem_chewingcheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio1216"
                                                                name="dental_problem" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$dental_problem_chewingchecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio1216">Yes</label>
@@ -1178,7 +1178,7 @@ $dental_problem_chewingcheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio1217"
                                                                name="dental_problem" value="no"
-                                                               class="custom-control-input" {{$dental_problem_chewingcheckn}}>
+                                                               class="form-check-input" {{$dental_problem_chewingcheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio1217">No</label>
                                                     </div>
@@ -1228,7 +1228,7 @@ $diet_controlchewingcheckn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio16231"
                                                                name="diet_control" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$diet_controlchewingchecky}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio16231">Yes</label>
@@ -1236,7 +1236,7 @@ $diet_controlchewingcheckn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio17231"
                                                                name="diet_control" value="no"
-                                                               class="custom-control-input" {{$diet_controlchewingcheckn}}>
+                                                               class="form-check-input" {{$diet_controlchewingcheckn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio17231">No</label>
                                                     </div>
@@ -1290,7 +1290,7 @@ $physical_activityn='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio1623"
                                                                name="physical_activity" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$physical_activityy}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio1623">Yes</label>
@@ -1298,7 +1298,7 @@ $physical_activityn='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio1723"
                                                                name="physical_activity" value="no"
-                                                               class="custom-control-input" {{$physical_activityn}}>
+                                                               class="form-check-input" {{$physical_activityn}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio1723">No</label>
                                                     </div>
@@ -1348,7 +1348,7 @@ $steroid_usen='checked';
                                                     <div class="col-xs-4 mr-5">
                                                         <input type="radio" id="customRadio1611"
                                                                name="steroid_use" value="yes"
-                                                               class="custom-control-input"
+                                                               class="form-check-input"
                                                                {{$steroid_usey}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio1611">Yes</label>
@@ -1356,7 +1356,7 @@ $steroid_usen='checked';
                                                     <div class="col-xs-4">
                                                         <input type="radio" id="customRadio1711"
                                                                name="steroid_use" value="no"
-                                                               class="custom-control-input" {{$steroid_usen}}>
+                                                               class="form-check-input" {{$steroid_usen}}>
                                                         <label class="custom-control-label"
                                                                for="customRadio1711">No</label>
                                                     </div>
@@ -1388,6 +1388,7 @@ $steroid_usen='checked';
                         <div class="row">
                             <div class="offset-sm-4 offset-md-9 col-md-9">
                                 {!! csrf_field() !!}
+                                <input type="hidden" name="id" value="{{$data->id}}"/>
                                 <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i>
                                     Submit
                                 </button>
@@ -1402,8 +1403,7 @@ $steroid_usen='checked';
             {{--Fifth form--}}
 
 
-            {!! Form::close() !!}
-
+</form>
 
             {{--<div class="right-sidebar">--}}
             {{--<div class="slimscrollright">--}}

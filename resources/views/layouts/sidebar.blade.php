@@ -20,19 +20,19 @@
                 <li><a class="waves-effect waves-dark" href="{{url('main')}}"><i class="icon-speedometer"></i><span
                             class="hide-menu">Dashboard</span></a>
                 </li>
-                <li><a class="waves-effect waves-dark" href="{{url('submit_others')}}"><i class="icon-speedometer"></i><span
+                <li><a class="waves-effect waves-dark" href="{{url('submit_others')}}"><i class="ti-layout-grid2"></i><span
                             class="hide-menu">Submit Others</span></a>
                 </li>
 
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                        aria-expanded="false"><i class="ti-align-left"></i><span class="hide-menu">Type Two Patients</span></a>
+                        aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">Type Two Patients</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{url('typetwopatients/create')}}">Register</a></li>
                         <li><a href="{{url('typetwopatients/list')}}">List</a></li>
                         <li> <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">Follow up</a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('type_two_followup_insert')}}">Add</a></li>
-                                <li><a href="{{url('type_two_followup_list')}}">list</a></li>
+                                <li><a href="{{url('typetwofollowup/create')}}">Add</a></li>
+                                <li><a href="{{url('typetwofollowup/list')}}">list</a></li>
                                 <li><a href="javascript:void(0)">item 1.3.3</a></li>
                                 <li><a href="javascript:void(0)">item 1.3.4</a></li>
                             </ul>
