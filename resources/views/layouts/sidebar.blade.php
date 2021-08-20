@@ -10,10 +10,14 @@
                             class="hide-menu">{{\Illuminate\Support\Facades\Auth::user()->name}}</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
-                        <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>
-                        <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
-                        <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> Logout</a></li>
+{{--                        <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>--}}
+{{--                        <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>--}}
+{{--                        <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>--}}
+                        <li>  <a href="{{ route('logout') }}"   onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </li>
                 {{--<li class="nav-small-cap">--- PERSONAL</li>--}}
@@ -33,24 +37,24 @@
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="{{url('typetwofollowup/create')}}">Add</a></li>
                                 <li><a href="{{url('typetwofollowup/list')}}">list</a></li>
-                                <li><a href="javascript:void(0)">item 1.3.3</a></li>
-                                <li><a href="javascript:void(0)">item 1.3.4</a></li>
+{{--                                <li><a href="javascript:void(0)">item 1.3.3</a></li>--}}
+{{--                                <li><a href="javascript:void(0)">item 1.3.4</a></li>--}}
                             </ul>
                         </li>
-                        <li> <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">Others</a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="{{url('avicreate')}}">Add</a></li>
-                                <li><a href="{{url('avilist')}}">list</a></li>
-                                <li><a href="javascript:void(0)">item 1.3.3</a></li>
-                                <li><a href="javascript:void(0)">item 1.3.4</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="javascript:void(0)">item 1.4</a></li>
+{{--                        <li> <a class="has-arrow" href="javascript:void(0)" aria-expanded="false">Others</a>--}}
+{{--                            <ul aria-expanded="false" class="collapse">--}}
+{{--                                <li><a href="{{url('avicreate')}}">Add</a></li>--}}
+{{--                                <li><a href="{{url('avilist')}}">list</a></li>--}}
+{{--                                <li><a href="javascript:void(0)">item 1.3.3</a></li>--}}
+{{--                                <li><a href="javascript:void(0)">item 1.3.4</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+{{--                        <li><a href="javascript:void(0)">item 1.4</a></li>--}}
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                        aria-expanded="false"><i class="ti-align-left"></i><span class="hide-menu">Submit Others</span></a>
-                </li>
+{{--                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
+{{--                        aria-expanded="false"><i class="ti-align-left"></i><span class="hide-menu">Submit Others</span></a>--}}
+{{--                </li>--}}
 
                 {{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
                 {{--aria-expanded="false"><i class="ti-palette"></i><span class="hide-menu">Ui Elements <span--}}
