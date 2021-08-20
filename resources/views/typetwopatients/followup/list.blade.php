@@ -100,7 +100,8 @@
                                                 <td>{{$d->uacr}}</td>
 
                                                 <td> {{$d->chol}}</td>
-                                                <td><a href="" class="btn btn-success mr-2 btn-xs">Edit</a><a href="{{url('/type_two_followup_detail/'.$d->id)}}" class="btn btn-info btn-xs">Detail</a>
+                                                <td><a href="" class="btn btn-success mr-2 btn-xs">Edit</a>&nbsp;
+                                                    <a href="{{url('/typetwofollowup/detail/'.$d->id)}}" class="btn btn-info btn-xs">Detail</a>
                                                 </td>
                                             </tr>
                                         @endforeach

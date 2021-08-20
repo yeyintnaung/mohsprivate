@@ -7,7 +7,7 @@
                 <li class="user-pro"><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                         aria-expanded="false"><img src="{{asset('images/users/1.jpg')}}"
                                                                    alt="user-img" class="img-circle"><span
-                            class="hide-menu">Mark Jeckson</span></a>
+                            class="hide-menu">{{\Illuminate\Support\Facades\Auth::user()->name}}</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
                         <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>
@@ -17,7 +17,7 @@
                     </ul>
                 </li>
                 {{--<li class="nav-small-cap">--- PERSONAL</li>--}}
-                <li><a class="waves-effect waves-dark" href="{{url('main')}}"><i class="icon-speedometer"></i><span
+                <li><a class="waves-effect waves-dark" href="{{url('/')}}"><i class="icon-speedometer"></i><span
                             class="hide-menu">Dashboard</span></a>
                 </li>
                 <li><a class="waves-effect waves-dark" href="{{url('submit_others')}}"><i class="ti-layout-grid2"></i><span

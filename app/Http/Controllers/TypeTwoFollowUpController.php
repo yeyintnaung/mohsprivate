@@ -57,15 +57,15 @@ class TypeTwoFollowUpController extends Controller
         $data=Typetwofollowup::all();
         return view('typetwopatients.followup.list',['data'=>$data]);
     }
-    public function type_two_followup_detail($id){
+    public function detail($id){
         $data=Typetwofollowup::where('id',$id)->first();
 
-        return view('type_two_followup_detail',['data'=>$data]);
+        return view('typetwopatients.followup.detail',['data'=>$data]);
 
     }
-    public function delete_type_two_followup(Request $request){
+    public function delete(Request $request){
         Typetwofollowup::where('id',$request->id)->delete();
-        return redirect('type_two_followup_list');
+        return redirect('typetwofollowup/list');
 
 
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TypeTwoFollowUpController;
 use App\Http\Controllers\TypeTwoPatientsController;
 use App\Http\Controllers\WaittosubmitController;
@@ -16,13 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/main', function () {
-    return view('index');
-})->middleware(['auth', 'submit'])->name('main');
+
+Route::get('/', [DashboardController::class, 'index']);
 Route::get('/submit_others', [WaittosubmitController::class, 'get']);
 Route::get('/submit/{id}', [WaittosubmitController::class, 'submit'])->where('id', '[0-9]+');
 
@@ -48,6 +45,8 @@ Route::prefix('typetwofollowup')->group(function(){
     Route::get('/create', [TypeTwoFollowUpController::class, 'createform']);
     Route::post('/create', [TypeTwoFollowUpController::class, 'create']);
     Route::get('/list', [TypeTwoFollowUpController::class, 'list']);
+    Route::get('/detail/{id}', [TypeTwoFollowUpController::class, 'detail']);
+    Route::post('/delete', [TypeTwoFollowUpController::class, 'delete']);
 
 
 

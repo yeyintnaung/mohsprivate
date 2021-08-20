@@ -457,17 +457,30 @@
                                                 <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
                                                         <div class="col-xs-4 mr-5">
+                                                            @php
+                                                                if(old('surgical_history')=='yes'){
+    $surgical_historyy='checked';
+    $surgical_historyn='';
+
+                                                                        }elseif(old('family_ho')=='no'){
+    $surgical_historyn='checked';
+    $surgical_historyy='';
+                                                                        }else{
+                                                                            $surgical_historyy='checked';
+                                                                            $surgical_historyn='';
+                                                                        }
+                                                            @endphp
                                                             <input type="radio" id="customRadio16"
                                                                    name="surgical_history" value="yes"
                                                                    class="form-check-input"
-                                                                   checked>
+                                                                   {{$surgical_historyy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio16">Yes</label>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio17"
                                                                    name="surgical_history" value="no"
-                                                                   class="form-check-input">
+                                                                   class="form-check-input" {{$surgical_historyn}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio17">No</label>
                                                         </div>
@@ -516,17 +529,30 @@
                                                 <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
                                                         <div class="col-xs-4 mr-5">
+                                                            @php
+                                                                if(old('hbv')=='yes'){
+    $hbvy='checked';
+    $hbvn='';
+
+                                                                        }elseif(old('hbv')=='no'){
+    $hbvn='checked';
+    $hbvy='';
+                                                                        }else{
+                                                                            $hbvy='checked';
+                                                                            $hbvn='';
+                                                                        }
+                                                            @endphp
                                                             <input type="radio" id=""
                                                                    name="hbv" value='yes'
                                                                    class="form-check-input"
-                                                                   checked>
+                                                                   {{$hbvy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio19">Yes</label>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio20"
                                                                    name="hbv" value='no'
-                                                                   class="form-check-input">
+                                                                   class="form-check-input" {{$hbvn}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio20">No</label>
                                                         </div>
@@ -547,17 +573,30 @@
                                                 <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
                                                         <div class="col-xs-4 mr-5">
+                                                            @php
+                                                                if(old('hcv')=='yes'){
+    $hcvy='checked';
+    $hcvn='';
+
+                                                                        }elseif(old('hcv')=='no'){
+    $hcvn='checked';
+    $hcvy='';
+                                                                        }else{
+                                                                            $hcvy='checked';
+                                                                            $hcvn='';
+                                                                        }
+                                                            @endphp
                                                             <input type="radio" id="customRadio211"
                                                                    name="hcv" value="yes"
                                                                    class="form-check-input"
-                                                                   checked>
+                                                                   {{$hcvy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio211">Yes</label>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio222"
                                                                    name="hcv" value="no"
-                                                                   class="form-check-input">
+                                                                   class="form-check-input" {{$hcvn}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio222">No</label>
                                                         </div>
@@ -578,17 +617,30 @@
                                                 <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
                                                         <div class="col-xs-4 mr-5">
+                                                            @php
+                                                                if(old('rvi')=='yes'){
+    $rviy='checked';
+    $rvin='';
+
+                                                                        }elseif(old('rvi')=='no'){
+    $rvin='checked';
+    $rviy='';
+                                                                        }else{
+                                                                            $rviy='checked';
+                                                                            $rvin='';
+                                                                        }
+                                                            @endphp
                                                             <input type="radio" id="customRadio23"
                                                                    name="rvi" value="yes"
                                                                    class="form-check-input"
-                                                                   checked>
+                                                                   {{$rviy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio23">Yes</label>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio24"
                                                                    name="rvi" value="no"
-                                                                   class="form-check-input">
+                                                                   class="form-check-input" {{$rvin}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio24">No</label>
                                                         </div>
@@ -636,17 +688,30 @@
                                                 <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
                                                         <div class="col-xs-4 mr-5">
+                                                            @php
+                                                                if(old('smoking')=='yes'){
+    $smokingy='checked';
+    $smokingn='';
+
+                                                                        }elseif(old('smoking')=='no'){
+    $smokingn='checked';
+    $smokingy='';
+                                                                        }else{
+                                                                            $smokingy='checked';
+                                                                            $smokingn='';
+                                                                        }
+                                                            @endphp
                                                             <input type="radio" id="customRadio191"
                                                                    name="smoking" value="yes"
                                                                    class="form-check-input"
-                                                                   checked>
+                                                                   {{$smokingy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio191">Yes</label>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio201"
                                                                    name="smoking" value="no"
-                                                                   class="form-check-input">
+                                                                   class="form-check-input" {{$smokingn}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio201">No</label>
                                                         </div>
@@ -667,17 +732,30 @@
                                                 <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
                                                         <div class="col-xs-4 mr-5">
+                                                            @php
+                                                                if(old('alcohol')=='yes'){
+    $alcoholy='checked';
+    $alcoholn='';
+
+                                                                        }elseif(old('alcohol')=='no'){
+    $alcoholn='checked';
+    $alcoholy='';
+                                                                        }else{
+                                                                            $alcoholy='checked';
+                                                                            $alcoholn='';
+                                                                        }
+                                                            @endphp
                                                             <input type="radio" id="customRadio2111"
                                                                    name="alcohol" value='yes'
                                                                    class="form-check-input"
-                                                                   checked>
+                                                                   {{$alcoholy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio2111">Yes</label>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio2222"
                                                                    name="alcohol" value='no'
-                                                                   class="form-check-input">
+                                                                   class="form-check-input" {{$alcoholn}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio2222">No</label>
                                                         </div>
@@ -698,17 +776,30 @@
                                                 <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
                                                         <div class="col-xs-4 mr-5">
+                                                            @php
+                                                                if(old('betal_chewing')=='yes'){
+    $betal_chewingy='checked';
+    $betal_chewingn='';
+
+                                                                        }elseif(old('betal_chewing')=='no'){
+    $betal_chewingn='checked';
+    $betal_chewingy='';
+                                                                        }else{
+                                                                            $betal_chewingy='checked';
+                                                                            $betal_chewingn='';
+                                                                        }
+                                                            @endphp
                                                             <input type="radio" id="customRadio231"
                                                                    name="betal_chewing" value="yes"
                                                                    class="form-check-input"
-                                                                   checked>
+                                                                   {{$betal_chewingy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio231">Yes</label>
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio241"
                                                                    name="betal_chewing" value="no"
-                                                                   class="form-check-input">
+                                                                   class="form-check-input" {{$betal_chewingn}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio241">No</label>
                                                         </div>

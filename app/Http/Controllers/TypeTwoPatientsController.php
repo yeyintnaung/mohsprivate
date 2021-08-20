@@ -7,6 +7,7 @@ use App\Typetworegister;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class TypeTwoPatientsController extends Controller
@@ -34,7 +35,7 @@ class TypeTwoPatientsController extends Controller
             'town'=>'required','year_of_dx'=>'required|max:140','phone'=>'required|max:11','hypertension'=>'required','dyslipidaemia'=>'required',
             'bmi_weight'=>'required','bmi_height'=>'required','tuberculosis'=>'required','stroke'=>'required','ihd_mi'=>'required',
             'nephropathy'=>'required','neuropathy'=>'required','dm_foot'=>'required','oad'=>'required','insulin'=>'required','traditional'=>'required',
-            'native'=>'required','anti_ht'=>'required','anti_lipid'=>'required','other'=>'required','others_drug_his'=>'required'
+            'native'=>'required','anti_ht'=>'required','anti_lipid'=>'required','others'=>'required','others_drug_his'=>'required'
 
 
 
@@ -55,7 +56,7 @@ class TypeTwoPatientsController extends Controller
         }
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
-        $input['admin_id'] = '1';
+        $input['admin_id'] = Auth::user()->id;
 
         TypeTwoPatients::create($input);
 
