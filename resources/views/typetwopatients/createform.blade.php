@@ -14,6 +14,7 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
+
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
@@ -74,7 +75,7 @@
                                                 <input type="text" class="form-control" name="name"
                                                        id=""
                                                        aria-describedby="emailHelp" value="{{old('name')}}"
-                                                       placeholder="Enter Name" required/>
+                                                       placeholder="Enter Name"/>
                                                 @error('name')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -87,7 +88,7 @@
                                                 <input type="text" class="form-control" name="father_name"
                                                        id=""
                                                        aria-describedby="emailHelp" value="{{old('father_name')}}"
-                                                       placeholder="Enter Name" required/>
+                                                       placeholder="Enter Name"/>
                                                 @error('father_name')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -105,7 +106,7 @@
                                                 <input type="date" name="age" value="{{old('age')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="age" required/>
+                                                       placeholder="age"/>
                                                 @error('age')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -176,18 +177,18 @@
                                                 </div>
                                             </div>
                                         </div>
-{{--                                        <div class="col-md-6">--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label for="">Education</label>--}}
-{{--                                                <input type="text" name="duration_of_dm"--}}
-{{--                                                       value="{{old('duration_of_dm')}}" class="form-control"--}}
-{{--                                                       id=""--}}
-{{--                                                       placeholder="Years" />--}}
-{{--                                                @error('duration_of_dm')--}}
-{{--                                                <p class="text-danger">{{$message}} </p>--}}
-{{--                                                @enderror--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div class="col-md-6">--}}
+                                        {{--                                            <div class="form-group">--}}
+                                        {{--                                                <label for="">Education</label>--}}
+                                        {{--                                                <input type="text" name="duration_of_dm"--}}
+                                        {{--                                                       value="{{old('duration_of_dm')}}" class="form-control"--}}
+                                        {{--                                                       id=""--}}
+                                        {{--                                                       placeholder="Years" />--}}
+                                        {{--                                                @error('duration_of_dm')--}}
+                                        {{--                                                <p class="text-danger">{{$message}} </p>--}}
+                                        {{--                                                @enderror--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        </div>--}}
 
 
                                     </div>
@@ -200,7 +201,7 @@
                                                 <input type="text" name="year_of_dx" value="{{old('year_of_dx')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Year of Dx" required/>
+                                                       placeholder="Year of Dx"/>
                                                 @error('year_of_dx')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -214,7 +215,7 @@
                                                 <input type="text" name="town" value="{{old('town')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Address(Town)" required/>
+                                                       placeholder="Address(Town)"/>
                                                 @error('town')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -231,7 +232,7 @@
                                                 <input type="number" name="phone_no" value="{{old('phone_no')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Phone No" required/>
+                                                       placeholder="Phone No"/>
                                                 @error('phone_no')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -242,9 +243,12 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label">Education</label>
-                                                <select class="form-control form-select" data-placeholder="Choose a Category" name="education" value="{{old('education')}}" tabindex="1" >
+                                                <select class="form-control form-select"
+                                                        data-placeholder="Choose a Category" name="education"
+                                                        value="{{old('education')}}" tabindex="1">
                                                     @if(!empty(old('education')))
-                                                        <option value="{{old('education')}}" selected>{{old('education')}}</option>
+                                                        <option value="{{old('education')}}"
+                                                                selected>{{old('education')}}</option>
 
                                                     @endif
                                                     <option value="primary">Primary</option>
@@ -266,7 +270,7 @@
                                                 <input type="text" name="nrc_no" value="{{old('nrc_no')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="NRC No" required/>
+                                                       placeholder="NRC No"/>
                                                 @error('nrc_no')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -275,9 +279,12 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-label">Referred From</label>
-                                                <select class="form-control form-select" data-placeholder="Choose a Category" name="referred_from" value="{{old('referred_from')}}" tabindex="1" >
+                                                <select class="form-control form-select"
+                                                        data-placeholder="Choose a Category" name="referred_from"
+                                                        value="{{old('referred_from')}}" tabindex="1">
                                                     @if(!empty(old('referred_from')))
-                                                        <option value="{{old('referred_from')}}" selected>{{old('referred_from')}}</option>
+                                                        <option value="{{old('referred_from')}}"
+                                                                selected>{{old('referred_from')}}</option>
 
                                                     @endif
                                                     <option value="GP">GP</option>
@@ -319,7 +326,7 @@
                                                 <input type="text" class="form-control" name="rbs"
                                                        value="{{old('rbs')}}"
                                                        id=""
-                                                       aria-describedby="emailHelp" placeholder="rbs" required/>
+                                                       aria-describedby="emailHelp" placeholder="rbs"/>
                                                 @error('rbs')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -328,11 +335,27 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Height (cm)</label>
-                                                <input type="text" name="height" value="{{old('height')}}"
+                                                <label for="">Height (m)</label>
+                                                <input type="number" v-model="height" name="height" value=""
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="height" />
+                                                       placeholder="height"/>
+                                                @if(!empty(old('height')))
+
+                                                    <script>
+                                                        var oldheight ={!! json_encode(old('height')) !!}
+                                                    </script>
+
+
+                                                @else
+
+                                                    <script>
+                                                        var oldheight = 0
+                                                    </script>
+
+                                                @endif
+
+
                                                 @error('height')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -343,10 +366,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Weight (kg)</label>
-                                                <input type="text" name="height" value="{{old('weight')}}"
+                                                <input type="number" v-model="weight" name="weight" value=""
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="height" />
+                                                       placeholder="Weight"/>
+                                                @if(old('weight'))
+                                                    @{{ setw(@json(old('weight'))) }}
+                                                @endif
                                                 @error('weight')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -355,60 +381,27 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">BMI</label>
-                                                <input type="text" name="bmi" value="{{old('bmi')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="BMI" disabled />
-                                                @error('stroke')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
+                                                {{--                                                <input type="text" name="bmi" v-bind:value="bmi"--}}
+                                                {{--                                                       class="form-control"--}}
+                                                {{--                                                       id=""--}}
+                                                {{--                                                       placeholder="BMI" disabled />--}}
+
+                                                {{--                                                @error('stroke')--}}
+                                                {{--                                                <p class="text-danger">{{$message}} </p>--}}
+                                                {{--                                                @enderror--}}
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" v-bind:value="bmifn"
+                                                           placeholder="" aria-label="" aria-describedby="basic-addon1"
+                                                           disabled>
+
+                                                    {{-- <div class="input-group-append">--}}
+                                                    {{--                                                        <button class="btn btn-info text-white" v-on:click='bmifn()' type="button">Click To Calculate</button>--}}
+                                                    {{--                                                    </div>--}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <!--/row-->
-                                    {{--                                    <div class="row">--}}
-                                    {{--                                        <div class="col-md-6">--}}
-                                    {{--                                            <div class="form-group">--}}
-                                    {{--                                                <label for="">Weight (cm)</label>--}}
-                                    {{--                                                <div class="row no-gutters">--}}
-                                    {{--                                                    <div class="col-3 mr-2">--}}
-                                    {{--                                                        <input type="text" name="bmi_weight"--}}
-                                    {{--                                                               value="{{old('weight')}}" class="form-control"--}}
-                                    {{--                                                               id=""--}}
-                                    {{--                                                               placeholder="weight" />--}}
-                                    {{--                                                        @error('weight')--}}
-                                    {{--                                                        <p class="text-danger">{{$message}} </p>--}}
-                                    {{--                                                        @enderror--}}
-
-                                    {{--                                                    </div>--}}
-                                    {{--                                                    <div class="col-3">--}}
-                                    {{--                                                        <input type="text" value="{{old('bmi_height')}}"--}}
-                                    {{--                                                               class="form-control"--}}
-                                    {{--                                                               id=""--}}
-                                    {{--                                                               name="bmi_height"--}}
-                                    {{--                                                               placeholder="Height" />--}}
-                                    {{--                                                        @error('bmi_height')--}}
-                                    {{--                                                        <p class="text-danger">{{$message}} </p>--}}
-                                    {{--                                                        @enderror--}}
-                                    {{--                                                    </div>--}}
-                                    {{--                                                </div>--}}
-
-                                    {{--                                            </div>--}}
-                                    {{--                                        </div>--}}
-                                    {{--                                        <div class="col-md-6">--}}
-                                    {{--                                            <div class="form-group">--}}
-                                    {{--                                                <label for="">Tuberculosis</label>--}}
-                                    {{--                                                <input type="text" name="tuberculosis" value="{{old('tuberculosis')}}"--}}
-                                    {{--                                                       class="form-control"--}}
-                                    {{--                                                       id=""--}}
-                                    {{--                                                       placeholder="Tuberculosis" />--}}
-                                    {{--                                                @error('tuberculosis')--}}
-                                    {{--                                                <p class="text-danger">{{$message}} </p>--}}
-                                    {{--                                                @enderror--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                        </div>--}}
-
-                                    {{--                                    </div>--}}
 
 
                                     <div class="row">
@@ -416,10 +409,11 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Blood Pressure</label>
-                                                <input type="text" name="blood_pressure" value="{{old('blood_pressure')}}"
+                                                <input type="text" name="blood_pressure"
+                                                       value="{{old('blood_pressure')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Blood Pressure" />
+                                                       placeholder="Blood Pressure"/>
                                                 @error('blood_pressure')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -428,10 +422,10 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">HbA1C(last date)</label>
-                                                <input type="text" name="nephropathy" value="{{old('hba1c')}}"
+                                                <input type="text" name="hba1c" value="{{old('hba1c')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Nephropathy" />
+                                                       placeholder="Nephropathy"/>
                                                 @error('hba1c')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -448,7 +442,7 @@
                                                 <input type="text" name="oad" value="{{old('oad')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="OAD" />
+                                                       placeholder="OAD"/>
                                                 @error('oad')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -458,10 +452,10 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Insulin</label>
-                                                <input type="text" name='dm_foot' value="{{old('insulin')}}"
+                                                <input type="text" name='insulin' value="{{old('insulin')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Insulin" />
+                                                       placeholder="Insulin"/>
                                                 @error('insulin')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -473,10 +467,11 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Traditional Medicine</label>
-                                                <input type="text" name="others" value="{{old('traditional_medicine')}}"
+                                                <input type="text" name="traditional_medicine"
+                                                       value="{{old('traditional_medicine')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Traditional Medicine" />
+                                                       placeholder="Traditional Medicine"/>
                                                 @error('traditional_medicine')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -484,16 +479,16 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Naive</label>
+                                                <label class="control-label">naive</label>
                                                 <div class="custom-control custom-radio">
                                                     <div class="row no-gutters">
                                                         <div class="col-xs-4 mr-5">
                                                             @php
-                                                                if(old('Naive')=='yes'){
+                                                                if(old('naive')=='yes'){
     $surgical_historyy='checked';
     $surgical_historyn='';
 
-                                                                        }elseif(old('Naive')=='no'){
+                                                                        }elseif(old('naive')=='no'){
     $surgical_historyn='checked';
     $surgical_historyy='';
                                                                         }else{
@@ -502,7 +497,7 @@
                                                                         }
                                                             @endphp
                                                             <input type="radio" id="customRadio16"
-                                                                   name="Naive" value="yes"
+                                                                   name="naive" value="yes"
                                                                    class="form-check-input"
                                                                 {{$surgical_historyy}}>
                                                             <label class="custom-control-label"
@@ -510,7 +505,7 @@
                                                         </div>
                                                         <div class="col-xs-4">
                                                             <input type="radio" id="customRadio17"
-                                                                   name="Naive" value="no"
+                                                                   name="naive" value="no"
                                                                    class="form-check-input" {{$surgical_historyn}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio17">No</label>
@@ -526,9 +521,64 @@
                                         </div>
 
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Antihypertensives</label>
+                                                <input type="text" name="antihypertensives"
+                                                       value="{{old('antihypertensives')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Antihypertensives"/>
+                                                @error('antihypertensives')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Anti Lipids</label>
+                                                <input type="text" name="anti_lipids"
+                                                       value="{{old('anti_lipids')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Anti Lipids"/>
+                                                @error('anti_lipids')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">hypertension</label>
+                                                <input type="text" name="antiplatelet" value="{{old('antiplatelet')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="antiplatelet"/>
+                                                @error('antiplatelet')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Other Drugs</label>
+                                                <input type="text" name="other_drugs" value="{{old('other_drugs')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Other Drugs"/>
+                                                @error('other_drugs')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
 
 
-
+                                    </div>
 
 
                                 </div>
@@ -539,8 +589,6 @@
                 </div>
 
 
-
-                {{--SEC form--}}
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -557,7 +605,7 @@
                                                 <input type="text" class="form-control" name="rbs"
                                                        value="{{old('rbs')}}"
                                                        id=""
-                                                       aria-describedby="emailHelp" placeholder="rbs" required/>
+                                                       aria-describedby="emailHelp" placeholder="rbs"/>
                                                 @error('rbs')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -570,7 +618,8 @@
                                                 <input type="text" name="height" value="{{old('height')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="height" />
+                                                       placeholder="height"/>
+
                                                 @error('height')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -584,7 +633,7 @@
                                                 <input type="text" name="height" value="{{old('weight')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="height" />
+                                                       placeholder="height"/>
                                                 @error('weight')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -593,49 +642,49 @@
 
                                     </div>
                                     <!--/row-->
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-6">--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label for="">Weight (cm)</label>--}}
-{{--                                                <div class="row no-gutters">--}}
-{{--                                                    <div class="col-3 mr-2">--}}
-{{--                                                        <input type="text" name="bmi_weight"--}}
-{{--                                                               value="{{old('weight')}}" class="form-control"--}}
-{{--                                                               id=""--}}
-{{--                                                               placeholder="weight" />--}}
-{{--                                                        @error('weight')--}}
-{{--                                                        <p class="text-danger">{{$message}} </p>--}}
-{{--                                                        @enderror--}}
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Weight (cm)</label>
+                                                <div class="row no-gutters">
+                                                    <div class="col-3 mr-2">
+                                                        <input type="text" name="bmi_weight"
+                                                               value="{{old('weight')}}" class="form-control"
+                                                               id=""
+                                                               placeholder="weight"/>
+                                                        @error('weight')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
 
-{{--                                                    </div>--}}
-{{--                                                    <div class="col-3">--}}
-{{--                                                        <input type="text" value="{{old('bmi_height')}}"--}}
-{{--                                                               class="form-control"--}}
-{{--                                                               id=""--}}
-{{--                                                               name="bmi_height"--}}
-{{--                                                               placeholder="Height" />--}}
-{{--                                                        @error('bmi_height')--}}
-{{--                                                        <p class="text-danger">{{$message}} </p>--}}
-{{--                                                        @enderror--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <input type="text" value="{{old('bmi_height')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               name="bmi_height"
+                                                               placeholder="Height"/>
+                                                        @error('bmi_height')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
 
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-6">--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label for="">Tuberculosis</label>--}}
-{{--                                                <input type="text" name="tuberculosis" value="{{old('tuberculosis')}}"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       id=""--}}
-{{--                                                       placeholder="Tuberculosis" />--}}
-{{--                                                @error('tuberculosis')--}}
-{{--                                                <p class="text-danger">{{$message}} </p>--}}
-{{--                                                @enderror--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Tuberculosis</label>
+                                                <input type="text" name="tuberculosis" value="{{old('tuberculosis')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Tuberculosis"/>
+                                                @error('tuberculosis')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
 
-{{--                                    </div>--}}
+                                    </div>
 
 
                                     <div class="row">
@@ -645,7 +694,7 @@
                                                 <input type="text" name="stroke" value="{{old('stroke')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Stroke" />
+                                                       placeholder="Stroke"/>
                                                 @error('stroke')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -657,7 +706,7 @@
                                                 <input type="text" name="ihd_mi" value="{{old('ihd_mi')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="IHD/MI" />
+                                                       placeholder="IHD/MI"/>
                                                 @error('ihd_mi')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -674,7 +723,7 @@
                                                 <input type="text" name="nephropathy" value="{{old('nephropathy')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Nephropathy" />
+                                                       placeholder="Nephropathy"/>
                                                 @error('nephropathy')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -686,7 +735,7 @@
                                                 <input type="text" name="neuropathy" value="{{old('neuropathy')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Neuropathy" />
+                                                       placeholder="Neuropathy"/>
                                                 @error('neuropathy')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -700,7 +749,7 @@
                                                 <input type="text" name='dm_foot' value="{{old('dm_foot')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="DM foot" />
+                                                       placeholder="DM foot"/>
                                                 @error('dm_foot')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -712,7 +761,7 @@
                                                 <input type="text" name="others" value="{{old('others')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Others" />
+                                                       placeholder="Others"/>
                                                 @error('others')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -744,7 +793,7 @@
                                                             <input type="radio" id="customRadio16"
                                                                    name="surgical_history" value="yes"
                                                                    class="form-check-input"
-                                                                   {{$surgical_historyy}}>
+                                                                {{$surgical_historyy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio16">Yes</label>
                                                         </div>
@@ -774,11 +823,6 @@
                         </div>
                     </div>
                 </div>
-                {{--SEC form--}}
-
-
-
-
 
 
                 {{--third form--}}
@@ -816,7 +860,7 @@
                                                             <input type="radio" id=""
                                                                    name="hbv" value='yes'
                                                                    class="form-check-input"
-                                                                   {{$hbvy}}>
+                                                                {{$hbvy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio19">Yes</label>
                                                         </div>
@@ -860,7 +904,7 @@
                                                             <input type="radio" id="customRadio211"
                                                                    name="hcv" value="yes"
                                                                    class="form-check-input"
-                                                                   {{$hcvy}}>
+                                                                {{$hcvy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio211">Yes</label>
                                                         </div>
@@ -904,7 +948,7 @@
                                                             <input type="radio" id="customRadio23"
                                                                    name="rvi" value="yes"
                                                                    class="form-check-input"
-                                                                   {{$rviy}}>
+                                                                {{$rviy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio23">Yes</label>
                                                         </div>
@@ -975,7 +1019,7 @@
                                                             <input type="radio" id="customRadio191"
                                                                    name="smoking" value="yes"
                                                                    class="form-check-input"
-                                                                   {{$smokingy}}>
+                                                                {{$smokingy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio191">Yes</label>
                                                         </div>
@@ -1019,7 +1063,7 @@
                                                             <input type="radio" id="customRadio2111"
                                                                    name="alcohol" value='yes'
                                                                    class="form-check-input"
-                                                                   {{$alcoholy}}>
+                                                                {{$alcoholy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio2111">Yes</label>
                                                         </div>
@@ -1063,7 +1107,7 @@
                                                             <input type="radio" id="customRadio231"
                                                                    name="betal_chewing" value="yes"
                                                                    class="form-check-input"
-                                                                   {{$betal_chewingy}}>
+                                                                {{$betal_chewingy}}>
                                                             <label class="custom-control-label"
                                                                    for="customRadio231">Yes</label>
                                                         </div>
@@ -1114,11 +1158,11 @@
                                     <div class="row pt-3">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">OAD</label>
-                                                <input type="text" class="form-control" name="oad"
+                                                <label for="">t-OAD</label>
+                                                <input type="text" class="form-control" name="t-oad"
                                                        value="{{old('oad')}}"
                                                        id=""
-                                                       aria-describedby="emailHelp" placeholder="OAD" />
+                                                       aria-describedby="emailHelp" placeholder="OAD"/>
                                                 @error('oad')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -1127,12 +1171,12 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Insulin</label>
-                                                <input type="text" name="insulin" value="{{old('insulin')}}"
+                                                <label for="">tInsulin</label>
+                                                <input type="text" name="tinsulin" value="{{old('tinsulin')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Insulin" />
-                                                @error('insulin')
+                                                       placeholder="tInsulin"/>
+                                                @error('tinsulin')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
 
@@ -1148,24 +1192,24 @@
                                                 <label for="">Traditional</label>
                                                 <input type="text" class="form-control"
                                                        id="" name="traditional" value="{{old('traditional')}}"
-                                                       placeholder="Traditional" />
+                                                       placeholder="Traditional"/>
                                                 @error('traditional')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Native</label>
-                                                <input type="text" name="native" value="{{old('native')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Native" />
-                                                @error('native')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
+                                        {{--                                        <div class="col-md-6">--}}
+                                        {{--                                            <div class="form-group">--}}
+                                        {{--                                                <label for="">Native</label>--}}
+                                        {{--                                                <input type="text" name="native" value="{{old('native')}}"--}}
+                                        {{--                                                       class="form-control"--}}
+                                        {{--                                                       id=""--}}
+                                        {{--                                                       placeholder="Native" />--}}
+                                        {{--                                                @error('native')--}}
+                                        {{--                                                <p class="text-danger">{{$message}} </p>--}}
+                                        {{--                                                @enderror--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        </div>--}}
 
                                     </div>
 
@@ -1177,7 +1221,7 @@
                                                 <input type="text" name="anti_ht" value="{{old('anti_ht')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="Anti H/T" />
+                                                       placeholder="Anti H/T"/>
                                                 @error('anti_ht')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -1189,7 +1233,7 @@
                                                 <input type="text" class="form-control" name="anti_lipid"
                                                        value="{{old('anti_lipid')}}"
                                                        id=""
-                                                       placeholder="Anti Lipid" />
+                                                       placeholder="Anti Lipid"/>
                                                 @error('anti_ht')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -1202,7 +1246,7 @@
                                                 <label for="">Other Drug History</label>
                                                 <input type="text" class="form-control"
                                                        id="" name="others_drug_his" value="{{old('others_drug_his')}}"
-                                                       placeholder="Other" />
+                                                       placeholder="Other"/>
                                                 @error('others_drug_his')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
@@ -1218,8 +1262,42 @@
                 {{--Fifth form--}}
 
 
-
-
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">hypertension</label>
+                        <input type="text" name="hypertension" value="{{old('hypertension')}}"
+                               class="form-control"
+                               id=""
+                               placeholder="hypertension"/>
+                        @error('hypertension')
+                        <p class="text-danger">{{$message}} </p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">anti_lipids</label>
+                        <input type="text" name="anti_lipids" value="{{old('anti_lipids')}}"
+                               class="form-control"
+                               id=""
+                               placeholder="anti_lipids"/>
+                        @error('anti_lipids')
+                        <p class="text-danger">{{$message}} </p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">dyslipidaemia</label>
+                        <input type="text" name="dyslipidaemia" value="{{old('dyslipidaemia')}}"
+                               class="form-control"
+                               id=""
+                               placeholder="dyslipidaemia"/>
+                        @error('dyslipidaemia')
+                        <p class="text-danger">{{$message}} </p>
+                        @enderror
+                    </div>
+                </div>
 
 
                 {{--Six form--}}

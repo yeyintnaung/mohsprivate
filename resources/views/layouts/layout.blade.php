@@ -13,7 +13,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Elite Hospital Admin Template - Hospital admin dashboard web app kit</title>
+    <title>MOHS DEMO</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
 
@@ -29,7 +29,8 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
     <![endif]-->
 </head>
 
-<body class="skin-megna fixed-layout">
+<body class="skin-megna fixed-layout" >
+<div id="app">
 <div class="preloader">
     <div class="loader">
         <div class="loader__figure"></div>
@@ -43,7 +44,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 <!-- ============================================================== -->
 <!-- All Jquery -->
 <!-- ============================================================== -->
-
+</div>
 
 <!--Custom JavaScript -->
 <!-- ============================================================== -->
@@ -54,7 +55,6 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 <!-- ============================================================== -->
 <!-- End footer -->
 <!-- ============================================================== -->
-</div>
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 <!-- ============================================================== -->
@@ -80,7 +80,7 @@ echo header("Cache-Control:no-store,no-cache,must-revalidate,max-age=0");header(
 <!-- ============================================================== -->
 <script src="{{url('dist/js/pages/jasny-bootstrap.js')}}"></script>
 
-
+<script src="{{url('js/app.js')}}"></script>
 </body>
 
 
