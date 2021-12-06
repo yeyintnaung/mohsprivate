@@ -31,7 +31,7 @@ class TypeTwoPatientsController extends Controller
 
         $input = $request->except('_token');
 //        $rules=[
-//            'name'=>'min:4|max:200','rbs'=>'required','antiplatelet'=>'required',age'=>'required','antihypertensives'=>'required','traditional_medicine'=>'required',duration_of_dm'=>'required|max:100',
+//            'name'=>'min:4|max:200','rbs'=>'required','antiplatelet'=>'required','age'=>'required','antihypertensives'=>'required','traditional_medicine'=>'required','duration_of_dm'=>'required|max:100',
 //            'town'=>'required','year_of_dx'=>'required|max:140','phone'=>'required|max:11','hypertension'=>'required','dyslipidaemia'=>'required',
 //            'weight'=>'required','height'=>'required','tuberculosis'=>'required','stroke'=>'required','ihd_mi'=>'required',
 //            'nephropathy'=>'required','neuropathy'=>'required','dm_foot'=>'required','oad'=>'required','insulin'=>'required','traditional'=>'required',

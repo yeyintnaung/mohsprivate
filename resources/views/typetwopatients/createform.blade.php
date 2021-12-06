@@ -57,7 +57,9 @@
                         </div>
                     </div>
                 </div>
-                {!! Form::open(['url' => 'typetwopatients/create', 'method' => 'post']) !!}
+                <form action="{{url('/typetwopatients/create')}}" method="post">
+
+
 
                 {{--First form--}}
                 <div class="row">
@@ -314,7 +316,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body" style="border-bottom: 2px solid #00000014;">
-                                <h4 class="card-title">Current</h4>
+                                <h4 class="card-title">Personal History</h4>
                             </div>
 
                             <div class="form-body">
@@ -322,919 +324,25 @@
                                     <div class="row pt-3">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">RBS</label>
-                                                <input type="text" class="form-control" name="rbs"
-                                                       value="{{old('rbs')}}"
-                                                       id=""
-                                                       aria-describedby="emailHelp" placeholder="rbs"/>
-                                                @error('rbs')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Height (m)</label>
-                                                <input type="number" v-model="height" name="height" value=""
+                                                <label for="">Antihypertensive</label>
+                                                <input type="text" name="p_antihypertensive" value="{{old('p_antihypertensive')}}"
                                                        class="form-control"
                                                        id=""
-                                                       placeholder="height"/>
-                                                @if(!empty(old('height')))
-
-                                                    <script>
-                                                        var oldheight ={!! json_encode(old('height')) !!}
-                                                    </script>
-
-
-                                                @else
-
-                                                    <script>
-                                                        var oldheight = 0
-                                                    </script>
-
-                                                @endif
-
-
-                                                @error('height')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Weight (kg)</label>
-                                                <input type="number" v-model="weight" name="weight" value=""
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Weight"/>
-                                                @if(old('weight'))
-                                                    @{{ setw(@json(old('weight'))) }}
-                                                @endif
-                                                @error('weight')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">BMI</label>
-                                                {{--                                                <input type="text" name="bmi" v-bind:value="bmi"--}}
-                                                {{--                                                       class="form-control"--}}
-                                                {{--                                                       id=""--}}
-                                                {{--                                                       placeholder="BMI" disabled />--}}
-
-                                                {{--                                                @error('stroke')--}}
-                                                {{--                                                <p class="text-danger">{{$message}} </p>--}}
-                                                {{--                                                @enderror--}}
-                                                <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" v-bind:value="bmifn"
-                                                           placeholder="" aria-label="" aria-describedby="basic-addon1"
-                                                           disabled>
-
-                                                    {{-- <div class="input-group-append">--}}
-                                                    {{--                                                        <button class="btn btn-info text-white" v-on:click='bmifn()' type="button">Click To Calculate</button>--}}
-                                                    {{--                                                    </div>--}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--/row-->
-
-
-                                    <div class="row">
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Blood Pressure</label>
-                                                <input type="text" name="blood_pressure"
-                                                       value="{{old('blood_pressure')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Blood Pressure"/>
-                                                @error('blood_pressure')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">HbA1C(last date)</label>
-                                                <input type="text" name="hba1c" value="{{old('hba1c')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Nephropathy"/>
-                                                @error('hba1c')
+                                                       placeholder="Antihypertensive"/>
+                                                @error('antihypertensive')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
                                             </div>
                                         </div>
 
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">OAD</label>
-                                                <input type="text" name="oad" value="{{old('oad')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="OAD"/>
-                                                @error('oad')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Insulin</label>
-                                                <input type="text" name='insulin' value="{{old('insulin')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Insulin"/>
-                                                @error('insulin')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Traditional Medicine</label>
-                                                <input type="text" name="traditional_medicine"
-                                                       value="{{old('traditional_medicine')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Traditional Medicine"/>
-                                                @error('traditional_medicine')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label">naive</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            @php
-                                                                if(old('naive')=='yes'){
-    $surgical_historyy='checked';
-    $surgical_historyn='';
-
-                                                                        }elseif(old('naive')=='no'){
-    $surgical_historyn='checked';
-    $surgical_historyy='';
-                                                                        }else{
-                                                                            $surgical_historyy='checked';
-                                                                            $surgical_historyn='';
-                                                                        }
-                                                            @endphp
-                                                            <input type="radio" id="customRadio16"
-                                                                   name="naive" value="yes"
-                                                                   class="form-check-input"
-                                                                {{$surgical_historyy}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio16">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio17"
-                                                                   name="naive" value="no"
-                                                                   class="form-check-input" {{$surgical_historyn}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio17">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Antihypertensives</label>
-                                                <input type="text" name="antihypertensives"
-                                                       value="{{old('antihypertensives')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Antihypertensives"/>
-                                                @error('antihypertensives')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Anti Lipids</label>
-                                                <input type="text" name="anti_lipids"
-                                                       value="{{old('anti_lipids')}}"
+                                                <input type="text" name="Anti Lipids" value="{{old('p_anti_lipids')}}"
                                                        class="form-control"
                                                        id=""
                                                        placeholder="Anti Lipids"/>
-                                                @error('anti_lipids')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">hypertension</label>
-                                                <input type="text" name="antiplatelet" value="{{old('antiplatelet')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="antiplatelet"/>
-                                                @error('antiplatelet')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Other Drugs</label>
-                                                <input type="text" name="other_drugs" value="{{old('other_drugs')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Other Drugs"/>
-                                                @error('other_drugs')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body" style="border-bottom: 2px solid #00000014;">
-                                <h4 class="card-title">Current</h4>
-                            </div>
-
-                            <div class="form-body">
-                                <div class="card-body">
-                                    <div class="row pt-3">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">RBS</label>
-                                                <input type="text" class="form-control" name="rbs"
-                                                       value="{{old('rbs')}}"
-                                                       id=""
-                                                       aria-describedby="emailHelp" placeholder="rbs"/>
-                                                @error('rbs')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Height (cm)</label>
-                                                <input type="text" name="height" value="{{old('height')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="height"/>
-
-                                                @error('height')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Weight (kg)</label>
-                                                <input type="text" name="height" value="{{old('weight')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="height"/>
-                                                @error('weight')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!--/row-->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Weight (cm)</label>
-                                                <div class="row no-gutters">
-                                                    <div class="col-3 mr-2">
-                                                        <input type="text" name="bmi_weight"
-                                                               value="{{old('weight')}}" class="form-control"
-                                                               id=""
-                                                               placeholder="weight"/>
-                                                        @error('weight')
-                                                        <p class="text-danger">{{$message}} </p>
-                                                        @enderror
-
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <input type="text" value="{{old('bmi_height')}}"
-                                                               class="form-control"
-                                                               id=""
-                                                               name="bmi_height"
-                                                               placeholder="Height"/>
-                                                        @error('bmi_height')
-                                                        <p class="text-danger">{{$message}} </p>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Tuberculosis</label>
-                                                <input type="text" name="tuberculosis" value="{{old('tuberculosis')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Tuberculosis"/>
-                                                @error('tuberculosis')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Stroke</label>
-                                                <input type="text" name="stroke" value="{{old('stroke')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Stroke"/>
-                                                @error('stroke')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">IHD/MI</label>
-                                                <input type="text" name="ihd_mi" value="{{old('ihd_mi')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="IHD/MI"/>
-                                                @error('ihd_mi')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Nephropathy</label>
-                                                <input type="text" name="nephropathy" value="{{old('nephropathy')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Nephropathy"/>
-                                                @error('nephropathy')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Neuropathy</label>
-                                                <input type="text" name="neuropathy" value="{{old('neuropathy')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Neuropathy"/>
-                                                @error('neuropathy')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">DM foot</label>
-                                                <input type="text" name='dm_foot' value="{{old('dm_foot')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="DM foot"/>
-                                                @error('dm_foot')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Others</label>
-                                                <input type="text" name="others" value="{{old('others')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Others"/>
-                                                @error('others')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label">Surgical History</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            @php
-                                                                if(old('surgical_history')=='yes'){
-    $surgical_historyy='checked';
-    $surgical_historyn='';
-
-                                                                        }elseif(old('family_ho')=='no'){
-    $surgical_historyn='checked';
-    $surgical_historyy='';
-                                                                        }else{
-                                                                            $surgical_historyy='checked';
-                                                                            $surgical_historyn='';
-                                                                        }
-                                                            @endphp
-                                                            <input type="radio" id="customRadio16"
-                                                                   name="surgical_history" value="yes"
-                                                                   class="form-check-input"
-                                                                {{$surgical_historyy}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio16">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio17"
-                                                                   name="surgical_history" value="no"
-                                                                   class="form-check-input" {{$surgical_historyn}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio17">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                {{--third form--}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Infection</h4>
-                            </div>
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">HBV</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            @php
-                                                                if(old('hbv')=='yes'){
-    $hbvy='checked';
-    $hbvn='';
-
-                                                                        }elseif(old('hbv')=='no'){
-    $hbvn='checked';
-    $hbvy='';
-                                                                        }else{
-                                                                            $hbvy='checked';
-                                                                            $hbvn='';
-                                                                        }
-                                                            @endphp
-                                                            <input type="radio" id=""
-                                                                   name="hbv" value='yes'
-                                                                   class="form-check-input"
-                                                                {{$hbvy}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio19">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio20"
-                                                                   name="hbv" value='no'
-                                                                   class="form-check-input" {{$hbvn}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio20">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">HCV</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            @php
-                                                                if(old('hcv')=='yes'){
-    $hcvy='checked';
-    $hcvn='';
-
-                                                                        }elseif(old('hcv')=='no'){
-    $hcvn='checked';
-    $hcvy='';
-                                                                        }else{
-                                                                            $hcvy='checked';
-                                                                            $hcvn='';
-                                                                        }
-                                                            @endphp
-                                                            <input type="radio" id="customRadio211"
-                                                                   name="hcv" value="yes"
-                                                                   class="form-check-input"
-                                                                {{$hcvy}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio211">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio222"
-                                                                   name="hcv" value="no"
-                                                                   class="form-check-input" {{$hcvn}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio222">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">RVI</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            @php
-                                                                if(old('rvi')=='yes'){
-    $rviy='checked';
-    $rvin='';
-
-                                                                        }elseif(old('rvi')=='no'){
-    $rvin='checked';
-    $rviy='';
-                                                                        }else{
-                                                                            $rviy='checked';
-                                                                            $rvin='';
-                                                                        }
-                                                            @endphp
-                                                            <input type="radio" id="customRadio23"
-                                                                   name="rvi" value="yes"
-                                                                   class="form-check-input"
-                                                                {{$rviy}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio23">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio24"
-                                                                   name="rvi" value="no"
-                                                                   class="form-check-input" {{$rvin}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio24">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{--third form--}}
-
-
-
-
-                {{--Four form--}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Habitual History</h4>
-                            </div>
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">Smoking</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            @php
-                                                                if(old('smoking')=='yes'){
-    $smokingy='checked';
-    $smokingn='';
-
-                                                                        }elseif(old('smoking')=='no'){
-    $smokingn='checked';
-    $smokingy='';
-                                                                        }else{
-                                                                            $smokingy='checked';
-                                                                            $smokingn='';
-                                                                        }
-                                                            @endphp
-                                                            <input type="radio" id="customRadio191"
-                                                                   name="smoking" value="yes"
-                                                                   class="form-check-input"
-                                                                {{$smokingy}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio191">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio201"
-                                                                   name="smoking" value="no"
-                                                                   class="form-check-input" {{$smokingn}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio201">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">Alcohol</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            @php
-                                                                if(old('alcohol')=='yes'){
-    $alcoholy='checked';
-    $alcoholn='';
-
-                                                                        }elseif(old('alcohol')=='no'){
-    $alcoholn='checked';
-    $alcoholy='';
-                                                                        }else{
-                                                                            $alcoholy='checked';
-                                                                            $alcoholn='';
-                                                                        }
-                                                            @endphp
-                                                            <input type="radio" id="customRadio2111"
-                                                                   name="alcohol" value='yes'
-                                                                   class="form-check-input"
-                                                                {{$alcoholy}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio2111">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio2222"
-                                                                   name="alcohol" value='no'
-                                                                   class="form-check-input" {{$alcoholn}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio2222">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="control-label">Betal Chewing</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            @php
-                                                                if(old('betal_chewing')=='yes'){
-    $betal_chewingy='checked';
-    $betal_chewingn='';
-
-                                                                        }elseif(old('betal_chewing')=='no'){
-    $betal_chewingn='checked';
-    $betal_chewingy='';
-                                                                        }else{
-                                                                            $betal_chewingy='checked';
-                                                                            $betal_chewingn='';
-                                                                        }
-                                                            @endphp
-                                                            <input type="radio" id="customRadio231"
-                                                                   name="betal_chewing" value="yes"
-                                                                   class="form-check-input"
-                                                                {{$betal_chewingy}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio231">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio241"
-                                                                   name="betal_chewing" value="no"
-                                                                   class="form-check-input" {{$betal_chewingn}}>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio241">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{--Four form--}}
-
-
-
-
-
-
-                {{--Fifth form--}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Drug History</h4>
-                            </div>
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-                                    <div class="row pt-3">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">t-OAD</label>
-                                                <input type="text" class="form-control" name="t-oad"
-                                                       value="{{old('oad')}}"
-                                                       id=""
-                                                       aria-describedby="emailHelp" placeholder="OAD"/>
-                                                @error('oad')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">tInsulin</label>
-                                                <input type="text" name="tinsulin" value="{{old('tinsulin')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="tInsulin"/>
-                                                @error('tinsulin')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--/row-->
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Traditional</label>
-                                                <input type="text" class="form-control"
-                                                       id="" name="traditional" value="{{old('traditional')}}"
-                                                       placeholder="Traditional"/>
-                                                @error('traditional')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        {{--                                        <div class="col-md-6">--}}
-                                        {{--                                            <div class="form-group">--}}
-                                        {{--                                                <label for="">Native</label>--}}
-                                        {{--                                                <input type="text" name="native" value="{{old('native')}}"--}}
-                                        {{--                                                       class="form-control"--}}
-                                        {{--                                                       id=""--}}
-                                        {{--                                                       placeholder="Native" />--}}
-                                        {{--                                                @error('native')--}}
-                                        {{--                                                <p class="text-danger">{{$message}} </p>--}}
-                                        {{--                                                @enderror--}}
-                                        {{--                                            </div>--}}
-                                        {{--                                        </div>--}}
-
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Anti H/T</label>
-                                                <input type="text" name="anti_ht" value="{{old('anti_ht')}}"
-                                                       class="form-control"
-                                                       id=""
-                                                       placeholder="Anti H/T"/>
-                                                @error('anti_ht')
-                                                <p class="text-danger">{{$message}} </p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Anti Lipid</label>
-                                                <input type="text" class="form-control" name="anti_lipid"
-                                                       value="{{old('anti_lipid')}}"
-                                                       id=""
-                                                       placeholder="Anti Lipid"/>
-                                                @error('anti_ht')
+                                                @error('p_anti_lipids')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
                                             </div>
@@ -1244,228 +352,212 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Other Drug History</label>
-                                                <input type="text" class="form-control"
-                                                       id="" name="others_drug_his" value="{{old('others_drug_his')}}"
-                                                       placeholder="Other"/>
-                                                @error('others_drug_his')
+                                                <input type="text" name="other_drugs_history" value="{{old('other_drugs_history')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Other Drug History"/>
+                                                @error('other_drugs_history')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/row-->
+
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Diet Control</label>
+                                                <input type="text" name="diet_control" value="{{old('diet_control')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Diet Control"/>
+                                                @error('diet_control')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Physical Activity</label>
+                                                <input type="text" name="physical_activity" value="{{old('physical_activity')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Physical Activity"/>
+                                                @error('physical_activity')
                                                 <p class="text-danger">{{$message}} </p>
                                                 @enderror
                                             </div>
                                         </div>
                                     </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{--Fifth form--}}
-
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="">hypertension</label>
-                        <input type="text" name="hypertension" value="{{old('hypertension')}}"
-                               class="form-control"
-                               id=""
-                               placeholder="hypertension"/>
-                        @error('hypertension')
-                        <p class="text-danger">{{$message}} </p>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="">anti_lipids</label>
-                        <input type="text" name="anti_lipids" value="{{old('anti_lipids')}}"
-                               class="form-control"
-                               id=""
-                               placeholder="anti_lipids"/>
-                        @error('anti_lipids')
-                        <p class="text-danger">{{$message}} </p>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="">dyslipidaemia</label>
-                        <input type="text" name="dyslipidaemia" value="{{old('dyslipidaemia')}}"
-                               class="form-control"
-                               id=""
-                               placeholder="dyslipidaemia"/>
-                        @error('dyslipidaemia')
-                        <p class="text-danger">{{$message}} </p>
-                        @enderror
-                    </div>
-                </div>
-
-
-                {{--Six form--}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Dental Problem</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            <input type="radio" id="customRadio1216"
-                                                                   name="dental_problem" value="yes"
-                                                                   class="form-check-input"
-                                                                   checked>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio1216">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio1217"
-                                                                   name="dental_problem" value="no"
-                                                                   class="form-check-input">
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio1217">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
+                                                <label for="">Steroid Use</label>
+                                                <input type="text" name="steroid_use" value="{{old('steroid_use')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="Steroid Use"/>
+                                                @error('steroid_use')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Diet Control</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            <input type="radio" id="customRadio16231"
-                                                                   name="diet_control" value="yes"
-                                                                   class="form-check-input"
-                                                                   checked>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio16231">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio17231"
-                                                                   name="diet_control" value="no"
-                                                                   class="form-check-input">
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio17231">No</label>
-                                                        </div>
+                                                <label class="form-label">Smoking</label>
+                                                <select class="form-control form-select"
+                                                        data-placeholder="Choose a Category" name="smoking"
+                                                        value="{{old('smoking')}}" tabindex="1">
+                                                    @if(!empty(old('smoking')))
+                                                        <option value="{{old('smoking')}}"
+                                                                selected>{{old('smoking')}}</option>
 
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
+                                                    @endif
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                    <option value="Currently Yes">Currently Yes</option>
+                                                    <option value="Not At All">Not At All</option>
+                                                </select>
+                                                @error('smoking')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
                                             </div>
+
+
                                         </div>
 
                                     </div>
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Physical Activity</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            <input type="radio" id="customRadio1623"
-                                                                   name="physical_activity" value="yes"
-                                                                   class="form-check-input"
-                                                                   checked>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio1623">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio1723"
-                                                                   name="physical_activity" value="no"
-                                                                   class="form-check-input">
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio1723">No</label>
-                                                        </div>
+                                                <label class="form-label">Alcohol</label>
+                                                <select class="form-control form-select"
+                                                        data-placeholder="Choose a Category" name="alcohol"
+                                                        value="{{old('alcohol')}}" tabindex="1">
+                                                    @if(!empty(old('alcohol')))
+                                                        <option value="{{old('alcohol')}}"
+                                                                selected>{{old('alcohol')}}</option>
 
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
+                                                    @endif
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                    <option value="Currently Yes">Currently Yes</option>
+                                                    <option value="Not At All">Not At All</option>
+                                                </select>
+                                                @error('alcohol')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
                                             </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <label class="form-label">Betal Chewing</label>
+                                                <select class="form-control form-select"
+                                                        data-placeholder="Choose a Category" name="betal_chewing"
+                                                        value="{{old('betal_chewing')}}" tabindex="1">
+                                                    @if(!empty(old('betal_chewing')))
+                                                        <option value="{{old('betal_chewing')}}"
+                                                                selected>{{old('betal_chewing')}}</option>
+
+                                                    @endif
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                    <option value="Currently Yes">Currently Yes</option>
+                                                    <option value="Not At All">Not At All</option>
+                                                </select>
+                                                @error('betal_chewing')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">HBV</label>
+                                                <input type="text" name="hbv" value="{{old('hbv')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="HBV"/>
+                                                @error('hbv')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="control-label">Steroid Use</label>
-                                                <div class="custom-control custom-radio">
-                                                    <div class="row no-gutters">
-                                                        <div class="col-xs-4 mr-5">
-                                                            <input type="radio" id="customRadio1611"
-                                                                   name="steroid_use" value="yes"
-                                                                   class="form-check-input"
-                                                                   checked>
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio1611">Yes</label>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <input type="radio" id="customRadio1711"
-                                                                   name="steroid_use" value="no"
-                                                                   class="form-check-input">
-                                                            <label class="custom-control-label"
-                                                                   for="customRadio1711">No</label>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
+                                                <label for="">HCV</label>
+                                                <input type="text" name="hcv" value="{{old('hcv')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="hcv"/>
+                                                @error('hcv')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
                                             </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">RVI</label>
+                                                <input type="text" name="rvi" value="{{old('rvi')}}"
+                                                       class="form-control"
+                                                       id=""
+                                                       placeholder="rvi"/>
+                                                @error('rvi')
+                                                <p class="text-danger">{{$message}} </p>
+                                                @enderror
+                                            </div>
+
                                         </div>
 
                                     </div>
 
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-12 mb-4">
+                                                <div class="row">
+                                                    <div class="offset-sm-4 offset-md-9 col-md-9">
+                                                        {!! csrf_field() !!}
+                                                        <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i>
+                                                            Submit
+                                                        </button>
+                                                        <button type="button" class="btn waves-effect waves-light btn-lg btn-secondary">
+                                                            Cancel
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                 </div>
-
+                                <hr>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{--Fifth form--}}
-
-                {{--Six form--}}
-                <div class="form-actions">
-                    <div class="row">
-                        <div class="col-md-12 mb-4">
-                            <div class="row">
-                                <div class="offset-sm-4 offset-md-9 col-md-9">
-                                    {!! csrf_field() !!}
-                                    <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-check"></i>
-                                        Submit
-                                    </button>
-                                    <button type="button" class="btn waves-effect waves-light btn-lg btn-secondary">
-                                        Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{--Fifth form--}}
 
 
-                {!! Form::close() !!}
 
+
+
+
+
+                   </form>
 
                 {{--<div class="right-sidebar">--}}
                 {{--<div class="slimscrollright">--}}
