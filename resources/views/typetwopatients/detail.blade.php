@@ -804,9 +804,248 @@
                         </div>
                     </div>
                 </div>
-                {{--Four form--}}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Personal History</h4>
+                            </div>
+                            <hr>
+                            <div class="form-body">
+                                <div class="card-body">
 
-                {{--Six form--}}
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">Other
+                                                    Drugs History</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->other_drugs_his}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">Dental
+                                                    History
+
+                                                </label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->dental_history}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--/span-->
+
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">Diet
+                                                    Control</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->diet_control}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">Physical
+                                                    Activity
+
+                                                </label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->physical_activity}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--/span-->
+
+                                        <!--/span-->
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">Steroid
+                                                    Use</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->steroid_use}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">Smoking
+
+                                                </label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->smoking}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--/span-->
+
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">Alcohol</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->alcohol}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">Betal
+                                                    Chewing
+
+                                                </label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->betal_chewing}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--/span-->
+
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"
+                                                       class="control-label">HBV</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->hbv}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;" class="control-label">HCV
+
+                                                </label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->hcv}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--/span-->
+
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"
+                                                       class="control-label">RVI</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->rvi}}
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"
+                                                       class="control-label">QR Code</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;
+                                                {{--                                                <a href="data:image/png;base64,{!!base64_encode(QrCode::format('png')->size(250)->generate(url('typetwopatients/detail/'.$data->id)))!!}" download>--}}
+                                                {{--                                                <img src="data:image/png;base64,{!!base64_encode(QrCode::format('png')->size(250)->generate(url('typetwopatients/detail/'.$data->id)))!!}">--}}
+                                                {{--                                                </a>--}}
+                                                <a id="qrcodeTable" download></a>
+
+                                                <input type="hidden" id="valee" value="{{url('typetwopatients/detail/'.$data->id)}}"/>
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--/span-->
+
+                                        <!--/span-->
+                                    </div>
+
+
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-actions">
                     <div class="row">
                         <div class="col-md-12 mb-4">
@@ -861,3 +1100,14 @@
 
 
 @endsection
+@push('script')
+    <script type="text/javascript" src="{{url('js/jquery.qrcode.js')}}"></script>
+    <script type="text/javascript" src="{{url('js/qrcode.js')}}"></script>
+    <script>
+        //jQuery('#qrcode').qrcode("this plugin is great");
+        jQuery('#qrcodeTable').qrcode({
+            text: $('#valee').val()
+        });
+
+    </script>
+@endpush

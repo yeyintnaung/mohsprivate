@@ -559,7 +559,7 @@
                                                     <div class="form-group">
 
                                                         <label for="">Anti Lipids</label>
-                                                        <input type="text" name="Anti Lipids"
+                                                        <input type="text" name="anti_lipids"
                                                                value="{{old('anti_lipids')}}"
                                                                class="form-control"
                                                                id=""
