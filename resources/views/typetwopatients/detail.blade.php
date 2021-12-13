@@ -72,7 +72,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Type Two Patient Detail</h4>
+                                <h4 class="card-title">General Profile</h4>
                             </div>
                             <hr>
                             <div class="form-body">
@@ -91,11 +91,11 @@
                                         <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Age</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Father Name</label>
 
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->age}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->father_name}}
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -104,10 +104,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  class="control-label">Gender</label>
+                                                <label style="font-weight: 450 !important;"  class="control-label">Age</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->gender}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->age}}
 
                                                 <div class="custom-control custom-radio float-right">
 
@@ -117,11 +117,11 @@
                                         <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Duration of D/M/Y</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Gender</label>
 
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->duration_of_dm}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->gender}}
                                             </div>
                                         </div>
 
@@ -133,20 +133,20 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Address(Town)</label>
-
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->town}}
-                                            </div>
-                                        </div>                                            <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Year of Dx</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Year Of Dx</label>
 
                                                 <br>
 
                                                 &nbsp;&nbsp;&nbsp;{{$data->year_of_dx}}
+                                            </div>
+                                        </div>                                            <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Address</label>
+
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->town}}
                                             </div>
                                         </div>
 
@@ -161,16 +161,42 @@
                                                 <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Phone No</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->phone}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->phone_no}}
 
                                             </div>
                                         </div>                                            <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  class="control-label">Family H/O</label>
+                                                <label style="font-weight: 450 !important;"  class="control-label">Education</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->family_ho}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->education}}
+
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">NRC No</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->nrc_no}}
+
+                                            </div>
+                                        </div>                                            <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Referred From</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->referred_from}}
 
 
                                                 <div class="custom-control custom-radio float-right">
@@ -204,7 +230,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Medical Problem</h4>
+                                <h4 class="card-title">Current</h4>
                             </div>
                             <hr>
                             <div class="form-body">
@@ -212,10 +238,10 @@
                                     <div class="row pt-3">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputEmail1">Hypertension</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputEmail1">RBS</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->hypertension}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->rbs}}
 
 
                                             </div>
@@ -223,10 +249,10 @@
                                         <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Dyslipidaemia</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Height</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->dyslipidaemia}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->height}}
 
                                             </div>
                                         </div>
@@ -236,26 +262,20 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Weight</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->weight}}
+
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <label style="font-weight: 450 !important;"  for="exampleInputPassword1">BMI</label>
                                                 <br>
-                                                <div class="row no-gutters">
-                                                    <div class="col-3 mr-2">
-                                                        Weight:  &nbsp;&nbsp;&nbsp;{{$data->bmi_weight}}
-                                                    </div>
-                                                    <div class="col-3">
-                                                        Height:  &nbsp;&nbsp;&nbsp;{{$data->bmi_height}}
-                                                    </div>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Tuberculosis</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->tuberculosis}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->bmi}}
 
 
                                             </div>
@@ -269,19 +289,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Stroke</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Blood Pressure</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->stroke}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->blood_pressure}}
 
                                             </div>
                                         </div>                                            <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">IHD/MI</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">HBA1C(Last Date)</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->ihd_mi}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->hba1c}}
 
                                             </div>
                                         </div>
@@ -294,19 +314,19 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Nephropathy</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">OAD</label>
 
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->nephropathy}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->oad}}
                                             </div>
                                         </div>                                            <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Neuropathy</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Insulin</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->neuropathy}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->insulin}}
 
                                             </div>
                                         </div>                                            <!--/span-->
@@ -325,10 +345,10 @@
                                         </div>                                            <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Others</label>
+                                                <label style="font-weight: 450 !important;"  for="exampleInputPassword1">Traditional Medicine</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->others}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->traditional_medicine}}
 
                                             </div>
                                         </div>                                            <!--/span-->
@@ -341,10 +361,23 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  class="control-label">Surgical History</label>
+                                                <label style="font-weight: 450 !important;"  class="control-label">Naive</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->surgical_history}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->naive}}
+
+
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Antihypertensives</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->antihypertensives}}
 
 
                                                 <div class="custom-control custom-radio float-right">
@@ -356,12 +389,55 @@
 
                                         <!--/span-->
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Antiplatelet</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->antiplatelet}}
 
 
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Anti Lipids</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->anti_lipids}}
 
 
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Other Drugs</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->other_drugs}}
 
 
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+
+                                        <!--/span-->
+                                    </div>
 
                                 </div>
                                 <hr>
@@ -381,7 +457,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Infection</h4>
+                                <h4 class="card-title">Family H/O </h4>
                             </div>
                             <hr>
                             <div class="form-body">
@@ -391,12 +467,12 @@
 
 
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  class="control-label">HBV</label>
+                                                <label style="font-weight: 450 !important;"  class="control-label">Hypertension</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->hbv}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->hypertension}}
 
 
                                                 <div class="custom-control custom-radio float-right">
@@ -406,44 +482,97 @@
                                         </div>
 
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  class="control-label">HCV</label>
+                                                <label style="font-weight: 450 !important;"  class="control-label">Dyslipidaemia</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->hcv}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->dyslipidaemia}}
                                                 <div class="custom-control custom-radio float-right">
 
                                                 </div>
                                             </div>
                                         </div>
 
-
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"  class="control-label">RVI</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->rvi}}
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Stroke</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->stroke}}
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">IHD/MI</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->ihd_mi}}
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
 
 
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Nephropathy</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->nephropathy}}
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Retinopathy</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->retinopathy}}
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
 
 
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">Neuropathy</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->neuropathy}}
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label style="font-weight: 450 !important;"  class="control-label">DM Foot</label>
+                                                <br>
+
+                                                &nbsp;&nbsp;&nbsp;{{$data->dm_foot}}
+                                                <div class="custom-control custom-radio float-right">
+
+                                                </div>
+                                            </div>
+                                        </div>
 
 
-
+                                    </div>
                                 </div>
                                 <hr>
                             </div>
@@ -783,81 +912,6 @@
 
 
 
-                {{--<div class="right-sidebar">--}}
-                {{--<div class="slimscrollright">--}}
-                {{--<div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span>--}}
-                {{--</div>--}}
-                {{--<div class="r-panel-body">--}}
-                {{--<ul id="themecolors" class="m-t-20">--}}
-                {{--<li><b>With Light sidebar</b></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-default" class="default-theme">1</a>--}}
-                {{--</li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-green" class="green-theme">2</a></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-red" class="red-theme">3</a></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-blue" class="blue-theme">4</a></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-purple" class="purple-theme">5</a></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-megna"--}}
-                {{--class="megna-theme working">6</a></li>--}}
-                {{--<li class="d-block m-t-30"><b>With Dark sidebar</b></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-default-dark"--}}
-                {{--class="default-dark-theme ">7</a></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-green-dark"--}}
-                {{--class="green-dark-theme">8</a></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-red-dark" class="red-dark-theme">9</a>--}}
-                {{--</li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-blue-dark"--}}
-                {{--class="blue-dark-theme">10</a></li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-purple-dark" class="purple-dark-theme">11</a>--}}
-                {{--</li>--}}
-                {{--<li><a href="javascript:void(0)" data-skin="skin-megna-dark" class="megna-dark-theme ">12</a>--}}
-                {{--</li>--}}
-                {{--</ul>--}}
-                {{--<ul class="m-t-20 chatonline">--}}
-                {{--<li><b>Chat option</b></li>--}}
-                {{--<li>--}}
-                {{--<a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img"--}}
-                {{--class="img-circle"> <span>Varun Dhavan <small--}}
-                {{--class="text-success">online</small></span></a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img"--}}
-                {{--class="img-circle"> <span>Genelia Deshmukh <small--}}
-                {{--class="text-warning">Away</small></span></a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img"--}}
-                {{--class="img-circle"> <span>Ritesh Deshmukh <small--}}
-                {{--class="text-danger">Busy</small></span></a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img"--}}
-                {{--class="img-circle"> <span>Arijit Sinh <small--}}
-                {{--class="text-muted">Offline</small></span></a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img"--}}
-                {{--class="img-circle"> <span>Govinda Star <small--}}
-                {{--class="text-success">online</small></span></a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img"--}}
-                {{--class="img-circle"> <span>John Abraham<small--}}
-                {{--class="text-success">online</small></span></a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img"--}}
-                {{--class="img-circle"> <span>Hritik Roshan<small--}}
-                {{--class="text-success">online</small></span></a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img"--}}
-                {{--class="img-circle"> <span>Pwandeep rajan <small--}}
-                {{--class="text-success">online</small></span></a>--}}
-                {{--</li>--}}
-                {{--</ul>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--</div>--}}
 
 
 

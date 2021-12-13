@@ -5032,7 +5032,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app',
   data: {
-    weight: 0,
+    weight: oldweight,
     height: oldheight
   },
   // methods:{

@@ -30,7 +30,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     data: {
-        weight: 0,
+        weight: oldweight,
         height:oldheight,
     },
     // methods:{
