@@ -560,7 +560,7 @@
 
                                                         <label for="">Anti Lipids</label>
                                                         <input type="text" name="Anti Lipids"
-                                                               value="{{old('p_anti_lipids')}}"
+                                                               value="{{old('anti_lipids')}}"
                                                                class="form-control"
                                                                id=""
 
