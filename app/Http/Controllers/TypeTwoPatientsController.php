@@ -15,8 +15,8 @@ class TypeTwoPatientsController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('submit');
+        $this->middleware('auth')->except('detail_without_auth');
+//        $this->middleware('submit');
     }
 
     public function createform()
@@ -122,5 +122,10 @@ class TypeTwoPatientsController extends Controller
         TypeTwoPatients::where('id',$request->id)->update($input);
         return redirect('typetwopatients/list');
 
+    }
+    public function detail_without_auth($id){
+        $data=TypeTwoPatients::where('id',$id)->first();
+
+        return view('typetwopatients.detail_without_auth',['data'=>$data]);
     }
 }

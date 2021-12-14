@@ -16,7 +16,7 @@ class TypeTwoFollowUpController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('submit');
+//        $this->middleware('submit');
     }
     public function createform(){
         $id=TypeTwoPatients::all();

@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Elite Hospital Admin Template - Hospital admin dashboard web app kit</title>
+    <title>MOHS DEMO</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
     <link href="{{url('nm/jsgrid/jsgrid-theme.min.css')}}" rel="stylesheet">
