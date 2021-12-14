@@ -32,7 +32,7 @@ Route::prefix('typetwopatients')->group(function(){
 );
 Route::prefix('typetwofollowup')->group(function(){
 
-    Route::get('/create', [TypeTwoFollowUpController::class, 'createform']);
+    Route::get('/create/{id?}', [TypeTwoFollowUpController::class, 'createform']);
     Route::post('/create', [TypeTwoFollowUpController::class, 'create']);
     Route::get('/list', [TypeTwoFollowUpController::class, 'list']);
     Route::get('/detail/{id}', [TypeTwoFollowUpController::class, 'detail']);

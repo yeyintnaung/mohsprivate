@@ -105,7 +105,18 @@
                                                 <td>{{$d->phone}}</td>
 
                                                 <td> {{\Carbon\Carbon::parse($d->created_at)->toDateString()}}</td>
-                                                <td><a href="{{url('/typetwopatients/edit/'.$d->id)}}" class="btn btn-success mr-2 btn-xs">Edit</a><a href="{{url('/typetwopatients/detail/'.$d->id)}}" class="btn btn-info btn-xs">Detail</a>
+                                                <td>
+
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Action
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="{{url('/typetwopatients/detail/'.$d->id)}}">Detail</a>
+                                                            <a class="dropdown-item" href="{{url('/typetwopatients/edit/'.$d->id)}}">Edit</a>
+                                                            <a class="dropdown-item" href="{{url('/typetwofollowup/create/'.$d->id)}}">Follow Up</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach

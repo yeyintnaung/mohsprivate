@@ -18,10 +18,14 @@ class TypeTwoFollowUpController extends Controller
         $this->middleware('auth');
 //        $this->middleware('submit');
     }
-    public function createform(){
-        $id=TypeTwoPatients::all();
+    public function createform($link_patient_id=''){
 
-        return view('typetwopatients.followup.create',['id'=>$id]);
+            $id=TypeTwoPatients::all();
+
+
+
+
+        return view('typetwopatients.followup.create',['id'=>$id,'link_patient_id'=>$link_patient_id]);
     }
 
 

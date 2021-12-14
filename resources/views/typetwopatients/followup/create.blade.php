@@ -73,6 +73,7 @@
                                     <div class="card-body">
                                         <div class="row pt-3">
                                             <div class="col-md-6">
+                                                @if($link_patient_id =='')
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Patient id</label>
                                                     <select name='patient_id' class="form-control custom-select">
@@ -94,6 +95,20 @@
                                                     @enderror
 
                                                 </div>
+                                                @else
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Patient id</label>
+                                                        <select name='patient_id' class="form-control custom-select">
+                                                            <option value='{{$link_patient_id}}' selected>{{$link_patient_id}}</option>
+
+
+
+                                                        </select>
+                                                        @error('patient_id')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>                                                @endif
                                             </div>
 
                                             <!--/span-->
