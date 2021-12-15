@@ -106,7 +106,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">Age(DOB)</label>
-                                                        <input type="date" name="age" value="{{old('age')}}"
+                                                        <input type="text" name="age" value="{{old('age')}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="age"/>
@@ -255,7 +255,9 @@
                                                                         selected>{{old('education')}}</option>
 
                                                             @endif
-                                                            <option value="primary">Primary</option>
+                                                           <option value="primary">Unknown</option>
+
+                                                           <option value="primary">Primary</option>
                                                             <option value="Under Graduated">Under Graduated</option>
                                                             <option value="Graduated">Graduated</option>
                                                             <option value="Post Graduated">Post Graduated</option>
@@ -292,6 +294,7 @@
                                                                         selected>{{old('referred_from')}}</option>
 
                                                             @endif
+                                                            <option value="Unknown">Unknown</option>
                                                             <option value="GP">GP</option>
                                                             <option value="RHC">RHC</option>
                                                             <option value="UHC">UHC</option>
@@ -373,7 +376,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">Weight (kg)</label>
+                                                        <label for="">Weight (Pound)</label>
                                                         <input type="number" v-model="weight" name="weight" value=""
                                                                class="form-control"
                                                                id=""
@@ -440,16 +443,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">HbA1C(last date)</label>
-                                                        <input type="text" name="hba1c" value="{{old('hba1c')}}"
-                                                               class="form-control"
-                                                               id=""
-                                                               placeholder="HbA1C(last date)"/>
-                                                        @error('hba1c')
-                                                        <p class="text-danger">{{$message}} </p>
-                                                        @enderror
-                                                    </div>
+                                                    @if($errors->has('hba1c'))
+                                                        <hbaonec-component old_hba1c="{{old('hba1c')}}" error="{{$errors->first('hba1c')}}"></hbaonec-component>
+
+                                                    @else
+                                                        <hbaonec-component old_hba1c="{{old('hba1c')}}" error=""></hbaonec-component>
+
+                                                    @endif
+
+
                                                 </div>
 
                                             </div>
@@ -458,8 +460,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">OAD</label>
-                                                        <input type="text" name="oad" value="{{old('oad')}}"
+                                                        <label for="">OAD (Start Year)</label>
+                                                        <input type="number" name="oad" value="{{old('oad')}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="OAD"/>
@@ -471,8 +473,8 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">Insulin</label>
-                                                        <input type="text" name='insulin' value="{{old('insulin')}}"
+                                                        <label for="">Insulin (Start Year)</label>
+                                                        <input type="number" name='insulin' value="{{old('insulin')}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Insulin"/>
@@ -485,59 +487,93 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">Traditional Medicine</label>
-                                                        <input type="text" name="traditional_medicine"
-                                                               value="{{old('traditional_medicine')}}"
-                                                               class="form-control"
-                                                               id=""
-                                                               placeholder="Traditional Medicine"/>
-                                                        @error('traditional_medicine')
+                                                   <div class="form-group">
+                                                        <label class="form-label">Traditional Medicine</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="referred_from"
+                                                                value="{{old('traditional_medicine')}}" tabindex="1">
+                                                            @if(!empty(old('traditional_medicine')))
+                                                                <option value="{{old('traditional_medicine')}}"
+                                                                        selected>{{old('traditional_medicine')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('naive')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
                                                     </div>
+
+
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">naive</label>
-                                                        <div class="custom-control custom-radio">
-                                                            <div class="row no-gutters">
-                                                                <div class="col-xs-4 mr-5">
-                                                                    @php
-                                                                        if(old('naive')=='yes'){
-            $surgical_historyy='checked';
-            $surgical_historyn='';
+                                                        <label class="form-label">Trement naive</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="referred_from"
+                                                                value="{{old('naive')}}" tabindex="1">
+                                                            @if(!empty(old('naive')))
+                                                                <option value="{{old('naive')}}"
+                                                                        selected>{{old('naive')}}</option>
 
-                                                                                }elseif(old('naive')=='no'){
-            $surgical_historyn='checked';
-            $surgical_historyy='';
-                                                                                }else{
-                                                                                    $surgical_historyy='checked';
-                                                                                    $surgical_historyn='';
-                                                                                }
-                                                                    @endphp
-                                                                    <input type="radio" id="customRadio16"
-                                                                           name="naive" value="yes"
-                                                                           class="form-check-input"
-                                                                        {{$surgical_historyy}}>
-                                                                    <label class="custom-control-label"
-                                                                           for="customRadio16">Yes</label>
-                                                                </div>
-                                                                <div class="col-xs-4">
-                                                                    <input type="radio" id="customRadio17"
-                                                                           name="naive" value="no"
-                                                                           class="form-check-input" {{$surgical_historyn}}>
-                                                                    <label class="custom-control-label"
-                                                                           for="customRadio17">No</label>
-                                                                </div>
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
 
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="custom-control custom-radio float-right">
-
-                                                        </div>
+                                                        </select>
+                                                        @error('naive')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
                                                     </div>
+
+                                                    {{--sample yes no design--}}
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label class="control-label">Trement naive</label>--}}
+{{--                                                        <div class="custom-control custom-radio">--}}
+{{--                                                            <div class="row no-gutters">--}}
+{{--                                                                <div class="col-4 mr-5">--}}
+{{--                                                                    @php--}}
+{{--                                                                        if(old('naive')=='yes'){--}}
+{{--            $surgical_historyy='checked';--}}
+{{--            $surgical_historyn='';--}}
+
+{{--                                                                                }elseif(old('naive')=='no'){--}}
+{{--            $surgical_historyn='checked';--}}
+{{--            $surgical_historyy='';--}}
+{{--                                                                                }else{--}}
+{{--                                                                                    $surgical_historyy='checked';--}}
+{{--                                                                                    $surgical_historyn='';--}}
+{{--                                                                                }--}}
+{{--                                                                    @endphp--}}
+{{--                                                                    <input type="radio" id="customRadio16"--}}
+{{--                                                                           name="naive" value="Yes"--}}
+{{--                                                                           class="form-check-input"--}}
+{{--                                                                        {{$surgical_historyy}}>--}}
+{{--                                                                    <label class="custom-control-label"--}}
+{{--                                                                           for="customRadio16">Yes</label>--}}
+{{--                                                                </div>--}}
+{{--                                                                <div class="col-4">--}}
+{{--                                                                    <input type="radio" id="customRadio17"--}}
+{{--                                                                           name="naive" value="No"--}}
+{{--                                                                           class="form-check-input" {{$surgical_historyn}}>--}}
+{{--                                                                    <label class="custom-control-label"--}}
+{{--                                                                           for="customRadio17">No</label>--}}
+{{--                                                                </div>--}}
+
+
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="custom-control custom-radio float-right">--}}
+
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+                                                    {{--sample yes no design--}}
+
+
                                                 </div>
 
                                             </div>
