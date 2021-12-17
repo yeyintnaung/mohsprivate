@@ -255,9 +255,9 @@
                                                                         selected>{{old('education')}}</option>
 
                                                             @endif
-                                                           <option value="primary">Unknown</option>
+                                                            <option value="primary">Unknown</option>
 
-                                                           <option value="primary">Primary</option>
+                                                            <option value="primary">Primary</option>
                                                             <option value="Under Graduated">Under Graduated</option>
                                                             <option value="Graduated">Graduated</option>
                                                             <option value="Post Graduated">Post Graduated</option>
@@ -317,6 +317,7 @@
                         </div>
                         {{--First form--}}
 
+                        {{--First form--}}
 
                         <div class="row">
                             <div class="col-lg-12">
@@ -331,7 +332,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
 
-                                                        <label for="">RBS</label>
+                                                        <label for="">RBS(Miligram per decimeter)</label>
                                                         <input type="text" class="form-control" name="rbs"
                                                                value="{{old('rbs')}}"
                                                                id=""
@@ -444,13 +445,14 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if($errors->has('hba1c'))
-                                                        <hbaonec-component old_hba1c="{{old('hba1c')}}" error="{{$errors->first('hba1c')}}"></hbaonec-component>
+                                                        <hbaonec-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
+                                                                           error="{{$errors->first('hba1c')}}"></hbaonec-component>
 
                                                     @else
-                                                        <hbaonec-component old_hba1c="{{old('hba1c')}}" error=""></hbaonec-component>
+                                                        <hbaonec-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
+                                                                           error=""></hbaonec-component>
 
                                                     @endif
-
 
                                                 </div>
 
@@ -487,11 +489,11 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                   <div class="form-group">
+                                                    <div class="form-group">
                                                         <label class="form-label">Traditional Medicine</label>
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category"
-                                                                name="referred_from"
+                                                                name="traditional_medicine"
                                                                 value="{{old('traditional_medicine')}}" tabindex="1">
                                                             @if(!empty(old('traditional_medicine')))
                                                                 <option value="{{old('traditional_medicine')}}"
@@ -502,7 +504,7 @@
                                                             <option value="No">No</option>
 
                                                         </select>
-                                                        @error('naive')
+                                                        @error('traditional_medicine')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
                                                     </div>
@@ -511,10 +513,10 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="form-label">Trement naive</label>
+                                                        <label class="form-label">Treatment naive</label>
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category"
-                                                                name="referred_from"
+                                                                name="naive"
                                                                 value="{{old('naive')}}" tabindex="1">
                                                             @if(!empty(old('naive')))
                                                                 <option value="{{old('naive')}}"
@@ -531,46 +533,46 @@
                                                     </div>
 
                                                     {{--sample yes no design--}}
-{{--                                                    <div class="form-group">--}}
-{{--                                                        <label class="control-label">Trement naive</label>--}}
-{{--                                                        <div class="custom-control custom-radio">--}}
-{{--                                                            <div class="row no-gutters">--}}
-{{--                                                                <div class="col-4 mr-5">--}}
-{{--                                                                    @php--}}
-{{--                                                                        if(old('naive')=='yes'){--}}
-{{--            $surgical_historyy='checked';--}}
-{{--            $surgical_historyn='';--}}
+                                                    {{--                                                    <div class="form-group">--}}
+                                                    {{--                                                        <label class="control-label">Trement naive</label>--}}
+                                                    {{--                                                        <div class="custom-control custom-radio">--}}
+                                                    {{--                                                            <div class="row no-gutters">--}}
+                                                    {{--                                                                <div class="col-4 mr-5">--}}
+                                                    {{--                                                                    @php--}}
+                                                    {{--                                                                        if(old('naive')=='yes'){--}}
+                                                    {{--            $surgical_historyy='checked';--}}
+                                                    {{--            $surgical_historyn='';--}}
 
-{{--                                                                                }elseif(old('naive')=='no'){--}}
-{{--            $surgical_historyn='checked';--}}
-{{--            $surgical_historyy='';--}}
-{{--                                                                                }else{--}}
-{{--                                                                                    $surgical_historyy='checked';--}}
-{{--                                                                                    $surgical_historyn='';--}}
-{{--                                                                                }--}}
-{{--                                                                    @endphp--}}
-{{--                                                                    <input type="radio" id="customRadio16"--}}
-{{--                                                                           name="naive" value="Yes"--}}
-{{--                                                                           class="form-check-input"--}}
-{{--                                                                        {{$surgical_historyy}}>--}}
-{{--                                                                    <label class="custom-control-label"--}}
-{{--                                                                           for="customRadio16">Yes</label>--}}
-{{--                                                                </div>--}}
-{{--                                                                <div class="col-4">--}}
-{{--                                                                    <input type="radio" id="customRadio17"--}}
-{{--                                                                           name="naive" value="No"--}}
-{{--                                                                           class="form-check-input" {{$surgical_historyn}}>--}}
-{{--                                                                    <label class="custom-control-label"--}}
-{{--                                                                           for="customRadio17">No</label>--}}
-{{--                                                                </div>--}}
+                                                    {{--                                                                                }elseif(old('naive')=='no'){--}}
+                                                    {{--            $surgical_historyn='checked';--}}
+                                                    {{--            $surgical_historyy='';--}}
+                                                    {{--                                                                                }else{--}}
+                                                    {{--                                                                                    $surgical_historyy='checked';--}}
+                                                    {{--                                                                                    $surgical_historyn='';--}}
+                                                    {{--                                                                                }--}}
+                                                    {{--                                                                    @endphp--}}
+                                                    {{--                                                                    <input type="radio" id="customRadio16"--}}
+                                                    {{--                                                                           name="naive" value="Yes"--}}
+                                                    {{--                                                                           class="form-check-input"--}}
+                                                    {{--                                                                        {{$surgical_historyy}}>--}}
+                                                    {{--                                                                    <label class="custom-control-label"--}}
+                                                    {{--                                                                           for="customRadio16">Yes</label>--}}
+                                                    {{--                                                                </div>--}}
+                                                    {{--                                                                <div class="col-4">--}}
+                                                    {{--                                                                    <input type="radio" id="customRadio17"--}}
+                                                    {{--                                                                           name="naive" value="No"--}}
+                                                    {{--                                                                           class="form-check-input" {{$surgical_historyn}}>--}}
+                                                    {{--                                                                    <label class="custom-control-label"--}}
+                                                    {{--                                                                           for="customRadio17">No</label>--}}
+                                                    {{--                                                                </div>--}}
 
 
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="custom-control custom-radio float-right">--}}
+                                                    {{--                                                            </div>--}}
+                                                    {{--                                                        </div>--}}
+                                                    {{--                                                        <div class="custom-control custom-radio float-right">--}}
 
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
+                                                    {{--                                                        </div>--}}
+                                                    {{--                                                    </div>--}}
                                                     {{--sample yes no design--}}
 
 
@@ -661,137 +663,211 @@
                                         <div class="card-body">
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
+
                                                     <div class="form-group">
-                                                        <label for="">Hypertension</label>
-                                                        <input type="text" class="form-control" name="hypertension"
-                                                               value="{{old('hypertension')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="hypertension"
-                                                        />
+                                                        <label class="form-label">Hypertension</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="hypertension"
+                                                                value="{{old('hypertension')}}" tabindex="1">
+                                                            @if(!empty(old('hypertension')))
+                                                                <option value="{{old('hypertension')}}"
+                                                                        selected>{{old('hypertension')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
                                                         @error('hypertension')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
                                                     </div>
+
+
                                                 </div>
                                                 <div class="col-md-6">
-
                                                     <div class="form-group">
-                                                        <label for="">Dyslipidaemia</label>
-                                                        <input type="text" class="form-control" name="dyslipidaemia"
-                                                               value="{{old('dyslipidaemia')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="dyslipidaemia"
-                                                        />
-                                                        @error('dyslipidaemia')
+                                                        <label class="form-label">Dyslipidaemia</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="dyslipidaemia"
+                                                                value="{{old('dyslipidaemia')}}" tabindex="1">
+                                                            @if(!empty(old('dyslipidaemia')))
+                                                                <option value="{{old('dyslipidaemia')}}"
+                                                                        selected>{{old('dyslipidaemia')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('hypertension')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
                                                     </div>
+
+
                                                 </div>
                                             </div>
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">tuberculosis</label>
-                                                        <input type="text" class="form-control" name="tuberculosis"
-                                                               value="{{old('tuberculosis')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="tuberculosis"
-                                                        />
-                                                        @error('hypertension')
+                                                        <label class="form-label">Tuberculosis</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="tuberculosis"
+                                                                value="{{old('tuberculosis')}}" tabindex="1">
+                                                            @if(!empty(old('tuberculosis')))
+                                                                <option value="{{old('tuberculosis')}}"
+                                                                        selected>{{old('tuberculosis')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('tuberculosis')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
                                                     </div>
+
                                                 </div>
                                                 <div class="col-md-6">
-
                                                     <div class="form-group">
-                                                        <label for="">Stroke</label>
-                                                        <input type="text" class="form-control" name="stroke"
-                                                               value="{{old('stroke')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="stroke"/>
+                                                        <label class="form-label">Stroke</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="stroke"
+                                                                value="{{old('stroke')}}" tabindex="1">
+                                                            @if(!empty(old('stroke')))
+                                                                <option value="{{old('stroke')}}"
+                                                                        selected>{{old('stroke')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
                                                         @error('stroke')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">IHD/MI</label>
-                                                        <input type="text" class="form-control" name="ihd_mi"
-                                                               value="{{old('ihd_mi')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="ihd_mi"/>
+                                                        <label class="form-label">IHD/MI</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="ihd_mi"
+                                                                value="{{old('ihd_mi')}}" tabindex="1">
+                                                            @if(!empty(old('ihd_mi')))
+                                                                <option value="{{old('ihd_mi')}}"
+                                                                        selected>{{old('ihd_mi')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
                                                         @error('ihd_mi')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
                                                     </div>
+
                                                 </div>
                                                 <div class="col-md-6">
-
                                                     <div class="form-group">
-                                                        <label for="">Nephropathy</label>
-                                                        <input type="text" class="form-control" name="nephropathy"
-                                                               value="{{old('nephropathy')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="nephropathy"
-                                                        />
+                                                        <label class="form-label">Nephropathy</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="nephropathy"
+                                                                value="{{old('nephropathy')}}" tabindex="1">
+                                                            @if(!empty(old('nephropathy')))
+                                                                <option value="{{old('nephropathy')}}"
+                                                                        selected>{{old('nephropathy')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
                                                         @error('nephropathy')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
-
                                                     <div class="form-group">
-                                                        <label for="">Retinopathy</label>
-                                                        <input type="text" class="form-control" name="retinopathy"
-                                                               value="{{old('retinopathy')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="retinopathy"
-                                                        />
+                                                        <label class="form-label">Retinopathy</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="retinopathy"
+                                                                value="{{old('retinopathy')}}" tabindex="1">
+                                                            @if(!empty(old('retinopathy')))
+                                                                <option value="{{old('retinopathy')}}"
+                                                                        selected>{{old('retinopathy')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
                                                         @error('retinopathy')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
                                                     </div>
+
+
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">Neuropathy</label>
-                                                        <input type="text" class="form-control" name="neuropathy"
-                                                               value="{{old('neuropathy')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="neuropathy"
-                                                        />
+                                                        <label class="form-label">Neuropathy</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="neuropathy"
+                                                                value="{{old('neuropathy')}}" tabindex="1">
+                                                            @if(!empty(old('retinopathy')))
+                                                                <option value="{{old('neuropathy')}}"
+                                                                        selected>{{old('neuropathy')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
                                                         @error('neuropathy')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">DM Foot</label>
-                                                        <input type="text" class="form-control" name="dm_foot"
-                                                               value="{{old('dm_foot')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="dm_foot"/>
-                                                        @error('dm_foot')
+                                                        <label class="form-label">DM Foot</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="neuropathy"
+                                                                value="{{old('dm_foot')}}" tabindex="1">
+                                                            @if(!empty(old('dm_foot')))
+                                                                <option value="{{old('dm_foot')}}"
+                                                                        selected>{{old('dm_foot')}}</option>
 
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('dm_foot')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
                                                     </div>
@@ -817,6 +893,88 @@
 
                                     <div class="form-body">
                                         <div class="card-body">
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_hypertension'))
+                                                        <hbaonec-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
+                                                                           error="{{$errors->first('ph_hypertension')}}"></hbaonec-component>
+
+                                                    @else
+                                                        <hbaonec-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
+                                                                           error=""></hbaonec-component>
+
+                                                    @endif
+
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_dyslipidaemia'))
+                                                        <hbaonec-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
+                                                                           error="{{$errors->first('ph_dyslipidaemia')}}"></hbaonec-component>
+
+                                                    @else
+                                                        <hbaonec-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
+                                                                           error=""></hbaonec-component>
+
+                                                    @endif
+
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_tuberculosis'))
+                                                        <hbaonec-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
+                                                                           error="{{$errors->first('ph_tuberculosis')}}"></hbaonec-component>
+
+                                                    @else
+                                                        <hbaonec-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
+                                                                           error=""></hbaonec-component>
+
+                                                    @endif
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_stroke'))
+                                                        <hbaonec-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
+                                                                           error="{{$errors->first('ph_stroke')}}"></hbaonec-component>
+
+                                                    @else
+                                                        <hbaonec-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
+                                                                           error=""></hbaonec-component>
+
+                                                    @endif
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ihd_mi'))
+                                                        <hbaonec-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
+                                                                           error="{{$errors->first('ph_ihd_mi')}}"></hbaonec-component>
+
+                                                    @else
+                                                        <hbaonec-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
+                                                                           error=""></hbaonec-component>
+
+                                                    @endif
+
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_nephropathy'))
+                                                        <hbaonec-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
+                                                                           error="{{$errors->first('ph_nephropathy')}}"></hbaonec-component>
+
+                                                    @else
+                                                        <hbaonec-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
+                                                                           error=""></hbaonec-component>
+
+                                                    @endif
+
+
+                                                </div>
+                                            </div>
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     <div class="form-group">

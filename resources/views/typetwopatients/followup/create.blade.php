@@ -339,6 +339,284 @@
                         </div>
                     </div>
                     {{--First form--}}
+                    {{--First form--}}
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Clinical Profile</h4>
+                                </div>
+                                <hr>
+                                <div class="form-body">
+                                    <div class="card-body">
+                                        <div class="row pt-3">
+                                            <div class="col-md-6">
+                                                @if($link_patient_id =='')
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Patient id</label>
+                                                        <select name='patient_id' class="form-control custom-select">
+                                                            @if(old('patient_id'))
+
+                                                                <option value='{{old('patient_id')}}'>{{old('patient_id')}}</option>
+                                                            @else
+                                                                <option value=''>Patient ID</option>
+
+                                                            @endif
+                                                            @foreach($id as $i)
+                                                                <option value="{{$i->id}}">{{$i->id}}</option>
+                                                            @endforeach
+
+
+                                                        </select>
+                                                        @error('patient_id')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>
+                                                @else
+                                                    <div class="form-group">
+                                                        <label for="exampleInputPassword1">Patient id</label>
+                                                        <select name='patient_id' class="form-control custom-select">
+                                                            <option value='{{$link_patient_id}}' selected>{{$link_patient_id}}</option>
+
+
+
+                                                        </select>
+                                                        @error('patient_id')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>                                                @endif
+                                            </div>
+
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">HB</label>
+                                                    <input type="text" name="hb" value="{{old('hb')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="HB">
+                                                    @error('hb')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">CR</label>
+                                                    <input type="text" name="cr"  value="{{old('cr')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="CR">
+                                                    @error('cr')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">UACR</label>
+                                                    <input type="text" name="uacr" value="{{old('uacr')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="UACR">
+                                                    @error('uacr')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--/span-->
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">CHOL</label>
+                                                    <input type="text" name="chol" value="{{old('chol')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="CHOL">
+                                                    @error('chol')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">LDL</label>
+                                                    <input type="text" name="ldl" value="{{old('ldl')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="LDL">
+                                                    @error('ldl')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--/span-->
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">HDL</label>
+                                                    <input type="text" name="hdl" value="{{old('hdl')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="HDL">
+                                                    @error('hdl')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">TG</label>
+                                                    <input type="text" name="tg"  value="{{old('tg')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="TG">
+                                                    @error('tg')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--/span-->
+                                        </div>
+                                        <div class="row pt-3">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">ASCVD</label>
+                                                    <input type="text" class="form-control" value="{{old('ascvd')}}" name="ascvd"
+                                                           id="exampleInputEmail1"
+                                                           aria-describedby="emailHelp" placeholder="ASCVD">
+                                                    @error('ascvd')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">TSH</label>
+                                                    <input type="text" name="tsh" value="{{old('tsh')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="TSH">
+                                                    @error('tsh')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">UA</label>
+                                                    <input type="text" name="u_a" value="{{old('u_a')}}"  class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="TSH">
+                                                    @error('u_a')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Retinopathy</label>
+                                                    <input type="text" value="{{old('retinopathy')}}" name="retinopathy" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="Retinopathy">
+                                                    @error('retinopathy')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--/span-->
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Neuropathy</label>
+                                                    <input type="text" name="neuropathy" value="{{old('neuropathy')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="Neuropathy">
+                                                    @error('neuropathy')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">PAD</label>
+                                                    <input type="text" name="pad"  value="{{old('pad')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="PAD">
+                                                    @error('pad')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <!--/span-->
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">HBa1c</label>
+                                                    <input type="text" class="form-control" value="{{old('hba1c')}}" name="hba1c"
+                                                           id="exampleInputEmail1"
+                                                           aria-describedby="emailHelp" placeholder="Enter HBa1c">
+                                                    @error('hba1c')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">HE</label>
+                                                    <input type="text" name="he" value="{{old('he')}}" class="form-control"
+                                                           id="exampleInputPassword1"
+                                                           placeholder="HE">
+                                                    @error('he')
+                                                    <p class="text-danger">{{$message}} </p>
+                                                    @enderror
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPassword1">Date</label>
+                                                    <input type="date" name='date' class="form-control" placeholder="dd/mm/yyyy">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{--First form--}}
 
 
 

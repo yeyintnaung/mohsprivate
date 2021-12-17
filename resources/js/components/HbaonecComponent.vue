@@ -1,6 +1,6 @@
 <template>
     <div class="form-group">
-        <label for="">HbA1C(last date)</label>
+        <label for="">{{ title }}</label>
         <div class="row">
             <div class="col-md-6">
 
@@ -15,15 +15,12 @@
 
             <div class="col-md-6">
 
-                <input type="date"  v-bind:name="namefieldondate" v-bind:value="old_hba1c" class="form-control"
+                <input type="date"  v-bind:name="namefieldondate" v-bind:value=this.oldvalue class="form-control"
                        v-bind:class="[hideorshow]"
                        id=""
                        placeholder="HbA1C(last date)" :required="daterequired"/>
             </div>
-            ffff
         </div>
-        {{old_hba1c}}
-        {{daterequired}}
 
         <!--        <p class="text-danger">{{error}} </p>-->
         <p class="text-danger">{{error}} </p>
@@ -34,7 +31,7 @@
 
 <script>
 export default {
-    props: ['old_hba1c','error'],
+    props: ['oldvalue','title','error','fieldname'],
 
     data() {
         return{
@@ -47,8 +44,8 @@ export default {
         }
     },
     mounted(){
-        if(this.old_hba1c == 'No'){
-            this.yesorno =this.old_hba1c,
+        if(this.oldvalue == 'No'){
+            this.yesorno =this.oldvalue,
             this.daterequired=false
 
         }
@@ -59,7 +56,7 @@ export default {
             // `this` will refer to the component instance
             if(this.yesorno == 'Yes'){
                 this.hideorshow='d-inline';
-                this.namefieldondate='hba1c';
+                this.namefieldondate=this.fieldname;
                 this.daterequired=true;
                 this.namefieldonselect='';
                 this.selectrequired=false;
@@ -71,7 +68,7 @@ export default {
                 this.selectrequired=true;
 
 
-                this.namefieldonselect='hba1c';
+                this.namefieldonselect=this.fieldname;
 
             }
           console.log(this.yesorno)

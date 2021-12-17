@@ -4989,7 +4989,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -5040,11 +5039,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['old_hba1c', 'error'],
+  props: ['oldvalue', 'title', 'error', 'fieldname'],
   data: function data() {
     return {
       daterequired: true,
@@ -5055,8 +5051,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    if (this.old_hba1c == 'No') {
-      this.yesorno = this.old_hba1c, this.daterequired = false;
+    if (this.oldvalue == 'No') {
+      this.yesorno = this.oldvalue, this.daterequired = false;
     }
 
     this.changeDisplay();
@@ -5066,7 +5062,7 @@ __webpack_require__.r(__webpack_exports__);
       // `this` will refer to the component instance
       if (this.yesorno == 'Yes') {
         this.hideorshow = 'd-inline';
-        this.namefieldondate = 'hba1c';
+        this.namefieldondate = this.fieldname;
         this.daterequired = true;
         this.namefieldonselect = '';
         this.selectrequired = false;
@@ -5075,7 +5071,7 @@ __webpack_require__.r(__webpack_exports__);
         this.namefieldondate = '';
         this.daterequired = false;
         this.selectrequired = true;
-        this.namefieldonselect = 'hba1c';
+        this.namefieldonselect = this.fieldname;
       }
 
       console.log(this.yesorno);
@@ -27846,7 +27842,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "form-group" }, [
-    _c("label", { attrs: { for: "" } }, [_vm._v("HbA1C(last date)")]),
+    _c("label", { attrs: { for: "" } }, [_vm._v(_vm._s(_vm.title))]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-6" }, [
@@ -27906,18 +27902,10 @@ var render = function () {
             placeholder: "HbA1C(last date)",
             required: _vm.daterequired,
           },
-          domProps: { value: _vm.old_hba1c },
+          domProps: { value: this.oldvalue },
         }),
       ]),
-      _vm._v("\n        ffff\n    "),
     ]),
-    _vm._v(
-      "\n    " +
-        _vm._s(_vm.old_hba1c) +
-        "\n    " +
-        _vm._s(_vm.daterequired) +
-        "\n\n    "
-    ),
     _vm._v(" "),
     _c("p", { staticClass: "text-danger" }, [_vm._v(_vm._s(_vm.error) + " ")]),
   ])
