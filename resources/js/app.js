@@ -20,7 +20,9 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('hbaonec-component', require('./components/HbaonecComponent.vue').default);
+Vue.component('dateorno-component', require('./components/DateOrNoComponent.vue').default);
+Vue.component('cmorfeet-component', require('./components/CmorFeetComponent.vue').default);
+Vue.component('bmi-component', require('./components/BmiComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,42 +33,56 @@ Vue.component('hbaonec-component', require('./components/HbaonecComponent.vue').
 const app = new Vue({
     el: '#app',
     data: {
-        weight: oldweight,
-        height:oldheight,
+        heightcmfromchildtoparent:0,
+        heightfeetchildtoparent:0,
+        heightfeettwchildtoparent:0
     },
-    // methods:{
-    //   bmifn:function(){
-    //   let value=this.weight /Math.pow(this.height,2);
-    //   this.bmi=Number(value.toFixed(1))
-    //   console.log(this.bmi)
-    //   }
+    methods: {
+        // Triggered when `childToParent` event is emitted by the child.
+        getdatafromchild (value) {
+        console.log(value);
+        this.heightcmfromchildtoparent=value.heightcmmodel;
+        this.heightfeetchildtoparent=value.heightfeetmodel;
+        this.heightfeettwchildtoparent=value.heightfeettwmodel;
+        }
+    }
+    // data: {
+    //     weight: oldweight,
+    //     height:oldheight,
     // },
-    methods:{
-        seth(v){
-            this.height=parseInt(v);
-            console.log(this.height)
-        },
-        setw(sv){
-            this.weight=sv;
-        },
-
-    },
-    computed: {
-        // a computed getter
-
-        bmifn:function(){
-            if(this.weight==0 && this.height==0){
-                return 0;
-            }else{
-                let value=this.weight /Math.pow(this.height,2);
-                return Number(value.toFixed(1));
-            }
-
-
-        },
-
-
-
-    },
+    // // methods:{
+    // //   bmifn:function(){
+    // //   let value=this.weight /Math.pow(this.height,2);
+    // //   this.bmi=Number(value.toFixed(1))
+    // //   console.log(this.bmi)
+    // //   }
+    // // },
+    // methods:{
+    //     seth(v){
+    //         this.height=parseInt(v);
+    //         console.log(this.height)
+    //     },
+    //     setw(sv){
+    //         this.weight=sv;
+    //     },
+    //
+    // },
+    // computed: {
+    //     // a computed getter
+    //
+    //     bmifn:function(){
+    //         if(this.weight==0 && this.height==0){
+    //             return 0;
+    //         }else{
+    //             let value=this.weight /Math.pow(this.height,2);
+    //             return Number(value.toFixed(1));
+    //         }
+    //
+    //
+    //     },
+    //
+    //
+    //
+    // },
 
 });

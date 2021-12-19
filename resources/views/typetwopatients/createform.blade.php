@@ -1,18 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="loader">
-            <div class="loader__figure"></div>
-            <p class="loader__label">Elite Hospital</p>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
+
     <div id="main-wrapper">
 
         <!-- ============================================================== -->
@@ -180,18 +169,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{--                                        <div class="col-md-6">--}}
-                                                {{--                                            <div class="form-group">--}}
-                                                {{--                                                <label for="">Education</label>--}}
-                                                {{--                                                <input type="text" name="duration_of_dm"--}}
-                                                {{--                                                       value="{{old('duration_of_dm')}}" class="form-control"--}}
-                                                {{--                                                       id=""--}}
-                                                {{--                                                       placeholder="Years" />--}}
-                                                {{--                                                @error('duration_of_dm')--}}
-                                                {{--                                                <p class="text-danger">{{$message}} </p>--}}
-                                                {{--                                                @enderror--}}
-                                                {{--                                            </div>--}}
-                                                {{--                                        </div>--}}
 
 
                                             </div>
@@ -343,87 +320,20 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">Height (m)</label>
-                                                        <input type="number" v-model="height" name="height" value=""
-                                                               class="form-control"
-                                                               id=""
-                                                               placeholder="height"/>
-                                                        @if(!empty(old('height')))
-
-                                                            <script>
-                                                                var oldheight ={!! json_encode(old('height')) !!}
-                                                            </script>
-
-
-                                                        @else
-
-                                                            <script>
-                                                                var oldheight = 0
-                                                            </script>
-
-                                                        @endif
-
-
-                                                        @error('height')
-
-                                                        <p class="text-danger">{{$message}} </p>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
+                                                <cmorfeet-component v-on:forparent="getdatafromchild"></cmorfeet-component>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">Weight (Pound)</label>
-                                                        <input type="number" v-model="weight" name="weight" value=""
+                                                        <input type="number" name="weight" value=""
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Weight"/>
-                                                        @if(!empty(old('weight')))
 
-                                                            <script>
-                                                                var oldweight ={!! json_encode(old('weight')) !!}
-                                                            </script>
-
-
-                                                        @else
-
-                                                            <script>
-                                                                var oldweight = 0
-                                                            </script>
-
-                                                        @endif
-                                                        @error('weight')
-                                                        <p class="text-danger">{{$message}} </p>
-                                                        @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">BMI</label>
-                                                        {{--                                                <input type="text" name="bmi" v-bind:value="bmi"--}}
-                                                        {{--                                                       class="form-control"--}}
-                                                        {{--                                                       id=""--}}
-                                                        {{--                                                       placeholder="BMI" disabled />--}}
-
-                                                        {{--                                                @error('stroke')--}}
-                                                        {{--                                                <p class="text-danger">{{$message}} </p>--}}
-                                                        {{--                                                @enderror--}}
-                                                        <div class="input-group mb-3">
-                                                            <input type="text" class="form-control" v-bind:value="bmifn"
-                                                                   placeholder="" aria-label=""
-                                                                   aria-describedby="basic-addon1"
-                                                                   disabled>
-
-                                                            {{-- <div class="input-group-append">--}}
-                                                            {{--                                                        <button class="btn btn-info text-white" v-on:click='bmifn()' type="button">Click To Calculate</button>--}}
-                                                            {{--                                                    </div>--}}
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <bmi-component></bmi-component>
                                             </div>
                                             <!--/row-->
 
@@ -445,12 +355,12 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if($errors->has('hba1c'))
-                                                        <hbaonec-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
-                                                                           error="{{$errors->first('hba1c')}}"></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
+                                                                           error="{{$errors->first('hba1c')}}"></dateorno-component>
 
                                                     @else
-                                                        <hbaonec-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
-                                                                           error=""></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
+                                                                           error=""></dateorno-component>
 
                                                     @endif
 
@@ -896,12 +806,12 @@
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_hypertension'))
-                                                        <hbaonec-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
-                                                                           error="{{$errors->first('ph_hypertension')}}"></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
+                                                                           error="{{$errors->first('ph_hypertension')}}"></dateorno-component>
 
                                                     @else
-                                                        <hbaonec-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
-                                                                           error=""></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
+                                                                           error=""></dateorno-component>
 
                                                     @endif
 
@@ -909,12 +819,12 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_dyslipidaemia'))
-                                                        <hbaonec-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
-                                                                           error="{{$errors->first('ph_dyslipidaemia')}}"></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
+                                                                           error="{{$errors->first('ph_dyslipidaemia')}}"></dateorno-component>
 
                                                     @else
-                                                        <hbaonec-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
-                                                                           error=""></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
+                                                                           error=""></dateorno-component>
 
                                                     @endif
 
@@ -924,24 +834,24 @@
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_tuberculosis'))
-                                                        <hbaonec-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
-                                                                           error="{{$errors->first('ph_tuberculosis')}}"></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
+                                                                           error="{{$errors->first('ph_tuberculosis')}}"></dateorno-component>
 
                                                     @else
-                                                        <hbaonec-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
-                                                                           error=""></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
+                                                                           error=""></dateorno-component>
 
                                                     @endif
 
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_stroke'))
-                                                        <hbaonec-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
-                                                                           error="{{$errors->first('ph_stroke')}}"></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
+                                                                           error="{{$errors->first('ph_stroke')}}"></dateorno-component>
 
                                                     @else
-                                                        <hbaonec-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
-                                                                           error=""></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
+                                                                           error=""></dateorno-component>
 
                                                     @endif
 
@@ -950,12 +860,12 @@
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     @if($errors->has('ihd_mi'))
-                                                        <hbaonec-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
-                                                                           error="{{$errors->first('ph_ihd_mi')}}"></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
+                                                                           error="{{$errors->first('ph_ihd_mi')}}"></dateorno-component>
 
                                                     @else
-                                                        <hbaonec-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
-                                                                           error=""></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
+                                                                           error=""></dateorno-component>
 
                                                     @endif
 
@@ -963,12 +873,12 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_nephropathy'))
-                                                        <hbaonec-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
-                                                                           error="{{$errors->first('ph_nephropathy')}}"></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
+                                                                           error="{{$errors->first('ph_nephropathy')}}"></dateorno-component>
 
                                                     @else
-                                                        <hbaonec-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
-                                                                           error=""></hbaonec-component>
+                                                        <dateorno-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
+                                                                           error=""></dateorno-component>
 
                                                     @endif
 
@@ -1312,5 +1222,6 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
+    </div>
 
 @endsection

@@ -39,7 +39,8 @@ export default {
             selectrequired:true,
             yesorno:'Yes',
             hideorshow:'d-none',
-            namefieldondate:'hba1c'
+            namefieldonselect:'',
+            namefieldondate:this.fieldname
 
         }
     },
@@ -66,16 +67,13 @@ export default {
                 this.namefieldondate='';
                 this.daterequired=false;
                 this.selectrequired=true;
-
-
                 this.namefieldonselect=this.fieldname;
-
             }
           console.log(this.yesorno)
         }
     },
 
-    name: "HbaonecComponent"
+    name: "DateOrNoComponent"
 }
 </script>
 
