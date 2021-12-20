@@ -4991,30 +4991,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "BmiComponent",
+  props: ['resultbmi'],
   mounted: function mounted() {
-    this.heightcmmodel = localStorage.getItem("height_cm");
+    console.log(this.resultbmi);
   },
   data: function data() {
     return {
-      heightcmmodel: 0
+      initresultbmi: 0
     };
-  },
-  methods: {
-    getdatafromchild: function getdatafromchild(args) {
-      console.log(args);
-    }
   }
 });
 
@@ -5083,9 +5069,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      cmrequired: true,
+      ftrequired: false,
       selectcmorfeet: 'cm',
       heightcmmodel: 0,
       heightfeetmodel: 0,
@@ -5104,12 +5093,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     cmorfeetchange: function cmorfeetchange() {
       if (this.selectcmorfeet == 'cm') {
+        this.cmrequired = true;
+        this.ftrequired = false;
         this.heightcmmodel = 0;
         this.heightfeetmodel = 0;
         this.heightfeettwmodel = 0;
         this.hideorshowcm = 'd-block';
         this.hideorshowfeet = 'd-none';
       } else {
+        this.cmrequired = false;
+        this.ftrequired = true;
         this.heightcmmodel = 0;
         this.heightfeetmodel = 0;
         this.heightfeettwmodel = 0;
@@ -5280,17 +5273,59 @@ Vue.component('bmi-component', __webpack_require__(/*! ./components/BmiComponent
 var app = new Vue({
   el: '#app',
   data: {
-    heightcmfromchildtoparent: 0,
-    heightfeetchildtoparent: 0,
-    heightfeettwchildtoparent: 0
+    resultBmi: 0,
+    weight: 0,
+    cmtom: 0,
+    feetinchestom: 0,
+    poundtokg: 0
   },
   methods: {
     // Triggered when `childToParent` event is emitted by the child.
     getdatafromchild: function getdatafromchild(value) {
-      console.log(value);
-      this.heightcmfromchildtoparent = value.heightcmmodel;
-      this.heightfeetchildtoparent = value.heightfeetmodel;
-      this.heightfeettwchildtoparent = value.heightfeettwmodel;
+      if (value.heightcmmodel != 0) {
+        this.cmtom = value.heightcmmodel / 100;
+        this.feetinchestom = 0;
+
+        if (this.weight != 0) {
+          this.poundtokg = this.weight / 2.205;
+          var fixfloat = this.poundtokg / (this.cmtom * this.cmtom);
+          this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+        } else {
+          this.resultBmi = 0;
+        }
+      } else {
+        this.cmtom = 0;
+        var inchestofeet = value.heightfeettwmodel / 12;
+        var allfeet = Number(value.heightfeetmodel) + Number(inchestofeet);
+        this.feetinchestom = allfeet / 3.281;
+
+        if (this.weight != 0) {
+          this.poundtokg = this.weight / 2.205;
+
+          var _fixfloat = this.poundtokg / (this.feetinchestom * this.feetinchestom);
+
+          this.resultBmi = Number.parseFloat(_fixfloat).toFixed(2);
+        } else {
+          this.resultBmi = 0;
+        }
+      }
+    },
+    onweightchangelister: function onweightchangelister() {
+      if (this.weight != 0) {
+        if (this.cmtom != 0) {
+          this.poundtokg = this.weight / 2.205;
+          var fixfloat = this.poundtokg / (this.cmtom * this.cmtom);
+          this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+        } else {
+          this.poundtokg = this.weight / 2.205;
+
+          var _fixfloat2 = this.poundtokg / (this.feetinchestom * this.feetinchestom);
+
+          this.resultBmi = Number.parseFloat(_fixfloat2).toFixed(2);
+        }
+      } else {
+        this.resultBmi = 0;
+      }
     }
   } // data: {
   //     weight: oldweight,
@@ -28123,9 +28158,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-6" }, [
     _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "" } }, [
-        _vm._v("BMI " + _vm._s(_vm.heightcmmodel)),
-      ]),
+      _c("label", { attrs: { for: "" } }, [_vm._v("BMI")]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
@@ -28136,31 +28169,12 @@ var render = function () {
           placeholder: "BMI",
           disabled: "",
         },
+        domProps: { value: this.resultbmi },
       }),
-      _vm._v(" "),
-      _vm._m(0),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-3" }, [
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          placeholder: "",
-          "aria-label": "",
-          "aria-describedby": "basic-addon1",
-          disabled: "",
-        },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -28185,7 +28199,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-md-6" }, [
     _c("div", { staticClass: "form-group row" }, [
-      _c("label", [_vm._v("Height (cm)")]),
+      _c("label", [_vm._v("Height (" + _vm._s(_vm.selectcmorfeet) + ")")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-3" }, [
         _c(
@@ -28223,7 +28237,9 @@ var render = function () {
           [
             _c("option", { attrs: { value: "cm" } }, [_vm._v("Cm")]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "feet" } }, [_vm._v("Feet")]),
+            _c("option", { attrs: { value: "feet and inches" } }, [
+              _vm._v("Feet"),
+            ]),
           ]
         ),
       ]),
@@ -28243,10 +28259,12 @@ var render = function () {
             type: "number",
             name: "height_cm",
             placeholder: "height (CM)",
+            required: _vm.cmrequired,
           },
           domProps: { value: _vm.heightcmmodel },
           on: {
             change: _vm.passchildtoparent,
+            keyup: _vm.passchildtoparent,
             input: function ($event) {
               if ($event.target.composing) {
                 return
@@ -28275,10 +28293,12 @@ var render = function () {
                 name: "height_cm",
                 value: "",
                 placeholder: "height (Feet)",
+                required: _vm.ftrequired,
               },
               domProps: { value: _vm.heightfeetmodel },
               on: {
                 change: _vm.passchildtoparent,
+                keyup: _vm.passchildtoparent,
                 input: function ($event) {
                   if ($event.target.composing) {
                     return
@@ -28304,11 +28324,12 @@ var render = function () {
                 type: "number",
                 name: "height_feet",
                 value: "",
-                placeholder: "height (Feet)",
+                placeholder: "height (inches)",
               },
               domProps: { value: _vm.heightfeettwmodel },
               on: {
                 change: _vm.passchildtoparent,
+                keyup: _vm.passchildtoparent,
                 input: function ($event) {
                   if ($event.target.composing) {
                     return

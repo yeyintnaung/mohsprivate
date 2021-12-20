@@ -1,7 +1,7 @@
 <template>
     <div class="col-md-6">
         <div class="form-group row">
-            <label>Height (cm)</label>
+            <label>Height ({{ selectcmorfeet }})</label>
             <div class="col-3">
                 <select class="form-control form-select"
                         data-placeholder="Choose a Category"
@@ -10,34 +10,35 @@
                         tabindex="1">
 
                     <option value="cm">Cm</option>
-                    <option value="feet">Feet</option>
+                    <option value="feet and inches">Feet</option>
 
                 </select>
             </div>
             <div class="col-9" v-bind:class="[hideorshowcm]">
 
+
                 <input type="number"
-                       name="height_cm" v-model="heightcmmodel" @change="passchildtoparent"
+                       name="height_cm" v-model="heightcmmodel" @change="passchildtoparent" @keyup="passchildtoparent"
                        class="form-control"
 
-                       placeholder="height (CM)"/>
+                       placeholder="height (CM)" :required="cmrequired"/>
             </div>
             <div class="col-9" v-bind:class="[hideorshowfeet]">
                 <div class="row">
                     <div class="col-6 col-md-6">
 
                         <input type="number"
-                               name="height_cm" v-model="heightfeetmodel" value="" @change="passchildtoparent"
+                               name="height_cm" v-model="heightfeetmodel" value="" @change="passchildtoparent" @keyup="passchildtoparent"
                                class="form-control"
-                               placeholder="height (Feet)"/>
+                               placeholder="height (Feet)" :required="ftrequired"/>
 
                     </div>
                     <div class="col-6 col-md-6">
 
                         <input type="number"
-                               name="height_feet" v-model="heightfeettwmodel" value="" @change="passchildtoparent"
+                               name="height_feet" v-model="heightfeettwmodel" value="" @change="passchildtoparent" @keyup="passchildtoparent"
                                class="form-control"
-                               placeholder="height (Feet)"/>
+                               placeholder="height (inches)" />
 
                     </div>
                 </div>
@@ -55,6 +56,8 @@ export default {
 
     data() {
         return {
+            cmrequired:true,
+            ftrequired:false,
             selectcmorfeet: 'cm',
             heightcmmodel:0,
             heightfeetmodel:0,
@@ -70,6 +73,8 @@ export default {
         },
         cmorfeetchange() {
           if(this.selectcmorfeet == 'cm'){
+              this.cmrequired=true;
+              this.ftrequired=false;
               this.heightcmmodel=0;
               this.heightfeetmodel=0;
               this.heightfeettwmodel=0;
@@ -77,10 +82,11 @@ export default {
               this.hideorshowfeet='d-none';
 
           }else{
+              this.cmrequired=false;
+              this.ftrequired=true;
               this.heightcmmodel=0;
               this.heightfeetmodel=0;
               this.heightfeettwmodel=0;
-
               this.hideorshowcm='d-none';
               this.hideorshowfeet='d-block';
           }

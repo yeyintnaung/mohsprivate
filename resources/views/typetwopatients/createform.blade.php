@@ -326,14 +326,14 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">Weight (Pound)</label>
-                                                        <input type="number" name="weight" value=""
+                                                        <input type="number" name="weight" v-model="weight" @change="onweightchangelister" @keyup="onweightchangelister"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Weight"/>
 
                                                     </div>
                                                 </div>
-                                                <bmi-component></bmi-component>
+                                                <bmi-component :resultbmi="resultBmi"></bmi-component>
                                             </div>
                                             <!--/row-->
 

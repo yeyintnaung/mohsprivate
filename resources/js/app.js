@@ -33,18 +33,67 @@ Vue.component('bmi-component', require('./components/BmiComponent.vue').default)
 const app = new Vue({
     el: '#app',
     data: {
-        heightcmfromchildtoparent:0,
-        heightfeetchildtoparent:0,
-        heightfeettwchildtoparent:0
+        resultBmi: 0,
+        weight: 0,
+        cmtom: 0,
+        feetinchestom: 0,
+        poundtokg:0
     },
     methods: {
         // Triggered when `childToParent` event is emitted by the child.
-        getdatafromchild (value) {
-        console.log(value);
-        this.heightcmfromchildtoparent=value.heightcmmodel;
-        this.heightfeetchildtoparent=value.heightfeetmodel;
-        this.heightfeettwchildtoparent=value.heightfeettwmodel;
+         getdatafromchild(value) {
+            if (value.heightcmmodel != 0) {
+
+                this.cmtom = value.heightcmmodel / 100;
+                this.feetinchestom=0;
+                if (this.weight != 0) {
+                    this.poundtokg = this.weight / 2.205;
+                    let fixfloat=this.poundtokg / (this.cmtom * this.cmtom)
+                    this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+
+                } else {
+                    this.resultBmi = 0;
+                }
+
+            } else {
+                  this.cmtom=0;
+                let inchestofeet = value.heightfeettwmodel / 12;
+                let allfeet = Number(value.heightfeetmodel) +Number(inchestofeet);
+                this.feetinchestom = allfeet / 3.281;
+                if (this.weight != 0) {
+                    this.poundtokg = this.weight / 2.205;
+                    let fixfloat = this.poundtokg / (this.feetinchestom * this.feetinchestom);
+                    this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+
+
+                } else {
+                    this.resultBmi = 0;
+                }
+
+
+            }
+
+
+        },
+        onweightchangelister() {
+            if (this.weight != 0) {
+                if (this.cmtom != 0) {
+                    this.poundtokg = this.weight / 2.205;
+                    let fixfloat = this.poundtokg / (this.cmtom * this.cmtom);
+                    this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+
+                }
+                else{
+                    this.poundtokg = this.weight / 2.205;
+                    let fixfloat = this.poundtokg / (this.feetinchestom * this.feetinchestom);
+                    this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+
+                }
+            } else {
+                this.resultBmi = 0;
+            }
         }
+
     }
     // data: {
     //     weight: oldweight,
