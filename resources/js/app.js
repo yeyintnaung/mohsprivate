@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('dateorno-component', require('./components/DateOrNoComponent.vue').default);
 Vue.component('cmorfeet-component', require('./components/CmorFeetComponent.vue').default);
 Vue.component('bmi-component', require('./components/BmiComponent.vue').default);
+Vue.component('getdatabyid-component', require('./components/GetdatabyPatientId.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -35,6 +36,7 @@ const app = new Vue({
     data: {
         resultBmi: 0,
         weight: 0,
+        getid:'',
         cmtom: 0,
         feetinchestom: 0,
         poundtokg:0
@@ -92,6 +94,9 @@ const app = new Vue({
             } else {
                 this.resultBmi = 0;
             }
+        },
+        selectchange(){
+             this.$refs.fromchild.getfromserver(this.getid)
         }
 
     }

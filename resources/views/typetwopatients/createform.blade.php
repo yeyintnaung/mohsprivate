@@ -766,7 +766,7 @@
                                                         <label class="form-label">DM Foot</label>
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category"
-                                                                name="neuropathy"
+                                                                name="dm_foot"
                                                                 value="{{old('dm_foot')}}" tabindex="1">
                                                             @if(!empty(old('dm_foot')))
                                                                 <option value="{{old('dm_foot')}}"
@@ -983,8 +983,7 @@
                                                             @endif
                                                             <option value="Yes">Yes</option>
                                                             <option value="No">No</option>
-                                                            <option value="Currently Yes">Currently Yes</option>
-                                                            <option value="Not At All">Not At All</option>
+                                                            <option value="Ex">Ex smoke</option>
                                                         </select>
                                                         @error('smoking')
                                                         <p class="text-danger">{{$message}} </p>
@@ -1009,8 +1008,8 @@
                                                             @endif
                                                             <option value="Yes">Yes</option>
                                                             <option value="No">No</option>
-                                                            <option value="Currently Yes">Currently Yes</option>
-                                                            <option value="Not At All">Not At All</option>
+                                                            <option value="Ex">Ex smoke</option>
+
                                                         </select>
                                                         @error('alcohol')
                                                         <p class="text-danger">{{$message}} </p>
@@ -1033,8 +1032,8 @@
                                                             @endif
                                                             <option value="Yes">Yes</option>
                                                             <option value="No">No</option>
-                                                            <option value="Currently Yes">Currently Yes</option>
-                                                            <option value="Not At All">Not At All</option>
+                                                            <option value="Ex">Ex smoke</option>
+
                                                         </select>
                                                         @error('betal_chewing')
                                                         <p class="text-danger">{{$message}} </p>

@@ -4991,6 +4991,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "BmiComponent",
   props: ['resultbmi'],
@@ -5236,6 +5239,80 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GetdatabyPatientId.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GetdatabyPatientId.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['initial_id', 'selected_id'],
+  name: "GetdatabyPatientId",
+  data: function data() {
+    return {
+      id: '',
+      name: '',
+      father_name: '',
+      nrc_no: '',
+      phone_no: ''
+    };
+  },
+  mounted: function mounted() {
+    this.getfromserver(this.initial_id);
+  },
+  methods: {
+    getfromserver: function getfromserver(id) {
+      var _this = this;
+
+      console.log(id);
+      axios({
+        method: 'post',
+        url: 'http://localhost/mohs/public/api/get_patient_detail_byid',
+        data: {
+          id: id
+        }
+      }).then(function (result) {
+        _this.name = result.data[0].name;
+        _this.father_name = result.data[0].name;
+        _this.nrc_no = result.data[0].nrc_no;
+        _this.phone_no = result.data[0].phone_no;
+        console.log(result.data[0].name);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -5264,6 +5341,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 Vue.component('dateorno-component', __webpack_require__(/*! ./components/DateOrNoComponent.vue */ "./resources/js/components/DateOrNoComponent.vue").default);
 Vue.component('cmorfeet-component', __webpack_require__(/*! ./components/CmorFeetComponent.vue */ "./resources/js/components/CmorFeetComponent.vue").default);
 Vue.component('bmi-component', __webpack_require__(/*! ./components/BmiComponent.vue */ "./resources/js/components/BmiComponent.vue").default);
+Vue.component('getdatabyid-component', __webpack_require__(/*! ./components/GetdatabyPatientId.vue */ "./resources/js/components/GetdatabyPatientId.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -5275,6 +5353,7 @@ var app = new Vue({
   data: {
     resultBmi: 0,
     weight: 0,
+    getid: '',
     cmtom: 0,
     feetinchestom: 0,
     poundtokg: 0
@@ -5326,6 +5405,9 @@ var app = new Vue({
       } else {
         this.resultBmi = 0;
       }
+    },
+    selectchange: function selectchange() {
+      this.$refs.fromchild.getfromserver(this.getid);
     }
   } // data: {
   //     weight: oldweight,
@@ -28008,6 +28090,45 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/GetdatabyPatientId.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/GetdatabyPatientId.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GetdatabyPatientId_vue_vue_type_template_id_54ce7594_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GetdatabyPatientId.vue?vue&type=template&id=54ce7594&scoped=true& */ "./resources/js/components/GetdatabyPatientId.vue?vue&type=template&id=54ce7594&scoped=true&");
+/* harmony import */ var _GetdatabyPatientId_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GetdatabyPatientId.vue?vue&type=script&lang=js& */ "./resources/js/components/GetdatabyPatientId.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _GetdatabyPatientId_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _GetdatabyPatientId_vue_vue_type_template_id_54ce7594_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _GetdatabyPatientId_vue_vue_type_template_id_54ce7594_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "54ce7594",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/GetdatabyPatientId.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/BmiComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/BmiComponent.vue?vue&type=script&lang=js& ***!
@@ -28069,6 +28190,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/GetdatabyPatientId.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/GetdatabyPatientId.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GetdatabyPatientId_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GetdatabyPatientId.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GetdatabyPatientId.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GetdatabyPatientId_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -28140,6 +28277,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/GetdatabyPatientId.vue?vue&type=template&id=54ce7594&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/GetdatabyPatientId.vue?vue&type=template&id=54ce7594&scoped=true& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GetdatabyPatientId_vue_vue_type_template_id_54ce7594_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GetdatabyPatientId_vue_vue_type_template_id_54ce7594_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GetdatabyPatientId_vue_vue_type_template_id_54ce7594_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GetdatabyPatientId.vue?vue&type=template&id=54ce7594&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GetdatabyPatientId.vue?vue&type=template&id=54ce7594&scoped=true&");
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BmiComponent.vue?vue&type=template&id=405bd98a&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/BmiComponent.vue?vue&type=template&id=405bd98a&scoped=true& ***!
@@ -28161,15 +28315,47 @@ var render = function () {
       _c("label", { attrs: { for: "" } }, [_vm._v("BMI")]),
       _vm._v(" "),
       _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: this.resultbmi,
+            expression: "this.resultbmi",
+          },
+        ],
         staticClass: "form-control",
-        attrs: {
-          type: "text",
-          name: "bmi",
-          id: "",
-          placeholder: "BMI",
-          disabled: "",
-        },
+        attrs: { type: "text", placeholder: "BMI", disabled: "" },
         domProps: { value: this.resultbmi },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(this, "resultbmi", $event.target.value)
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: this.resultbmi,
+            expression: "this.resultbmi",
+          },
+        ],
+        staticClass: "form-control",
+        attrs: { type: "hidden", name: "bmi", id: "" },
+        domProps: { value: this.resultbmi },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(this, "resultbmi", $event.target.value)
+          },
+        },
       }),
     ]),
   ])
@@ -28290,8 +28476,7 @@ var render = function () {
               staticClass: "form-control",
               attrs: {
                 type: "number",
-                name: "height_cm",
-                value: "",
+                name: "height_ft",
                 placeholder: "height (Feet)",
                 required: _vm.ftrequired,
               },
@@ -28322,8 +28507,7 @@ var render = function () {
               staticClass: "form-control",
               attrs: {
                 type: "number",
-                name: "height_feet",
-                value: "",
+                name: "height_in",
                 placeholder: "height (inches)",
               },
               domProps: { value: _vm.heightfeettwmodel },
@@ -28485,6 +28669,72 @@ var staticRenderFns = [
     ])
   },
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GetdatabyPatientId.vue?vue&type=template&id=54ce7594&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/GetdatabyPatientId.vue?vue&type=template&id=54ce7594&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row mb-3" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-12 col-md-6",
+          staticStyle: { "font-weight": "400 !important" },
+          attrs: { for: "exampleInputPassword1" },
+        },
+        [_vm._v("\n        Name: " + _vm._s(this.name))]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-12 col-md-6",
+          staticStyle: { "font-weight": "400 !important" },
+        },
+        [_vm._v("Father\n        Name: " + _vm._s(_vm.father_name))]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-12 col-md-6",
+          staticStyle: { "font-weight": "400 !important" },
+        },
+        [_vm._v("Nrc\n        No: " + _vm._s(_vm.nrc_no))]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-12 col-md-6",
+          staticStyle: { "font-weight": "400 !important" },
+        },
+        [_vm._v("Phone\n        No: " + _vm._s(_vm.phone_no))]
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

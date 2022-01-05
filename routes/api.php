@@ -17,3 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//params for get_patient_detail ==   $name='' ,$id == ',$father_name == '', $nrc_no == '',
+
+Route::post('/get_patient_detail',[\App\Http\Controllers\ForapiController::class, 'get_patient_detail']);
+
+
+
+Route::post('/get_patient_detail_byid',[\App\Http\Controllers\ForapiController::class, 'get_patient_detail_byid']);
+
+
+//params for get_all_patient ==   $name='' ,$father_name == '',
+
+
+
+Route::post('/get_all_patient',[\App\Http\Controllers\ForapiController::class, 'get_all_patient']);

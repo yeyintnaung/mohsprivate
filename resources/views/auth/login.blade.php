@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
 
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>MOHS DEMO</title>
 
     <!-- page css -->
     <link href="{{url('dist/css/pages/login-register-lock.css')}}" rel="stylesheet">

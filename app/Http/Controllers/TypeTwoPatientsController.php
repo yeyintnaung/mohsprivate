@@ -31,37 +31,35 @@ class TypeTwoPatientsController extends Controller
 
         $input = $request->except('_token');
 
-        $rules=[
-            'name'=>'required|min:4|max:200','dental_history'=>'required','steroid_use'=>'required','hbv'=>'required',
-            'hcv'=>'required','rvi'=>'required','anti_lipids'=>'required','blood_pressure'=>'required','other_drugs'=>'required',
-            'hba1c'=>'required','other_drugs_his'=>'required','father_name'=>'required|min:4|max:200','phone_no'=>'required|min:4|max:200','height'=>'numeric|min:2|max:3',
-            'retinopathy'=>'required','nrc_no'=>'required','weight'=>'numeric|min:2|max:300','rbs'=>'required','antiplatelet'=>'required','age'=>'required',
-            'antihypertensives'=>'required','traditional_medicine'=>'required',
-            'town'=>'required','year_of_dx'=>'required|max:140','hypertension'=>'required','dyslipidaemia'=>'required',
-           'tuberculosis'=>'required','stroke'=>'required','ihd_mi'=>'required',
-            'nephropathy'=>'required','neuropathy'=>'required','dm_foot'=>'required','oad'=>'required','insulin'=>'required',
-            'naive'=>'required','diet_control'=>'required','physical_activity'=>'required'
-
-
-
-        ];
-        $messages=[
-            'name.min'=>'Your name must be 4 characters ','name.max'=>'Your name is too long'
-
-        ];
-        $validate=Validator::make($input,$rules,$messages);
-        if($validate->fails()){
-       return redirect()->back()->withErrors($validate)->withInput();
-        }
+//        $rules=[
+//            'name'=>'required|min:4|max:200','dental_history'=>'required','steroid_use'=>'required','hbv'=>'required',
+//            'hcv'=>'required','rvi'=>'required','anti_lipids'=>'required','blood_pressure'=>'required','other_drugs'=>'required',
+//            'hba1c'=>'required','other_drugs_his'=>'required','father_name'=>'required|min:4|max:200','phone_no'=>'required|min:4|max:200',
+//            'retinopathy'=>'required','nrc_no'=>'required','weight'=>'numeric|min:2|max:800','rbs'=>'required','antiplatelet'=>'required','age'=>'required',
+//            'antihypertensives'=>'required','traditional_medicine'=>'required',
+//            'town'=>'required','year_of_dx'=>'required|max:140','hypertension'=>'required','dyslipidaemia'=>'required',
+//           'tuberculosis'=>'required','stroke'=>'required','ihd_mi'=>'required',
+//            'nephropathy'=>'required','neuropathy'=>'required','dm_foot'=>'required','oad'=>'required','insulin'=>'required',
+//            'naive'=>'required','diet_control'=>'required','physical_activity'=>'required'
+//
+//
+//
+//        ];
+//        $messages=[
+//            'name.min'=>'Your name must be 4 characters ','name.max'=>'Your name is too long'
+//
+//        ];
+//        $validate=Validator::make($input,$rules,$messages);
+//        if($validate->fails()){
+//       return dd($validate->errors());
+//        }
         foreach ($input as $key => $value) {
             if ($input[$key] == null) {
                 $input[$key] = '';
             }
-
         }
         $input['created_at'] = Carbon::now();
         $input['updated_at'] = Carbon::now();
-        $input['bmi'] = $input['weight']/($input['height']*$input['height']);
         $input['admin_id'] = Auth::user()->id;
 
         TypeTwoPatients::create($input);

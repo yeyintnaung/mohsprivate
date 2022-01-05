@@ -2,10 +2,13 @@
     <div class="col-6">
         <div class="form-group">
             <label for="">BMI</label>
-            <input type="text" name="bmi"
-                   class="form-control" v-bind:value="this.resultbmi"
-                   id=""
+            <input type="text"
+                   class="form-control" v-model="this.resultbmi"
                    placeholder="BMI" disabled/>
+            <input type="hidden" name="bmi"
+                   class="form-control" v-model="this.resultbmi"
+                   id=""
+                   />
 
 <!--            @error('stroke')-->
 <!--            <p class="text-danger">{{ $message }} </p>-->

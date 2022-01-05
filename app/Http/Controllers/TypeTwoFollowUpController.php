@@ -21,11 +21,17 @@ class TypeTwoFollowUpController extends Controller
     public function createform($link_patient_id=''){
 
             $id=TypeTwoPatients::all();
+            if($link_patient_id != ''){
+                $patient_data=TypeTwoPatients::select('name','father_name','nrc_no','phone_no')->where('id',$link_patient_id)->first();
+
+            }else{
+                $patient_data='';
+            }
 
 
 
 
-        return view('typetwopatients.followup.create',['id'=>$id,'link_patient_id'=>$link_patient_id]);
+        return view('typetwopatients.followup.create',['id'=>$id,'link_patient_id'=>$link_patient_id,'patient_data'=>$patient_data]);
     }
 
 

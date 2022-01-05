@@ -28,7 +28,7 @@
                     <div class="col-6 col-md-6">
 
                         <input type="number"
-                               name="height_cm" v-model="heightfeetmodel" value="" @change="passchildtoparent" @keyup="passchildtoparent"
+                               name="height_ft" v-model="heightfeetmodel"  @change="passchildtoparent" @keyup="passchildtoparent"
                                class="form-control"
                                placeholder="height (Feet)" :required="ftrequired"/>
 
@@ -36,7 +36,7 @@
                     <div class="col-6 col-md-6">
 
                         <input type="number"
-                               name="height_feet" v-model="heightfeettwmodel" value="" @change="passchildtoparent" @keyup="passchildtoparent"
+                               name="height_in" v-model="heightfeettwmodel"  @change="passchildtoparent" @keyup="passchildtoparent"
                                class="form-control"
                                placeholder="height (inches)" />
 
