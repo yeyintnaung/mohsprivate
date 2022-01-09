@@ -70,11 +70,10 @@
                                         <thead>
                                         <tr>
                                             <th>Patient ID</th>
-                                            <th>HBA1C</th>
-                                            <th>HB</th>
-                                            <th>CR</th>
-                                            <th>UACR</th>
-                                            <th>CHOL</th>
+                                            <th>Name</th>
+                                            <th>Father Name</th>
+                                            <th>Nrc No</th>
+
                                             <th>Action</th>
 
                                         </tr>
@@ -82,11 +81,9 @@
                                         <tfoot>
                                         <tr>
                                             <th>Patient ID</th>
-                                            <th>HBA1C</th>
-                                            <th>HB</th>
-                                            <th>CR</th>
-                                            <th>UACR</th>
-                                            <th>CHOL</th>
+                                            <th>Name</th>
+                                            <th>Father Name</th>
+                                            <th>Nrc No</th>
                                             <th>Action</th>
                                         </tr>
                                         </tfoot>
@@ -94,12 +91,10 @@
                                         @foreach($data as $d)
                                             <tr>
                                                 <td>{{$d->patient_id}}</td>
-                                                <td>{{$d->hba1c}}</td>
-                                                <td>{{$d->hb}}</td>
-                                                <td>{{$d->cr}}</td>
-                                                <td>{{$d->uacr}}</td>
+                                                <td>{{$d->name}}</td>
+                                                <td>{{$d->father_name}}</td>
+                                                <td>{{$d->nrc_no}}</td>
 
-                                                <td> {{$d->chol}}</td>
                                                 <td><a href="" class="btn btn-success mr-2 btn-xs">Edit</a>&nbsp;
                                                     <a href="{{url('/typetwofollowup/detail/'.$d->id)}}" class="btn btn-info btn-xs">Detail</a>
                                                 </td>

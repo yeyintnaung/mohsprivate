@@ -57,7 +57,8 @@
                     @csrf
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" required="" name='name' value="{{old('name')}}" placeholder="Name" required> </div>
+                            <input class="form-control" type="text" required="" name='name' value="{{old('name')}}" placeholder="Name" required>
+                        </div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
