@@ -12,6 +12,8 @@ class ForapiController extends Controller
     //
     public function get_patient_detail(Request $request)
     {
+        $patient=[];
+        $follow_up=[];
         if ($request->id != '') {
             $patient = TypeTwoPatients::where('id', $request->id)->first();
             $follow_up=Typetwofollowup::where('patient_id',$request->id)->first();
@@ -27,7 +29,11 @@ class ForapiController extends Controller
                 $request->nrc_no ='%';
             }
             $patient = TypeTwoPatients::where([['name', 'like', $request->name], ['father_name', 'like', $request->father_name], ['nrc_no', 'like', $request->nrc_no]])->first();
-            $follow_up=Typetwofollowup::where('patient_id',$patient->id)->first();
+            if(!empty($patient->id)){
+                $follow_up=Typetwofollowup::where('patient_id',$patient->id)->first();
+
+            }else{$follow_up=null;}
+
 
         }
         return response()->json(['patient'=>$patient,'follow_up'=>$follow_up]);
