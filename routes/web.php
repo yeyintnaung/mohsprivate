@@ -23,6 +23,7 @@ Route::prefix('typetwopatients')->group(function(){
     Route::get('/list', [TypeTwoPatientsController::class, 'list']);
     Route::get('/detail/{id}', [TypeTwoPatientsController::class, 'detail']);
     Route::get('/detail_without_auth/{id}', [TypeTwoPatientsController::class, 'detail_without_auth']);
+    Route::get('/typetwofollowup_without_auth/{id}', [TypeTwoFollowUpController::class, 'typetwofollowup_without_auth']);
     Route::post('/delete', [TypeTwoPatientsController::class, 'delete']);
 
 }

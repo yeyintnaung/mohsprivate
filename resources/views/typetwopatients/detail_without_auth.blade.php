@@ -1,1376 +1,1226 @@
-@extends('layouts.withoutauth')
+@extends('layouts.layout')
 @section('content')
 
 
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="loader">
-            <div class="loader__figure"></div>
-            <p class="loader__label"> Hospital</p>
-        </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
+
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <!-- ============================================================== -->
-                <!-- Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon --><b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="{{asset('images/logo-icon.png')}}" alt="homepage" class="dark-logo"/>
-                            <!-- Light Logo icon -->
-                            <img src="{{asset('images/logo-light-icon.png')}}" alt="homepage" class="light-logo"/>
-                        </b>
-                        <!--End Logo icon -->
-                        <span class="hidden-xs"><span class="font-bold">MOHS</span>Demo</span>
-                    </a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse">
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav me-auto">
-                        <!-- This is  -->
-                        <li class="nav-item"><a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
-                                                href="javascript:void(0)"><i class="ti-menu"></i></a></li>
-                        <li class="nav-item"><a
-                                class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
-                                href="javascript:void(0)"><i class="icon-menu"></i></a></li>
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item">
-                            <form class="app-search d-none d-md-block d-lg-block">
-                                <input type="text" class="form-control" placeholder="Search & enter">
-                            </form>
-                        </li>
-                    </ul>
-                    <!-- ============================================================== -->
-                    <!-- User profile and search -->
-                    <!-- ============================================================== -->
-                    <ul class="navbar-nav my-lg-0">
-                        <!-- ============================================================== -->
-                        <!-- Comment -->
-
-                        <li class="nav-item right-side-toggle"><a class="nav-link  waves-effect waves-light"
-                                                                  href="javascript:void(0)"><i class="ti-settings"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- ============================================================== -->
+    @include('layouts.header')
+    <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-{{--        <aside class="left-sidebar">--}}
-{{--            <!-- Sidebar scroll-->--}}
-{{--            <div class="scroll-sidebar">--}}
-{{--                <!-- Sidebar navigation-->--}}
-{{--                <nav class="sidebar-nav">--}}
-{{--                    <ul id="sidebarnav">--}}
-
-{{--                        --}}{{--                <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--                        aria-expanded="false"><i class="ti-align-left"></i><span class="hide-menu">Submit Others</span></a>--}}
-{{--                        --}}{{--                </li>--}}
-
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-palette"></i><span class="hide-menu">Ui Elements <span--}}
-{{--                        --}}{{--class="badge badge-pill badge-primary text-white ml-auto">25</span></span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="ui-cards.html">Cards</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-user-card.html">User Cards</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-buttons.html">Buttons</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-modals.html">Modals</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-tab.html">Tab</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-tooltip-popover.html">Tooltip &amp; Popover</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-tooltip-stylish.html">Tooltip stylish</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-sweetalert.html">Sweet Alert</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-notification.html">Notification</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-progressbar.html">Progressbar</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-nestable.html">Nestable</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-range-slider.html">Range slider</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-timeline.html">Timeline</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-typography.html">Typography</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-horizontal-timeline.html">Horizontal Timeline</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-session-timeout.html">Session Timeout</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-session-ideal-timeout.html">Session Ideal Timeout</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-bootstrap.html">Bootstrap Ui</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-breadcrumb.html">Breadcrumb</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-bootstrap-switch.html">Bootstrap Switch</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-list-media.html">List Media</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-ribbons.html">Ribbons</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-grid.html">Grid</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-carousel.html">Carousel</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-date-paginator.html">Date-paginator</a></li>--}}
-{{--                        --}}{{--<li><a href="ui-dragable-portlet.html">Dragable Portlet</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li class="nav-small-cap">--- PROFESSIONAL</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-calendar"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Appointment</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="doctor-schedule.html">Doctor Schedule</a></li>--}}
-{{--                        --}}{{--<li><a href="book-appointment.html">Book Appointment</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="fa fa-user-md"></i><span class="hide-menu">Doctors</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="doctors.html">All Doctors</a></li>--}}
-{{--                        --}}{{--<li><a href="add-doctor.html">Add Doctor</a></li>--}}
-{{--                        --}}{{--<li><a href="edit-doctor.html">Edit Doctor</a></li>--}}
-{{--                        --}}{{--<li><a href="doctor-profile.html">Doctor Profile</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="icon-people"></i><span class="hide-menu">Patients</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="patients.html">All Patients</a></li>--}}
-{{--                        --}}{{--<li><a href="add-patient.html">Add Patients</a></li>--}}
-{{--                        --}}{{--<li><a href="edit-patient.html">Edit Patients</a></li>--}}
-{{--                        --}}{{--<li><a href="patient-profile.html">Patient Profile</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="icon-chart"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Reports</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="payment-report.html">Payment Report</a></li>--}}
-{{--                        --}}{{--<li><a href="income-report.html">Income Report</a></li>--}}
-{{--                        --}}{{--<li><a href="sales-report.html">Sales Report</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="fas fa-rupee-sign"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Payments</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="payments.html">Payments</a></li>--}}
-{{--                        --}}{{--<li><a href="add-payments.html">Add Payment</a></li>--}}
-{{--                        --}}{{--<li><a href="patient-invoice.html">Invoice</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li class="nav-small-cap">--- FORMS, TABLE &amp; WIDGETS</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-layout-media-right-alt"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Forms</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="form-basic.html">Basic Forms</a></li>--}}
-{{--                        --}}{{--<li><a href="form-layout.html">Form Layouts</a></li>--}}
-{{--                        --}}{{--<li><a href="form-addons.html">Form Addons</a></li>--}}
-{{--                        --}}{{--<li><a href="form-material.html">Form Material</a></li>--}}
-{{--                        --}}{{--<li><a href="form-float-input.html">Floating Lable</a></li>--}}
-{{--                        --}}{{--<li><a href="form-pickers.html">Form Pickers</a></li>--}}
-{{--                        --}}{{--<li><a href="form-upload.html">File Upload</a></li>--}}
-{{--                        --}}{{--<li><a href="form-mask.html">Form Mask</a></li>--}}
-{{--                        --}}{{--<li><a href="form-validation.html">Form Validation</a></li>--}}
-{{--                        --}}{{--<li><a href="form-dropzone.html">File Dropzone</a></li>--}}
-{{--                        --}}{{--<li><a href="form-icheck.html">Icheck control</a></li>--}}
-{{--                        --}}{{--<li><a href="form-img-cropper.html">Image Cropper</a></li>--}}
-{{--                        --}}{{--<li><a href="form-bootstrapwysihtml5.html">HTML5 Editor</a></li>--}}
-{{--                        --}}{{--<li><a href="form-typehead.html">Form Typehead</a></li>--}}
-{{--                        --}}{{--<li><a href="form-wizard.html">Form Wizard</a></li>--}}
-{{--                        --}}{{--<li><a href="form-xeditable.html">Xeditable Editor</a></li>--}}
-{{--                        --}}{{--<li><a href="form-summernote.html">Summernote Editor</a></li>--}}
-{{--                        --}}{{--<li><a href="form-tinymce.html">Tinymce Editor</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-layout-accordion-merged"></i><span class="hide-menu">Tables</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="table-basic.html">Basic Tables</a></li>--}}
-{{--                        --}}{{--<li><a href="table-layout.html">Table Layouts</a></li>--}}
-{{--                        --}}{{--<li><a href="table-data-table.html">Data Tables</a></li>--}}
-{{--                        --}}{{--<li><a href="table-footable.html">Footable</a></li>--}}
-{{--                        --}}{{--<li><a href="table-jsgrid.html">Js Grid Table</a></li>--}}
-{{--                        --}}{{--<li><a href="table-responsive.html">Responsive Table</a></li>--}}
-{{--                        --}}{{--<li><a href="table-bootstrap.html">Bootstrap Tables</a></li>--}}
-{{--                        --}}{{--<li><a href="table-editable-table.html">Editable Table</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-settings"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Widgets</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="widget-data.html">Data Widgets</a></li>--}}
-{{--                        --}}{{--<li><a href="widget-apps.html">Apps Widgets</a></li>--}}
-{{--                        --}}{{--<li><a href="widget-charts.html">Charts Widgets</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li class="nav-small-cap">--- EXTRA COMPONENTS</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-gallery"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Page Layout</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="layout-single-column.html">1 Column</a></li>--}}
-{{--                        --}}{{--<li><a href="layout-fix-header.html">Fix header</a></li>--}}
-{{--                        --}}{{--<li><a href="layout-fix-sidebar.html">Fix sidebar</a></li>--}}
-{{--                        --}}{{--<li><a href="layout-fix-header-sidebar.html">Fixe header &amp; Sidebar</a></li>--}}
-{{--                        --}}{{--<li><a href="layout-boxed.html">Boxed Layout</a></li>--}}
-{{--                        --}}{{--<li><a href="layout-logo-center.html">Logo in Center</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-files"></i><span class="hide-menu">Sample Pages <span--}}
-{{--                        --}}{{--class="badge badge-pill badge-info">25</span></span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="starter-kit.html">Starter Kit</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-blank.html">Blank page</a></li>--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)" class="has-arrow">Authentication <span--}}
-{{--                        --}}{{--class="badge badge-pill badge-success pull-right">6</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="pages-login.html">Login 1</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-login-2.html">Login 2</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-register.html">Register</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-register2.html">Register 2</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-register3.html">Register 3</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-lockscreen.html">Lockscreen</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-recover-password.html">Recover password</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a href="pages-profile.html">Profile page</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-animation.html">Animation</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-fix-innersidebar.html">Sticky Left sidebar</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-fix-inner-right-sidebar.html">Sticky Right sidebar</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-invoice.html">Invoice</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-treeview.html">Treeview</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-utility-classes.html">Helper Classes</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-search-result.html">Search result</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-scroll.html">Scrollbar</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-pricing.html">Pricing</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-lightbox-popup.html">Lighbox popup</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-gallery.html">Gallery</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-faq.html">Faqs</a></li>--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)" class="has-arrow">Error Pages</a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="pages-error-400.html">400</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-error-403.html">403</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-error-404.html">404</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-error-500.html">500</a></li>--}}
-{{--                        --}}{{--<li><a href="pages-error-503.html">503</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-pie-chart"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Charts</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="chart-morris.html">Morris Chart</a></li>--}}
-{{--                        --}}{{--<li><a href="chart-chartist.html">Chartis Chart</a></li>--}}
-{{--                        --}}{{--<li><a href="chart-echart.html">Echarts</a></li>--}}
-{{--                        --}}{{--<li><a href="chart-flot.html">Flot Chart</a></li>--}}
-{{--                        --}}{{--<li><a href="chart-knob.html">Knob Chart</a></li>--}}
-{{--                        --}}{{--<li><a href="chart-chart-js.html">Chartjs</a></li>--}}
-{{--                        --}}{{--<li><a href="chart-sparkline.html">Sparkline Chart</a></li>--}}
-{{--                        --}}{{--<li><a href="chart-extra-chart.html">Extra chart</a></li>--}}
-{{--                        --}}{{--<li><a href="chart-peity.html">Peity Charts</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-light-bulb"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Icons</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="icon-material.html">Material Icons</a></li>--}}
-{{--                        --}}{{--<li><a href="icon-fontawesome.html">Fontawesome Icons</a></li>--}}
-{{--                        --}}{{--<li><a href="icon-themify.html">Themify Icons</a></li>--}}
-{{--                        --}}{{--<li><a href="icon-weather.html">Weather Icons</a></li>--}}
-{{--                        --}}{{--<li><a href="icon-simple-lineicon.html">Simple Line icons</a></li>--}}
-{{--                        --}}{{--<li><a href="icon-flag.html">Flag Icons</a></li>--}}
-{{--                        --}}{{--<li><a href="icon-iconmind.html">Mind Icons</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-location-pin"></i><span class="hide-menu">Maps</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="map-google.html">Google Maps</a></li>--}}
-{{--                        --}}{{--<li><a href="map-vector.html">Vector Maps</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="ti-align-left"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Multi level dd</span></a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)">item 1.1</a></li>--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)">item 1.2</a></li>--}}
-{{--                        --}}{{--<li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false">Menu 1.3</a>--}}
-{{--                        --}}{{--<ul aria-expanded="false" class="collapse">--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)">item 1.3.1</a></li>--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)">item 1.3.2</a></li>--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)">item 1.3.3</a></li>--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)">item 1.3.4</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a href="javascript:void(0)">item 1.4</a></li>--}}
-{{--                        --}}{{--</ul>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li class="nav-small-cap">--- SUPPORT</li>--}}
-{{--                        --}}{{--<li><a class="waves-effect waves-dark"--}}
-{{--                        --}}{{--href="http://eliteadmin.themedesigner.in/demos/bt4/documentation/documentation.html"--}}
-{{--                        --}}{{--aria-expanded="false"><i class="fa fa-circle-o text-danger"></i><span class="hide-menu">Documentation</span></a>--}}
-{{--                        --}}{{--</li>--}}
-{{--                        --}}{{--<li><a class="waves-effect waves-dark" href="pages-login.html" aria-expanded="false"><i--}}
-{{--                        --}}{{--class="fa fa-circle-o text-success"></i><span--}}
-{{--                        --}}{{--class="hide-menu">Log Out</span></a></li>--}}
-{{--                        --}}{{--<li><a class="waves-effect waves-dark" href="pages-faq.html" aria-expanded="false"><i--}}
-{{--                        --}}{{--class="fa fa-circle-o text-info"></i><span class="hide-menu">FAQs</span></a>--}}
-{{--                        --}}{{--</li>--}}
-{{--                    </ul>--}}
-{{--                </nav>--}}
-{{--                <!-- End Sidebar navigation -->--}}
-{{--            </div>--}}
-{{--            <!-- End Sidebar scroll-->--}}
-{{--        </aside>--}}
-        <!-- ============================================================== -->
+    @include('layouts.sidebar')
+    <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
+        <div>
+            <div class="page-wrapper">
                 <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
+                <!-- Container fluid  -->
                 <!-- ============================================================== -->
-                <div class="row page-titles">
-                    {{--<div class="col-md-5 align-self-center">--}}
-                    {{--<h4 class="text-themecolor">Basic Form</h4>--}}
+                <div class="container-fluid">
+
+                    <!-- ============================================================== -->
+                    <!-- Bread crumb and right sidebar toggle -->
+                    <!-- ============================================================== -->
+                    <div class="row page-titles">
+                        {{--<div class="col-md-5 align-self-center">--}}
+                        {{--<h4 class="text-themecolor">Basic Form</h4>--}}
+                        {{--</div>--}}
+                        <div class="col-md-12 align-self-center text-right">
+                            <div class="d-flex justify-content-start align-items-center">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                                    <li class="breadcrumb-item active">Basic Form</li>
+                                </ol>
+                                {{--<button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i--}}
+                                {{--class="fa fa-plus-circle"></i> Create New--}}
+                                {{--</button>--}}
+                            </div>
+                        </div>
+                    </div>
+                    <form action="{{url('/typetwopatients/create')}}" method="post">
+
+
+                        {{--First form--}}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body" style="border-bottom: 2px solid #00000014;">
+                                        <h4 class="card-title">General Profile</h4>
+                                    </div>
+                                    <div class="form-body">
+                                        <div class="card-body">
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Name</label>
+                                                        <input type="text" class="form-control" name="name"
+                                                               id=""
+                                                               aria-describedby="emailHelp" value="{{old('name')}}"
+                                                               placeholder="Enter Name"/>
+                                                        @error('name')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Father Name</label>
+                                                        <input type="text" class="form-control" name="father_name"
+                                                               id=""
+                                                               aria-describedby="emailHelp"
+                                                               value="{{old('father_name')}}"
+                                                               placeholder="Enter Name"/>
+                                                        @error('father_name')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!--/row-->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Age(DOB)</label>
+                                                        <input type="text" name="age" value="{{old('age')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="age"/>
+                                                        @error('age')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Gender</label>
+                                                        <div class="custom-control custom-radio">
+                                                            <div class="row no-gutters">
+                                                                @if(old('gender')=='male')
+                                                                    <div class="col-xs-4 mr-5">
+                                                                        <input type="radio" id="customRadio11"
+                                                                               name="gender" value='male'
+                                                                               class="form-check-input"
+                                                                               checked>
+                                                                        <label class="custom-control-label"
+                                                                               for="customRadio11">Male</label>
+                                                                    </div>
+                                                                    <div class="col-xs-4">
+                                                                        <input type="radio" id="customRadio12"
+                                                                               name="gender" value='female'
+                                                                               class="form-check-input">
+                                                                        <label class="custom-control-label"
+                                                                               for="customRadio12">Female</label>
+                                                                    </div>
+                                                                @elseif(old('gender')=='female')
+                                                                    <div class="col-xs-4 mr-5">
+                                                                        <input type="radio" id="customRadio11"
+                                                                               name="gender" value='male'
+                                                                               class="form-check-input"
+                                                                        >
+                                                                        <label class="custom-control-label"
+                                                                               for="customRadio11">Male</label>
+                                                                    </div>
+                                                                    <div class="col-xs-4">
+                                                                        <input type="radio" id="customRadio12"
+                                                                               name="gender" value='female'
+                                                                               class="form-check-input" checked>
+                                                                        <label class="custom-control-label"
+                                                                               for="customRadio12">Female</label>
+                                                                    </div>
+                                                                @else
+                                                                    <div class="col-xs-4 mr-5">
+                                                                        <input type="radio" id="customRadio11"
+                                                                               name="gender" value='male'
+                                                                               class="form-check-input"
+                                                                               checked>
+                                                                        <label class="custom-control-label"
+                                                                               for="customRadio11">Male</label>
+                                                                    </div>
+                                                                    <div class="col-xs-4">
+                                                                        <input type="radio" id="customRadio12"
+                                                                               name="gender" value='female'
+                                                                               class="form-check-input">
+                                                                        <label class="custom-control-label"
+                                                                               for="customRadio12">Female</label>
+                                                                    </div>
+                                                                @endif
+
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="custom-control custom-radio float-right">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Year of Dx</label>
+                                                        <input type="text" name="year_of_dx"
+                                                               value="{{old('year_of_dx')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Year of Dx"/>
+                                                        @error('year_of_dx')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Address(Town)</label>
+                                                        <input type="text" name="town" value="{{old('town')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Address(Town)"/>
+                                                        @error('town')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Phone No</label>
+                                                        <input type="number" name="phone_no" value="{{old('phone_no')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Phone No" required/>
+                                                        @error('phone_no')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Education</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category" name="education"
+                                                                value="{{old('education')}}" tabindex="1">
+                                                            @if(!empty(old('education')))
+                                                                <option value="{{old('education')}}"
+                                                                        selected>{{old('education')}}</option>
+
+                                                            @endif
+                                                            <option value="primary">Unknown</option>
+
+                                                            <option value="primary">Primary</option>
+                                                            <option value="Under Graduated">Under Graduated</option>
+                                                            <option value="Graduated">Graduated</option>
+                                                            <option value="Post Graduated">Post Graduated</option>
+                                                        </select>
+                                                        @error('education')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">NRC No</label>
+                                                        <input type="text" name="nrc_no" value="{{old('nrc_no')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="NRC No"/>
+                                                        @error('nrc_no')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Referred From</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="referred_from"
+                                                                value="{{old('referred_from')}}" tabindex="1">
+                                                            @if(!empty(old('referred_from')))
+                                                                <option value="{{old('referred_from')}}"
+                                                                        selected>{{old('referred_from')}}</option>
+
+                                                            @endif
+                                                            <option value="Unknown">Unknown</option>
+                                                            <option value="GP">GP</option>
+                                                            <option value="RHC">RHC</option>
+                                                            <option value="UHC">UHC</option>
+                                                            <option value="public hospital">Public Hospital</option>
+                                                            <option value="Private Hospital">Private Hospital</option>
+                                                        </select>
+                                                        @error('referred_from')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--First form--}}
+
+                        {{--First form--}}
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body" style="border-bottom: 2px solid #00000014;">
+                                        <h4 class="card-title">Current</h4>
+                                    </div>
+
+                                    <div class="form-body">
+                                        <div class="card-body">
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+
+                                                        <label for="">RBS(Miligram per decimeter)</label>
+                                                        <input type="text" class="form-control" name="rbs"
+                                                               value="{{old('rbs')}}"
+                                                               id=""
+                                                               aria-describedby="emailHelp" placeholder="rbs"/>
+                                                        @error('rbs')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>
+                                                </div>
+                                                <cmorfeet-component v-on:forparent="getdatafromchild"></cmorfeet-component>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Weight (Pound)</label>
+                                                        <input type="number" name="weight" v-model="weight" @change="onweightchangelister" @keyup="onweightchangelister"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Weight"/>
+
+                                                    </div>
+                                                </div>
+                                                <bmi-component :resultbmi="resultBmi"></bmi-component>
+                                            </div>
+                                            <!--/row-->
+
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Blood Pressure</label>
+                                                        <input type="text" name="blood_pressure"
+                                                               value="{{old('blood_pressure')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Blood Pressure"/>
+                                                        @error('blood_pressure')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @if($errors->has('hba1c'))
+                                                        <dateorno-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
+                                                                            error="{{$errors->first('hba1c')}}"></dateorno-component>
+
+                                                    @else
+                                                        <dateorno-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
+                                                                            error=""></dateorno-component>
+
+                                                    @endif
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">OAD (Start Year)</label>
+                                                        <input type="number" name="oad" value="{{old('oad')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="OAD"/>
+                                                        @error('oad')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Insulin (Start Year)</label>
+                                                        <input type="number" name='insulin' value="{{old('insulin')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Insulin"/>
+                                                        @error('insulin')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Traditional Medicine</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="traditional_medicine"
+                                                                value="{{old('traditional_medicine')}}" tabindex="1">
+                                                            @if(!empty(old('traditional_medicine')))
+                                                                <option value="{{old('traditional_medicine')}}"
+                                                                        selected>{{old('traditional_medicine')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('traditional_medicine')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Treatment naive</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="naive"
+                                                                value="{{old('naive')}}" tabindex="1">
+                                                            @if(!empty(old('naive')))
+                                                                <option value="{{old('naive')}}"
+                                                                        selected>{{old('naive')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('naive')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                    {{--sample yes no design--}}
+                                                    {{--                                                    <div class="form-group">--}}
+                                                    {{--                                                        <label class="control-label">Trement naive</label>--}}
+                                                    {{--                                                        <div class="custom-control custom-radio">--}}
+                                                    {{--                                                            <div class="row no-gutters">--}}
+                                                    {{--                                                                <div class="col-4 mr-5">--}}
+                                                    {{--                                                                    @php--}}
+                                                    {{--                                                                        if(old('naive')=='yes'){--}}
+                                                    {{--            $surgical_historyy='checked';--}}
+                                                    {{--            $surgical_historyn='';--}}
+
+                                                    {{--                                                                                }elseif(old('naive')=='no'){--}}
+                                                    {{--            $surgical_historyn='checked';--}}
+                                                    {{--            $surgical_historyy='';--}}
+                                                    {{--                                                                                }else{--}}
+                                                    {{--                                                                                    $surgical_historyy='checked';--}}
+                                                    {{--                                                                                    $surgical_historyn='';--}}
+                                                    {{--                                                                                }--}}
+                                                    {{--                                                                    @endphp--}}
+                                                    {{--                                                                    <input type="radio" id="customRadio16"--}}
+                                                    {{--                                                                           name="naive" value="Yes"--}}
+                                                    {{--                                                                           class="form-check-input"--}}
+                                                    {{--                                                                        {{$surgical_historyy}}>--}}
+                                                    {{--                                                                    <label class="custom-control-label"--}}
+                                                    {{--                                                                           for="customRadio16">Yes</label>--}}
+                                                    {{--                                                                </div>--}}
+                                                    {{--                                                                <div class="col-4">--}}
+                                                    {{--                                                                    <input type="radio" id="customRadio17"--}}
+                                                    {{--                                                                           name="naive" value="No"--}}
+                                                    {{--                                                                           class="form-check-input" {{$surgical_historyn}}>--}}
+                                                    {{--                                                                    <label class="custom-control-label"--}}
+                                                    {{--                                                                           for="customRadio17">No</label>--}}
+                                                    {{--                                                                </div>--}}
+
+
+                                                    {{--                                                            </div>--}}
+                                                    {{--                                                        </div>--}}
+                                                    {{--                                                        <div class="custom-control custom-radio float-right">--}}
+
+                                                    {{--                                                        </div>--}}
+                                                    {{--                                                    </div>--}}
+                                                    {{--sample yes no design--}}
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Antihypertensives</label>
+                                                        <input type="text" name="antihypertensives"
+                                                               value="{{old('antihypertensives')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Antihypertensives"/>
+                                                        @error('antihypertensives')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+
+                                                        <label for="">Anti Lipids</label>
+                                                        <input type="text" name="anti_lipids"
+                                                               value="{{old('anti_lipids')}}"
+                                                               class="form-control"
+                                                               id=""
+
+                                                               placeholder="Anti Lipids"/>
+                                                        @error('anti_lipids')
+
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+
+                                                        <label for="">Antiplatelet</label>
+                                                        <input type="text" name="antiplatelet"
+                                                               value="{{old('antiplatelet')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="antiplatelet"/>
+                                                        @error('antiplatelet')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Other Drugs</label>
+                                                        <input type="text" name="other_drugs"
+                                                               value="{{old('other_drugs')}}"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Other Drugs"/>
+                                                        @error('other_drugs')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body" style="border-bottom: 2px solid #00000014;">
+                                        <h4 class="card-title">Family H/O</h4>
+                                    </div>
+
+                                    <div class="form-body">
+                                        <div class="card-body">
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+
+                                                    <div class="form-group">
+                                                        <label class="form-label">Hypertension</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="hypertension"
+                                                                value="{{old('hypertension')}}" tabindex="1">
+                                                            @if(!empty(old('hypertension')))
+                                                                <option value="{{old('hypertension')}}"
+                                                                        selected>{{old('hypertension')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('hypertension')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Dyslipidaemia</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="dyslipidaemia"
+                                                                value="{{old('dyslipidaemia')}}" tabindex="1">
+                                                            @if(!empty(old('dyslipidaemia')))
+                                                                <option value="{{old('dyslipidaemia')}}"
+                                                                        selected>{{old('dyslipidaemia')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('hypertension')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Tuberculosis</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="tuberculosis"
+                                                                value="{{old('tuberculosis')}}" tabindex="1">
+                                                            @if(!empty(old('tuberculosis')))
+                                                                <option value="{{old('tuberculosis')}}"
+                                                                        selected>{{old('tuberculosis')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('tuberculosis')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Stroke</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="stroke"
+                                                                value="{{old('stroke')}}" tabindex="1">
+                                                            @if(!empty(old('stroke')))
+                                                                <option value="{{old('stroke')}}"
+                                                                        selected>{{old('stroke')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('stroke')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">IHD/MI</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="ihd_mi"
+                                                                value="{{old('ihd_mi')}}" tabindex="1">
+                                                            @if(!empty(old('ihd_mi')))
+                                                                <option value="{{old('ihd_mi')}}"
+                                                                        selected>{{old('ihd_mi')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('ihd_mi')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Nephropathy</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="nephropathy"
+                                                                value="{{old('nephropathy')}}" tabindex="1">
+                                                            @if(!empty(old('nephropathy')))
+                                                                <option value="{{old('nephropathy')}}"
+                                                                        selected>{{old('nephropathy')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('nephropathy')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Retinopathy</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="retinopathy"
+                                                                value="{{old('retinopathy')}}" tabindex="1">
+                                                            @if(!empty(old('retinopathy')))
+                                                                <option value="{{old('retinopathy')}}"
+                                                                        selected>{{old('retinopathy')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('retinopathy')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Neuropathy</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="neuropathy"
+                                                                value="{{old('neuropathy')}}" tabindex="1">
+                                                            @if(!empty(old('retinopathy')))
+                                                                <option value="{{old('neuropathy')}}"
+                                                                        selected>{{old('neuropathy')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('neuropathy')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">DM Foot</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="dm_foot"
+                                                                value="{{old('dm_foot')}}" tabindex="1">
+                                                            @if(!empty(old('dm_foot')))
+                                                                <option value="{{old('dm_foot')}}"
+                                                                        selected>{{old('dm_foot')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+
+                                                        </select>
+                                                        @error('dm_foot')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/row-->
+
+
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body" style="border-bottom: 2px solid #00000014;">
+                                        <h4 class="card-title">Personal History</h4>
+                                    </div>
+
+                                    <div class="form-body">
+                                        <div class="card-body">
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_hypertension'))
+                                                        <dateorno-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
+                                                                            error="{{$errors->first('ph_hypertension')}}"></dateorno-component>
+
+                                                    @else
+                                                        <dateorno-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
+                                                                            error=""></dateorno-component>
+
+                                                    @endif
+
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_dyslipidaemia'))
+                                                        <dateorno-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
+                                                                            error="{{$errors->first('ph_dyslipidaemia')}}"></dateorno-component>
+
+                                                    @else
+                                                        <dateorno-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
+                                                                            error=""></dateorno-component>
+
+                                                    @endif
+
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_tuberculosis'))
+                                                        <dateorno-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
+                                                                            error="{{$errors->first('ph_tuberculosis')}}"></dateorno-component>
+
+                                                    @else
+                                                        <dateorno-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
+                                                                            error=""></dateorno-component>
+
+                                                    @endif
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_stroke'))
+                                                        <dateorno-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
+                                                                            error="{{$errors->first('ph_stroke')}}"></dateorno-component>
+
+                                                    @else
+                                                        <dateorno-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
+                                                                            error=""></dateorno-component>
+
+                                                    @endif
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ihd_mi'))
+                                                        <dateorno-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
+                                                                            error="{{$errors->first('ph_ihd_mi')}}"></dateorno-component>
+
+                                                    @else
+                                                        <dateorno-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
+                                                                            error=""></dateorno-component>
+
+                                                    @endif
+
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @if($errors->has('ph_nephropathy'))
+                                                        <dateorno-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
+                                                                            error="{{$errors->first('ph_nephropathy')}}"></dateorno-component>
+
+                                                    @else
+                                                        <dateorno-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
+                                                                            error=""></dateorno-component>
+
+                                                    @endif
+
+
+                                                </div>
+                                            </div>
+                                            <div class="row pt-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Other Drugs History</label>
+                                                        <input type="text" class="form-control" name="other_drugs_his"
+                                                               value="{{old('other_drugs_his')}}"
+                                                               id=""
+                                                               aria-describedby="emailHelp"
+                                                               placeholder="Other Drugs History"/>
+                                                        @error('other_drugs_his')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Dental History</label>
+                                                        <input type="text" class="form-control" name="dental_history"
+                                                               value="{{old('dental_history')}}"
+                                                               id=""
+                                                               aria-describedby="emailHelp" placeholder="Dental History"
+                                                        />
+                                                        @error('dental_history')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+
+
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Diet Control</label>
+                                                        <input type="text" name="diet_control"
+                                                               value="{{old('diet_control')}}"
+                                                               class="form-control"
+
+                                                               aria-describedby="emailHelp"
+                                                               placeholder="Diet Control"/>
+
+                                                        @error('diet_control')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Physical Activity</label>
+                                                        <input type="text" name="physical_activity"
+                                                               value="{{old('physical_activity')}}"
+                                                               class="form-control"
+                                                               id=""
+
+                                                               aria-describedby="emailHelp"
+                                                               placeholder="physical_activity"/>
+
+                                                        @error('physical_activity')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Steroid Use</label>
+                                                        <input type="text" name="steroid_use"
+                                                               value="{{old('steroid_use')}}"
+                                                               class="form-control"
+                                                               id=""
+
+                                                               aria-describedby="emailHelp"
+                                                               placeholder="steroid_use"/>
+
+                                                        @error('steroid_use')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Smoking</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category" name="smoking"
+                                                                value="{{old('smoking')}}" tabindex="1">
+                                                            @if(!empty(old('smoking')))
+                                                                <option value="{{old('smoking')}}"
+                                                                        selected>{{old('smoking')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+                                                            <option value="Ex">Ex smoke</option>
+                                                        </select>
+                                                        @error('smoking')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">Alcohol</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category" name="alcohol"
+                                                                value="{{old('alcohol')}}" tabindex="1">
+                                                            @if(!empty(old('alcohol')))
+                                                                <option value="{{old('alcohol')}}"
+                                                                        selected>{{old('alcohol')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+                                                            <option value="Ex">Ex smoke</option>
+
+                                                        </select>
+                                                        @error('alcohol')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6">
+
+                                                    <div class="form-group">
+                                                        <label class="form-label">Betal Chewing</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="betal_chewing"
+                                                                value="{{old('betal_chewing')}}" tabindex="1">
+                                                            @if(!empty(old('betal_chewing')))
+                                                                <option value="{{old('betal_chewing')}}"
+                                                                        selected>{{old('betal_chewing')}}</option>
+
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
+                                                            <option value="Ex">Ex smoke</option>
+
+                                                        </select>
+                                                        @error('betal_chewing')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">HBV</label>
+                                                        <input type="text" name="hbv" value="{{old('hbv')}}"
+                                                               class="form-control"
+                                                               id=""
+
+                                                               aria-describedby="emailHelp" placeholder="hbv"
+                                                        />
+
+                                                        @error('hbv')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">HCV</label>
+                                                        <input type="text" name="hcv" value="{{old('hcv')}}"
+                                                               class="form-control"
+                                                               id=""
+
+                                                               aria-describedby="emailHelp" placeholder="hcv"
+                                                        />
+
+                                                        @error('hcv')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">RVI</label>
+                                                        <input type="text" name="rvi" value="{{old('rvi')}}"
+                                                               class="form-control"
+                                                               id=""
+
+                                                               aria-describedby="emailHelp" placeholder="rvi"
+                                                        />
+                                                        @error('rvi')
+                                                        <p class="text-danger">{{$message}} </p>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="col-md-12 mb-4">
+                                                        <div class="row">
+                                                            <div class="offset-sm-4 offset-md-9 col-md-9">
+                                                                {!! csrf_field() !!}
+                                                                <button type="submit"
+                                                                        class="btn btn-lg btn-success"><i
+                                                                        class="fa fa-check"></i>
+                                                                    Submit
+                                                                </button>
+                                                                <button type="button"
+                                                                        class="btn waves-effect waves-light btn-lg btn-secondary">
+                                                                    Cancel
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+
+                    {{--<div class="right-sidebar">--}}
+                    {{--<div class="slimscrollright">--}}
+                    {{--<div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span>--}}
                     {{--</div>--}}
-                    <div class="col-md-12 align-self-center text-right">
-                        <div class="d-flex justify-content-start align-items-center">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                <li class="breadcrumb-item active">Basic Form</li>
-                            </ol>
-                            {{--<button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i--}}
-                            {{--class="fa fa-plus-circle"></i> Create New--}}
-                            {{--</button>--}}
-                        </div>
-                    </div>
+                    {{--<div class="r-panel-body">--}}
+                    {{--<ul id="themecolors" class="m-t-20">--}}
+                    {{--<li><b>With Light sidebar</b></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-default" class="default-theme">1</a>--}}
+                    {{--</li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-green" class="green-theme">2</a></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-red" class="red-theme">3</a></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-blue" class="blue-theme">4</a></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-purple" class="purple-theme">5</a></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-megna"--}}
+                    {{--class="megna-theme working">6</a></li>--}}
+                    {{--<li class="d-block m-t-30"><b>With Dark sidebar</b></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-default-dark"--}}
+                    {{--class="default-dark-theme ">7</a></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-green-dark"--}}
+                    {{--class="green-dark-theme">8</a></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-red-dark" class="red-dark-theme">9</a>--}}
+                    {{--</li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-blue-dark"--}}
+                    {{--class="blue-dark-theme">10</a></li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-purple-dark" class="purple-dark-theme">11</a>--}}
+                    {{--</li>--}}
+                    {{--<li><a href="javascript:void(0)" data-skin="skin-megna-dark" class="megna-dark-theme ">12</a>--}}
+                    {{--</li>--}}
+                    {{--</ul>--}}
+                    {{--<ul class="m-t-20 chatonline">--}}
+                    {{--<li><b>Chat option</b></li>--}}
+                    {{--<li>--}}
+                    {{--<a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img"--}}
+                    {{--class="img-circle"> <span>Varun Dhavan <small--}}
+                    {{--class="text-success">online</small></span></a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img"--}}
+                    {{--class="img-circle"> <span>Genelia Deshmukh <small--}}
+                    {{--class="text-warning">Away</small></span></a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img"--}}
+                    {{--class="img-circle"> <span>Ritesh Deshmukh <small--}}
+                    {{--class="text-danger">Busy</small></span></a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img"--}}
+                    {{--class="img-circle"> <span>Arijit Sinh <small--}}
+                    {{--class="text-muted">Offline</small></span></a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img"--}}
+                    {{--class="img-circle"> <span>Govinda Star <small--}}
+                    {{--class="text-success">online</small></span></a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img"--}}
+                    {{--class="img-circle"> <span>John Abraham<small--}}
+                    {{--class="text-success">online</small></span></a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img"--}}
+                    {{--class="img-circle"> <span>Hritik Roshan<small--}}
+                    {{--class="text-success">online</small></span></a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img"--}}
+                    {{--class="img-circle"> <span>Pwandeep rajan <small--}}
+                    {{--class="text-success">online</small></span></a>--}}
+                    {{--</li>--}}
+                    {{--</ul>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
+
+
                 </div>
-
-
-                {{--First form--}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">General Profile</h4>
-                            </div>
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-                                    <div class="row pt-3">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputEmail1">Name</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->name}}
-
-
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Father
-                                                    Name</label>
-
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->father_name}}
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                    </div>
-                                    <!--/row-->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">Age</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->age}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Gender</label>
-
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->gender}}
-                                            </div>
-                                        </div>
-
-                                        <!--/span-->
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Year
-                                                    Of Dx</label>
-
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->year_of_dx}}
-                                            </div>
-                                        </div>                                            <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Address</label>
-
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->town}}
-                                            </div>
-                                        </div>
-
-                                        <!--/span-->
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Phone
-                                                    No</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->phone_no}}
-
-                                            </div>
-                                        </div>                                            <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Education</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->education}}
-
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">NRC
-                                                    No</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->nrc_no}}
-
-                                            </div>
-                                        </div>                                            <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Referred
-                                                    From</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->referred_from}}
-
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--/span-->
-                                    </div>
-
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{--First form--}}
-
-
-
-
-
-                {{--SEC form--}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Current</h4>
-                            </div>
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-                                    <div class="row pt-3">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       for="exampleInputEmail1">RBS</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->rbs}}
-
-
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Height</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->height}}
-
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                    </div>
-                                    <!--/row-->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Weight</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->weight}}
-
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">BMI</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->bmi}}
-
-
-                                            </div>
-                                        </div>
-
-                                        <!--/span-->
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Blood
-                                                    Pressure</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->blood_pressure}}
-
-                                            </div>
-                                        </div>                                            <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">HBA1C(Last
-                                                    Date)</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->hba1c}}
-
-                                            </div>
-                                        </div>
-
-                                        <!--/span-->
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">OAD</label>
-
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->oad}}
-                                            </div>
-                                        </div>                                            <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Insulin</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->insulin}}
-
-                                            </div>
-                                        </div>                                            <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">DM
-                                                    foot</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->dm_foot}}
-
-                                            </div>
-                                        </div>                                            <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Traditional
-                                                    Medicine</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->traditional_medicine}}
-
-                                            </div>
-                                        </div>                                            <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">Naive</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->naive}}
-
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Antihypertensives</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->antihypertensives}}
-
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Antiplatelet</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->antiplatelet}}
-
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Anti
-                                                    Lipids</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->anti_lipids}}
-
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Other
-                                                    Drugs</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->other_drugs}}
-
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{--SEC form--}}
-
-
-
-
-
-
-                {{--third form--}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Family H/O </h4>
-                            </div>
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Hypertension</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->hypertension}}
-
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Dyslipidaemia</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->dyslipidaemia}}
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">Stroke</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->stroke}}
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">IHD/MI</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->ihd_mi}}
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Nephropathy</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->nephropathy}}
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Retinopathy</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->retinopathy}}
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Neuropathy</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->neuropathy}}
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">DM
-                                                    Foot</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->dm_foot}}
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{--third form--}}
-
-
-
-
-                {{--Four form--}}
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Personal History</h4>
-                            </div>
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Other
-                                                    Drugs History</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->other_drugs_his}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Dental
-                                                    History
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->dental_history}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Diet
-                                                    Control</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->diet_control}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Physical
-                                                    Activity
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->physical_activity}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Steroid
-                                                    Use</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->steroid_use}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Smoking
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->smoking}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Alcohol</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->alcohol}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Betal
-                                                    Chewing
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->betal_chewing}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">HBV</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->hbv}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">HCV
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->hcv}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">RVI</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->rvi}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-
-
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Personal History</h4>
-                            </div>
-                            <hr>
-                            <div class="form-body">
-                                <div class="card-body">
-
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Other
-                                                    Drugs History</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->other_drugs_his}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Dental
-                                                    History
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->dental_history}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Diet
-                                                    Control</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->diet_control}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Physical
-                                                    Activity
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->physical_activity}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Steroid
-                                                    Use</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->steroid_use}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Smoking
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->smoking}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Alcohol</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->alcohol}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Betal
-                                                    Chewing
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->betal_chewing}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">HBV</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->hbv}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">HCV
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->hcv}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">RVI</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->rvi}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-
-
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{--Fifth form--}}
-
-
+                <!-- ============================================================== -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- End Container fluid  -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                © Copyright ©All rights reserved
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
             <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="footer w-100 m-l-0">
-            © Copyright ©All rights reserved
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
     </div>
 
-
 @endsection
-@push('script')
-    <script type="text/javascript" src="{{url('js/jquery.qrcode.js')}}"></script>
-    <script type="text/javascript" src="{{url('js/qrcode.js')}}"></script>
-    <script>
-        //jQuery('#qrcode').qrcode("this plugin is great");
-        jQuery('#qrcodeTable').qrcode({
-            text: $('#valee').val()
-        });
-
-    </script>
-@endpush

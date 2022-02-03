@@ -213,7 +213,7 @@
                                                         <input type="number" name="phone_no" value="{{old('phone_no')}}"
                                                                class="form-control"
                                                                id=""
-                                                               placeholder="Phone No"/>
+                                                               placeholder="Phone No" required/>
                                                         @error('phone_no')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror

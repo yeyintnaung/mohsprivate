@@ -88,6 +88,13 @@ class TypeTwoFollowUpController extends Controller
         return view('typetwopatients.followup.detail', ['data' => $data, 'patient_info' => $patient_info]);
 
     }
+    public function typetwofollowup_without_auth($id)
+    {
+        $data = Typetwofollowup::where('id', $id)->first();
+        $patient_info = TypeTwoPatients::where('id', $data->patient_id)->first();
+        return view('typetwopatients.followup.typetwofollowup_without_auth', ['data' => $data, 'patient_info' => $patient_info]);
+
+    }
 
     public function delete(Request $request)
     {

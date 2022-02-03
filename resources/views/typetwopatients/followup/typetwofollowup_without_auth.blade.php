@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.withoutauth')
 @section('content')
 
 
@@ -18,21 +18,74 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-    @include('layouts.header')
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="{{asset('images/logo-icon.png')}}" alt="homepage" class="dark-logo"/>
+                            <!-- Light Logo icon -->
+                            <img src="{{asset('images/logo-light-icon.png')}}" alt="homepage" class="light-logo"/>
+                        </b>
+                        <!--End Logo icon -->
+                        <span class="hidden-xs"><span class="font-bold">MOHS</span>Demo</span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav me-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"><a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
+                                                href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                        <li class="nav-item"><a
+                                class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
+                                href="javascript:void(0)"><i class="icon-menu"></i></a></li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item">
+                            <form class="app-search d-none d-md-block d-lg-block">
+                                <input type="text" class="form-control" placeholder="Search & enter">
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Comment -->
+
+                        <li class="nav-item right-side-toggle"><a class="nav-link  waves-effect waves-light"
+                                                                  href="javascript:void(0)"><i class="ti-settings"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
     <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-    @include('layouts.sidebar')
     <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-wrapper">
+        <div class="">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -922,6 +975,22 @@
 
                                         <!--/span-->
                                     </div>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-12 mb-4">
+                                                <div class="row">
+                                                    <div class="offset-sm-4 offset-md-9 col-md-9">
+                                                        <a type="submit" href="{{ url()->previous()}}" class="btn btn-md btn-success" style="color:white;"> <i
+                                                                class="fa fa-edit"></i>
+
+                                                            Back
+                                                        </a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
                                 </div>
@@ -931,36 +1000,6 @@
                     </div>
                 </div>
 
-                <div class="form-actions">
-                    <div class="row">
-                        <div class="col-md-12 mb-4">
-                            <div class="row">
-                                <div class="offset-sm-4 offset-md-9 col-md-9">
-                                    <a type="submit" class="btn btn-lg btn-success" style="color:white;"> <i
-                                            class="fa fa-edit"></i>
-
-                                        Edit
-                                    </a>
-                                    <form id="delete_form" action="{{ url('/typetwopatients/delete') }}" method="POST"
-                                          style="display: none;">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{$data->id}}"/>
-                                    </form>
-                                    <a type="button" onclick="Delete()"
-                                       class="btn waves-effect waves-light btn-lg btn-danger" style="color:white;"><i
-                                            class="fa fa-trash"></i> Delete</a>
-                                    <script>
-                                        function Delete() {
-                                            if (confirm('Are you sure want to delete this')) {
-                                                document.getElementById('delete_form').submit();
-                                            }
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 {{--Fifth form--}}
 
 
@@ -976,7 +1015,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer">
+        <footer class="footer" style="margin:0px !important;">
             © Copyright ©All rights reserved
         </footer>
         <!-- ============================================================== -->

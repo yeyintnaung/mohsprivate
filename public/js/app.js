@@ -5350,6 +5350,7 @@ Vue.component('getdatabyid-component', __webpack_require__(/*! ./components/Getd
 
 var app = new Vue({
   el: '#app',
+  props: ['we'],
   data: {
     resultBmi: 0,
     weight: 0,
@@ -5357,6 +5358,11 @@ var app = new Vue({
     cmtom: 0,
     feetinchestom: 0,
     poundtokg: 0
+  },
+  mounted: function mounted() {
+    if (this.$refs.weight.attributes.weight.value !== null) {
+      this.weight = this.$refs.weight.attributes.weight.value;
+    }
   },
   methods: {
     // Triggered when `childToParent` event is emitted by the child.

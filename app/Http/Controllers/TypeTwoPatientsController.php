@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Typetwofollowup;
 use App\Models\TypeTwoPatients;
 use App\Typetworegister;
 use Carbon\Carbon;
@@ -73,8 +74,10 @@ class TypeTwoPatientsController extends Controller
     }
     public function detail($id){
         $data=TypeTwoPatients::where('id',$id)->first();
+        $data_follow_up = Typetwofollowup::where('patient_id', $id)->first();
 
-        return view('typetwopatients.detail',['data'=>$data]);
+
+        return view('typetwopatients.detail',['data'=>$data,'follow_up'=>$data_follow_up]);
     }
     public function delete(Request $request){
         TypeTwoPatients::where('id',$request->id)->delete();
@@ -85,7 +88,7 @@ class TypeTwoPatientsController extends Controller
     public function editform($id)
     {
         $data=TypeTwoPatients::where('id',$id)->first();
-        Artisan::call('view:clear');
+//        Artisan::call('view:clear');
 
 
         return view('typetwopatients.editform',['data'=>$data]);
@@ -123,7 +126,9 @@ class TypeTwoPatientsController extends Controller
     }
     public function detail_without_auth($id){
         $data=TypeTwoPatients::where('id',$id)->first();
+        $data_follow_up = Typetwofollowup::where('patient_id', $id)->first();
 
-        return view('typetwopatients.detail_without_auth',['data'=>$data]);
+
+        return view('typetwopatients.detail_without_auth',['data'=>$data,'follow_up'=>$data_follow_up]);
     }
 }

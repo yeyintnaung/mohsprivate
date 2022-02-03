@@ -243,7 +243,6 @@
                                             <div class="form-group">
                                                 <label style="font-weight: 450 !important;" for="exampleInputPassword1">Height</label>
                                                 <br>
-
                                                 &nbsp;&nbsp;&nbsp;{{$data->height}}
 
                                             </div>
@@ -596,11 +595,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Other
-                                                    Drugs History</label>
+                                                <label style="font-weight: 450 !important;" class="control-label">Hypertension</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->other_drugs_his}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->ph_hypertension}}
 
                                                 <div class="custom-control custom-radio float-right">
 
@@ -611,13 +609,12 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Dental
-                                                    History
+                                                <label style="font-weight: 450 !important;" class="control-label">Dyslipidaemia
 
                                                 </label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->dental_history}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->ph_dyslipidaemia}}
 
                                                 <div class="custom-control custom-radio float-right">
 
@@ -633,11 +630,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Diet
-                                                    Control</label>
+                                                <label style="font-weight: 450 !important;" class="control-label">Tuberculosis</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->diet_control}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->ph_tuberculosis}}
 
                                                 <div class="custom-control custom-radio float-right">
 
@@ -648,13 +644,13 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Physical
-                                                    Activity
+                                                <label style="font-weight: 450 !important;" class="control-label">Stroke
+
 
                                                 </label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->physical_activity}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->ph_stroke}}
 
                                                 <div class="custom-control custom-radio float-right">
 
@@ -671,11 +667,10 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Steroid
-                                                    Use</label>
+                                                <label style="font-weight: 450 !important;" class="control-label">IHD/MI</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->steroid_use}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->ph_ihd_mi}}
 
                                                 <div class="custom-control custom-radio float-right">
 
@@ -686,104 +681,12 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Smoking
+                                                <label style="font-weight: 450 !important;" class="control-label">Nephropathy
 
                                                 </label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->smoking}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Alcohol</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->alcohol}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">Betal
-                                                    Chewing
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->betal_chewing}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">HBV</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->hbv}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;" class="control-label">HCV
-
-                                                </label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->hcv}}
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <!--/span-->
-
-                                        <!--/span-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">RVI</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;{{$data->rvi}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->ph_nephropathy}}
 
                                                 <div class="custom-control custom-radio float-right">
 
@@ -1012,25 +915,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label style="font-weight: 450 !important;"
-                                                       class="control-label">QR Code</label>
-                                                <br>
-
-                                                &nbsp;&nbsp;&nbsp;
-                                                {{--                                                <a href="data:image/png;base64,{!!base64_encode(QrCode::format('png')->size(250)->generate(url('typetwopatients/detail/'.$data->id)))!!}" download>--}}
-                                                {{--                                                <img src="data:image/png;base64,{!!base64_encode(QrCode::format('png')->size(250)->generate(url('typetwopatients/detail/'.$data->id)))!!}">--}}
-                                                {{--                                                </a>--}}
-                                                <a id="qrcodeTable" download></a>
-
-                                                <input type="hidden" id="valee" value="{{url('typetwopatients/detail_without_auth/'.$data->id)}}"/>
-
-                                                <div class="custom-control custom-radio float-right">
-
-                                                </div>
-                                            </div>
-                                        </div>
 
 
                                         <!--/span-->
@@ -1042,40 +926,54 @@
                                 </div>
                                 <hr>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                        <div class="row">
+                                            <div class="offset-sm-4 offset-md-9 col-md-9">
+                                                @if(empty($follow_up->id))
+                                                    <a type="submit" href="{{url('typetwofollowup/create/'.$data->id)}}" class="btn btn-md btn-info" style="color:white;"> <i
+                                                            class="fa fa-edit"></i>
 
-                <div class="form-actions">
-                    <div class="row">
-                        <div class="col-md-12 mb-4">
-                            <div class="row">
-                                <div class="offset-sm-4 offset-md-9 col-md-9">
-                                    <a type="submit" class="btn btn-lg btn-success" style="color:white;"> <i
-                                            class="fa fa-edit"></i>
+                                                        Follow Up
+                                                    </a>
+                                                @else
+                                                    <a type="submit" href="{{url('typetwofollowup/detail/'.$follow_up->id)}}" class="btn btn-md btn-info" style="color:white;"> <i
+                                                            class="fa fa-edit"></i>
 
-                                        Edit
-                                    </a>
-                                    <form id="delete_form" action="{{ url('/typetwopatients/delete') }}" method="POST"
-                                          style="display: none;">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{$data->id}}"/>
-                                    </form>
-                                    <a type="button" onclick="Delete()"
-                                       class="btn waves-effect waves-light btn-lg btn-danger" style="color:white;"><i
-                                            class="fa fa-trash"></i> Delete</a>
-                                    <script>
-                                        function Delete() {
-                                            if (confirm('Are you sure want to delete this')) {
-                                                document.getElementById('delete_form').submit();
-                                            }
-                                        }
-                                    </script>
+                                                        Follow Up
+                                                    </a>
+                                                @endif
+                                                <a type="submit" class="btn btn-md btn-success" style="color:white;"> <i
+                                                        class="fa fa-edit"></i>
+
+                                                    Edit
+                                                </a>
+                                                <form id="delete_form" action="{{ url('/typetwopatients/delete') }}" method="POST"
+                                                      style="display: none;">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{$data->id}}"/>
+                                                </form>
+                                                <a type="button" onclick="Delete()"
+                                                   class="btn waves-effect waves-light btn-md btn-danger" style="color:white;"><i
+                                                        class="fa fa-trash"></i> Delete</a>
+                                                <script>
+                                                    function Delete() {
+                                                        if (confirm('Are you sure want to delete this')) {
+                                                            document.getElementById('delete_form').submit();
+                                                        }
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
+
                 {{--Fifth form--}}
 
 
