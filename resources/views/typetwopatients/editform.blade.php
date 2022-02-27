@@ -65,7 +65,8 @@
                                                         <label for="">Name</label>
                                                         <input type="text" class="form-control" name="name"
                                                                id=""
-                                                               aria-describedby="emailHelp" value="{{old('name',$data->name)}}"
+                                                               aria-describedby="emailHelp"
+                                                               value="{{old('name',$data->name)}}"
                                                                placeholder="Enter Name"/>
                                                         @error('name')
                                                         <p class="text-danger">{{$message}} </p>
@@ -193,7 +194,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">Address(Town)</label>
-                                                        <input type="text" name="town" value="{{old('town',$data->town)}}"
+                                                        <input type="text" name="town"
+                                                               value="{{old('town',$data->town)}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Address(Town)"/>
@@ -210,7 +212,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">Phone No</label>
-                                                        <input type="number" name="phone_no" value="{{old('phone_no',$data->phone_no)}}"
+                                                        <input type="number" name="phone_no"
+                                                               value="{{old('phone_no',$data->phone_no)}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Phone No" required/>
@@ -226,7 +229,8 @@
                                                         <label class="form-label">Education</label>
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category" name="education"
-                                                                value="{{old('education',$data->education)}}" tabindex="1">
+                                                                value="{{old('education',$data->education)}}"
+                                                                tabindex="1">
                                                             @if(!empty(old('education')))
                                                                 <option value="{{old('education')}}"
                                                                         selected>{{old('education')}}</option>
@@ -250,7 +254,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">NRC No</label>
-                                                        <input type="text" name="nrc_no" value="{{old('nrc_no',$data->nrc_no)}}"
+                                                        <input type="text" name="nrc_no"
+                                                               value="{{old('nrc_no',$data->nrc_no)}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="NRC No"/>
@@ -320,13 +325,28 @@
 
                                                     </div>
                                                 </div>
-                                                <cmorfeet-component v-on:forparent="getdatafromchild"></cmorfeet-component>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="">Height (cm)</label>
+                                                        <input type="number" ref="height_cm" name="height_cm"
+                                                               height_cm="{{old('height_cm',$data->height_cm)}}"
+                                                               v-model="height_cm" @change="onweightchangelister"
+                                                               @keyup="onweightchangelister"
+                                                               class="form-control"
+                                                               id=""
+                                                               placeholder="Height"/>
+
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">Weight (Pound)</label>
-                                                        <input type="number" name="weight" ref="weight" weight="{{old('weight',$data->weight)}}" v-model="weight" @change="onweightchangelister" @keyup="onweightchangelister"
+                                                        <input type="number" name="weight" ref="weight"
+                                                               weight="{{old('weight',$data->weight)}}" v-model="weight"
+                                                               @change="onweightchangelister"
+                                                               @keyup="onweightchangelister"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Weight"/>
@@ -341,28 +361,35 @@
                                             <div class="row">
 
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="">Blood Pressure</label>
-                                                        <input type="text" name="blood_pressure"
-                                                               value="{{old('blood_pressure')}}"
-                                                               class="form-control"
-                                                               id=""
-                                                               placeholder="Blood Pressure"/>
+                                                    <div class="form-group row g-0">
+                                                        <label for="">Blood Pressure (mmHg) </label>
+                                                        <div class="col-5 me-2">
+                                                            <input type="text" name="upper_blood_pressure"
+                                                                   value="{{old('upper_blood_pressure',$data->upper_blood_pressure)}}"
+                                                                   class="form-control"
+                                                                   id=""
+                                                                   placeholder="Upper"/>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <input type="text" name="lower_blood_pressure"
+                                                                   value="{{old('lower_blood_pressure',$data->lower_blood_pressure)}}"
+                                                                   class="form-control"
+                                                                   id=""
+                                                                   placeholder="Lower"/>
+                                                        </div>
+
+
                                                         @error('blood_pressure')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    @if($errors->has('hba1c'))
-                                                        <dateorno-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
-                                                                            error="{{$errors->first('hba1c')}}"></dateorno-component>
-
-                                                    @else
-                                                        <dateorno-component oldvalue="{{old('hba1c')}}" title='HbA1C(last date)' fieldname="hba1c"
-                                                                            error=""></dateorno-component>
-
-                                                    @endif
+                                                    <hba1c-component
+                                                        oldvalue_date="{{old('hba1c_date',$data->hba1c_date)}}"
+                                                        oldvalue_value="{{old('hba1c_value',$data->hba1c_value)}}"
+                                                        title='HbA1C(last date)' fieldname="hba1c_date"
+                                                        error="{{$errors->first('hba1c')}}"></hba1c-component>
 
                                                 </div>
 
@@ -373,7 +400,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">OAD (Start Year)</label>
-                                                        <input type="number" name="oad" value="{{old('oad')}}"
+                                                        <input type="number" name="oad"
+                                                               value="{{old('oad',$data->oad)}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="OAD"/>
@@ -386,7 +414,8 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">Insulin (Start Year)</label>
-                                                        <input type="number" name='insulin' value="{{old('insulin')}}"
+                                                        <input type="number" name='insulin'
+                                                               value="{{old('insulin',$data->insulin)}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Insulin"/>
@@ -404,7 +433,8 @@
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category"
                                                                 name="traditional_medicine"
-                                                                value="{{old('traditional_medicine')}}" tabindex="1">
+                                                                value="{{old('traditional_medicine',$data->traditional_medicine)}}"
+                                                                tabindex="1">
                                                             @if(!empty(old('traditional_medicine')))
                                                                 <option value="{{old('traditional_medicine')}}"
                                                                         selected>{{old('traditional_medicine')}}</option>
@@ -427,7 +457,7 @@
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category"
                                                                 name="naive"
-                                                                value="{{old('naive')}}" tabindex="1">
+                                                                value="{{old('naive',$data->naive)}}" tabindex="1">
                                                             @if(!empty(old('naive')))
                                                                 <option value="{{old('naive')}}"
                                                                         selected>{{old('naive')}}</option>
@@ -494,7 +524,7 @@
                                                     <div class="form-group">
                                                         <label for="">Antihypertensives</label>
                                                         <input type="text" name="antihypertensives"
-                                                               value="{{old('antihypertensives')}}"
+                                                               value="{{old('antihypertensives',$data->antihypertensives)}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Antihypertensives"/>
@@ -508,7 +538,7 @@
 
                                                         <label for="">Anti Lipids</label>
                                                         <input type="text" name="anti_lipids"
-                                                               value="{{old('anti_lipids')}}"
+                                                               value="{{old('anti_lipids',$data->anti_lipids)}}"
                                                                class="form-control"
                                                                id=""
 
@@ -526,7 +556,7 @@
 
                                                         <label for="">Antiplatelet</label>
                                                         <input type="text" name="antiplatelet"
-                                                               value="{{old('antiplatelet')}}"
+                                                               value="{{old('antiplatelet',$data->antiplatelet)}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="antiplatelet"/>
@@ -540,7 +570,7 @@
                                                     <div class="form-group">
                                                         <label for="">Other Drugs</label>
                                                         <input type="text" name="other_drugs"
-                                                               value="{{old('other_drugs')}}"
+                                                               value="{{old('other_drugs',$data->other_drugs)}}"
                                                                class="form-control"
                                                                id=""
                                                                placeholder="Other Drugs"/>
@@ -579,14 +609,16 @@
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category"
                                                                 name="hypertension"
-                                                                value="{{old('hypertension')}}" tabindex="1">
-                                                            @if(!empty(old('hypertension')))
-                                                                <option value="{{old('hypertension')}}"
-                                                                        selected>{{old('hypertension')}}</option>
+                                                                value="{{old('hypertension',$data->hypertension)}}"
+                                                                tabindex="1">
 
+                                                            @if($data->hypertension == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
 
                                                         </select>
                                                         @error('hypertension')
@@ -603,13 +635,14 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="dyslipidaemia"
                                                                 value="{{old('dyslipidaemia')}}" tabindex="1">
-                                                            @if(!empty(old('dyslipidaemia')))
-                                                                <option value="{{old('dyslipidaemia')}}"
-                                                                        selected>{{old('dyslipidaemia')}}</option>
 
+                                                            @if(old('dyslipidaemia',$data->dyslipidaemia) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
 
                                                         </select>
                                                         @error('hypertension')
@@ -628,13 +661,13 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="tuberculosis"
                                                                 value="{{old('tuberculosis')}}" tabindex="1">
-                                                            @if(!empty(old('tuberculosis')))
-                                                                <option value="{{old('tuberculosis')}}"
-                                                                        selected>{{old('tuberculosis')}}</option>
-
+                                                            @if(old('tuberculosis',$data->tuberculosis) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
 
                                                         </select>
                                                         @error('tuberculosis')
@@ -650,13 +683,13 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="stroke"
                                                                 value="{{old('stroke')}}" tabindex="1">
-                                                            @if(!empty(old('stroke')))
-                                                                <option value="{{old('stroke')}}"
-                                                                        selected>{{old('stroke')}}</option>
-
+                                                            @if(old('stroke',$data->stroke) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
 
                                                         </select>
                                                         @error('stroke')
@@ -674,13 +707,13 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="ihd_mi"
                                                                 value="{{old('ihd_mi')}}" tabindex="1">
-                                                            @if(!empty(old('ihd_mi')))
-                                                                <option value="{{old('ihd_mi')}}"
-                                                                        selected>{{old('ihd_mi')}}</option>
-
+                                                            @if(old('ihd_mi',$data->ihd_mi) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
 
                                                         </select>
                                                         @error('ihd_mi')
@@ -696,13 +729,13 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="nephropathy"
                                                                 value="{{old('nephropathy')}}" tabindex="1">
-                                                            @if(!empty(old('nephropathy')))
-                                                                <option value="{{old('nephropathy')}}"
-                                                                        selected>{{old('nephropathy')}}</option>
-
+                                                            @if(old('nephropathy',$data->nephropathy) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
 
                                                         </select>
                                                         @error('nephropathy')
@@ -720,13 +753,13 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="retinopathy"
                                                                 value="{{old('retinopathy')}}" tabindex="1">
-                                                            @if(!empty(old('retinopathy')))
-                                                                <option value="{{old('retinopathy')}}"
-                                                                        selected>{{old('retinopathy')}}</option>
-
+                                                            @if(old('retinopathy',$data->retinopathy) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
 
                                                         </select>
                                                         @error('retinopathy')
@@ -744,14 +777,13 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="neuropathy"
                                                                 value="{{old('neuropathy')}}" tabindex="1">
-                                                            @if(!empty(old('retinopathy')))
-                                                                <option value="{{old('neuropathy')}}"
-                                                                        selected>{{old('neuropathy')}}</option>
-
+                                                            @if(old('neuropathy',$data->neuropathy) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
-
                                                         </select>
                                                         @error('neuropathy')
                                                         <p class="text-danger">{{$message}} </p>
@@ -768,13 +800,13 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="dm_foot"
                                                                 value="{{old('dm_foot')}}" tabindex="1">
-                                                            @if(!empty(old('dm_foot')))
-                                                                <option value="{{old('dm_foot')}}"
-                                                                        selected>{{old('dm_foot')}}</option>
-
+                                                            @if(old('dm_foot',$data->dm_foot) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
 
                                                         </select>
                                                         @error('dm_foot')
@@ -806,12 +838,18 @@
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_hypertension'))
-                                                        <dateorno-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
-                                                                            error="{{$errors->first('ph_hypertension')}}"></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_hypertension',$data->ph_hypertension)}}"
+                                                            title='Hypertension'
+                                                            fieldname="ph_hypertension"
+                                                            error="{{$errors->first('ph_hypertension')}}"></dateorno-component>
 
                                                     @else
-                                                        <dateorno-component oldvalue="{{old('ph_hypertension')}}" title='Hypertension' fieldname="ph_hypertension"
-                                                                            error=""></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_hypertension',$data->ph_hypertension)}}"
+                                                            title='Hypertension'
+                                                            fieldname="ph_hypertension"
+                                                            error=""></dateorno-component>
 
                                                     @endif
 
@@ -819,12 +857,18 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_dyslipidaemia'))
-                                                        <dateorno-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
-                                                                            error="{{$errors->first('ph_dyslipidaemia')}}"></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_dyslipidaemia',$data->ph_dyslipidaemia)}}"
+                                                            title='Dyslipidaemia'
+                                                            fieldname="ph_dyslipidaemia"
+                                                            error="{{$errors->first('ph_dyslipidaemia')}}"></dateorno-component>
 
                                                     @else
-                                                        <dateorno-component oldvalue="{{old('ph_dyslipidaemia')}}" title='Dyslipidaemia' fieldname="ph_dyslipidaemia"
-                                                                            error=""></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_dyslipidaemia',$data->ph_dyslipidaemia)}}"
+                                                            title='Dyslipidaemia'
+                                                            fieldname="ph_dyslipidaemia"
+                                                            error=""></dateorno-component>
 
                                                     @endif
 
@@ -834,24 +878,34 @@
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_tuberculosis'))
-                                                        <dateorno-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
-                                                                            error="{{$errors->first('ph_tuberculosis')}}"></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_tuberculosis',$data->ph_tuberculosis)}}"
+                                                            title='Tuberculosis'
+                                                            fieldname="ph_tuberculosis"
+                                                            error="{{$errors->first('ph_tuberculosis')}}"></dateorno-component>
 
                                                     @else
-                                                        <dateorno-component oldvalue="{{old('ph_tuberculosis')}}" title='Tuberculosis' fieldname="ph_tuberculosis"
-                                                                            error=""></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_tuberculosis',$data->ph_tuberculosis)}}"
+                                                            title='Tuberculosis'
+                                                            fieldname="ph_tuberculosis"
+                                                            error=""></dateorno-component>
 
                                                     @endif
 
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_stroke'))
-                                                        <dateorno-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
-                                                                            error="{{$errors->first('ph_stroke')}}"></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_stroke',$data->ph_stroke)}}"
+                                                            title='Stroke' fieldname="ph_stroke"
+                                                            error="{{$errors->first('ph_stroke')}}"></dateorno-component>
 
                                                     @else
-                                                        <dateorno-component oldvalue="{{old('ph_stroke')}}" title='Stroke' fieldname="ph_stroke"
-                                                                            error=""></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_stroke',$data->ph_stroke)}}"
+                                                            title='Stroke' fieldname="ph_stroke"
+                                                            error=""></dateorno-component>
 
                                                     @endif
 
@@ -860,12 +914,16 @@
                                             <div class="row pt-3">
                                                 <div class="col-md-6">
                                                     @if($errors->has('ihd_mi'))
-                                                        <dateorno-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
-                                                                            error="{{$errors->first('ph_ihd_mi')}}"></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_ihd_mi',$data->ph_ihd_mi)}}"
+                                                            title='IHD/MI' fieldname="ph_ihd_mi"
+                                                            error="{{$errors->first('ph_ihd_mi')}}"></dateorno-component>
 
                                                     @else
-                                                        <dateorno-component oldvalue="{{old('ph_ihd_mi')}}" title='IHD/MI' fieldname="ph_ihd_mi"
-                                                                            error=""></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_ihd_mi',$data->ph_ihd_mi)}}"
+                                                            title='IHD/MI' fieldname="ph_ihd_mi"
+                                                            error=""></dateorno-component>
 
                                                     @endif
 
@@ -873,12 +931,18 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if($errors->has('ph_nephropathy'))
-                                                        <dateorno-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
-                                                                            error="{{$errors->first('ph_nephropathy')}}"></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_nephropathy',$data->ph_nephropathy)}}"
+                                                            title='Nephropathy'
+                                                            fieldname="ph_nephropathy"
+                                                            error="{{$errors->first('ph_nephropathy')}}"></dateorno-component>
 
                                                     @else
-                                                        <dateorno-component oldvalue="{{old('ph_nephropathy')}}" title='Nephropathy' fieldname="ph_nephropathy"
-                                                                            error=""></dateorno-component>
+                                                        <dateorno-component
+                                                            oldvalue="{{old('ph_nephropathy',$data->ph_nephropathy)}}"
+                                                            title='Nephropathy'
+                                                            fieldname="ph_nephropathy"
+                                                            error=""></dateorno-component>
 
                                                     @endif
 
@@ -890,7 +954,7 @@
                                                     <div class="form-group">
                                                         <label for="">Other Drugs History</label>
                                                         <input type="text" class="form-control" name="other_drugs_his"
-                                                               value="{{old('other_drugs_his')}}"
+                                                               value="{{old('other_drugs_his',$data->other_drugs_his)}}"
                                                                id=""
                                                                aria-describedby="emailHelp"
                                                                placeholder="Other Drugs History"/>
@@ -902,19 +966,24 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">Dental History</label>
-                                                        <input type="text" class="form-control" name="dental_history"
-                                                               value="{{old('dental_history')}}"
-                                                               id=""
-                                                               aria-describedby="emailHelp" placeholder="Dental History"
-                                                        />
+                                                        <label class="form-label">Dental History</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="dental_history"
+                                                                value="{{old('dental_history')}}" tabindex="1">
+                                                            @if(old('dental_history',$data->dental_history) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
+                                                            @endif
+
+                                                        </select>
                                                         @error('dental_history')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
-
-
                                                     </div>
-
 
                                                 </div>
 
@@ -923,52 +992,71 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">Diet Control</label>
-                                                        <input type="text" name="diet_control"
-                                                               value="{{old('diet_control')}}"
-                                                               class="form-control"
+                                                        <label class="form-label">Diet Control</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="diet_control"
+                                                                value="{{old('diet_control')}}" tabindex="1">
+                                                            @if(old('diet_control',$data->diet_control) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                            @else
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No" selected>No</option>
+                                                            @endif
 
-                                                               aria-describedby="emailHelp"
-                                                               placeholder="Diet Control"/>
-
+                                                        </select>
                                                         @error('diet_control')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
                                                     </div>
+
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">Physical Activity</label>
-                                                        <input type="text" name="physical_activity"
-                                                               value="{{old('physical_activity')}}"
-                                                               class="form-control"
-                                                               id=""
+                                                        <label class="form-label">Physical Activity</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="physical_activity"
+                                                                value="{{old('physical_activity')}}" tabindex="1">
+                                                            @if(!empty(old('physical_activity')))
+                                                                <option value="{{old('physical_activity')}}"
+                                                                        selected>{{old('physical_activity')}}</option>
 
-                                                               aria-describedby="emailHelp"
-                                                               placeholder="physical_activity"/>
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
 
+                                                        </select>
                                                         @error('physical_activity')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="">Steroid Use</label>
-                                                        <input type="text" name="steroid_use"
-                                                               value="{{old('steroid_use')}}"
-                                                               class="form-control"
-                                                               id=""
+                                                        <label class="form-label">Steroid Use</label>
+                                                        <select class="form-control form-select"
+                                                                data-placeholder="Choose a Category"
+                                                                name="steroid_use"
+                                                                value="{{old('steroid_use')}}" tabindex="1">
+                                                            @if(!empty(old('steroid_use')))
+                                                                <option value="{{old('steroid_use')}}"
+                                                                        selected>{{old('steroid_use')}}</option>
 
-                                                               aria-describedby="emailHelp"
-                                                               placeholder="steroid_use"/>
+                                                            @endif
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
 
+                                                        </select>
                                                         @error('steroid_use')
                                                         <p class="text-danger">{{$message}} </p>
                                                         @enderror
                                                     </div>
+
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -976,14 +1064,20 @@
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category" name="smoking"
                                                                 value="{{old('smoking')}}" tabindex="1">
-                                                            @if(!empty(old('smoking')))
-                                                                <option value="{{old('smoking')}}"
-                                                                        selected>{{old('smoking')}}</option>
+                                                            @if(old('smoking',$data->smoking) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                                <option value="Ex">Ex smoke</option>
 
+                                                            @elseif(old('smoking',$data->smoking) == 'No')
+                                                                <option value="Yes">Yes</option>
+                                                                <option value="No" selected>No</option>
+                                                                <option value="Ex">Ex smoke</option>
+                                                            @else
+                                                                <option value="Yes">Yes</option>
+                                                                <option value="No">No</option>
+                                                                <option value="Ex" selected>Ex smoke</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
-                                                            <option value="Ex">Ex smoke</option>
                                                         </select>
                                                         @error('smoking')
                                                         <p class="text-danger">{{$message}} </p>
@@ -1001,14 +1095,20 @@
                                                         <select class="form-control form-select"
                                                                 data-placeholder="Choose a Category" name="alcohol"
                                                                 value="{{old('alcohol')}}" tabindex="1">
-                                                            @if(!empty(old('alcohol')))
-                                                                <option value="{{old('alcohol')}}"
-                                                                        selected>{{old('alcohol')}}</option>
+                                                            @if(old('alcohol',$data->alcohol) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                                <option value="Ex">Ex Alcohol</option>
 
+                                                            @elseif(old('alcohol',$data->alcohol) == 'No')
+                                                                <option value="Yes">Yes</option>
+                                                                <option value="No" selected>No</option>
+                                                                <option value="Ex">Ex Alcohol</option>
+                                                            @else
+                                                                <option value="Yes">Yes</option>
+                                                                <option value="No">No</option>
+                                                                <option value="Ex" selected>Ex Alcohol</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
-                                                            <option value="Ex">Ex smoke</option>
 
                                                         </select>
                                                         @error('alcohol')
@@ -1025,14 +1125,20 @@
                                                                 data-placeholder="Choose a Category"
                                                                 name="betal_chewing"
                                                                 value="{{old('betal_chewing')}}" tabindex="1">
-                                                            @if(!empty(old('betal_chewing')))
-                                                                <option value="{{old('betal_chewing')}}"
-                                                                        selected>{{old('betal_chewing')}}</option>
+                                                            @if(old('betal_chewing',$data->betal_chewing) == 'Yes')
+                                                                <option value="Yes" selected>Yes</option>
+                                                                <option value="No">No</option>
+                                                                <option value="Ex">Ex Betal Chewing</option>
 
+                                                            @elseif(old('betal_chewing',$data->betal_chewing) == 'No')
+                                                                <option value="Yes">Yes</option>
+                                                                <option value="No" selected>No</option>
+                                                                <option value="Ex">Ex Betal Chewing</option>
+                                                            @else
+                                                                <option value="Yes">Yes</option>
+                                                                <option value="No">No</option>
+                                                                <option value="Ex" selected>Ex Betal Chewing</option>
                                                             @endif
-                                                            <option value="Yes">Yes</option>
-                                                            <option value="No">No</option>
-                                                            <option value="Ex">Ex smoke</option>
 
                                                         </select>
                                                         @error('betal_chewing')
@@ -1047,7 +1153,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">HBV</label>
-                                                        <input type="text" name="hbv" value="{{old('hbv')}}"
+                                                        <input type="text" name="hbv" value="{{old('hbv',$data->hbv)}}"
                                                                class="form-control"
                                                                id=""
 
@@ -1063,7 +1169,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">HCV</label>
-                                                        <input type="text" name="hcv" value="{{old('hcv')}}"
+                                                        <input type="text" name="hcv" value="{{old('hbv',$data->hcv)}}"
                                                                class="form-control"
                                                                id=""
 
@@ -1081,7 +1187,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="">RVI</label>
-                                                        <input type="text" name="rvi" value="{{old('rvi')}}"
+                                                        <input type="text" name="rvi" value="{{old('rvi',$data->rvi)}}"
                                                                class="form-control"
                                                                id=""
 

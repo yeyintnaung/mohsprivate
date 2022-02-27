@@ -72,7 +72,7 @@
                 "targets": 2
             }],
             "order": [
-                [2, 'asc']
+                [2, 'desc']
             ],
             "displayLength": 25,
             "drawCallback": function (settings) {
@@ -109,6 +109,8 @@
 
             buttons: [
                // 'copy', 'csv', 'excel', 'pdf', 'print'
+            ], order: [
+                [0, 'desc']
             ],
 
         });

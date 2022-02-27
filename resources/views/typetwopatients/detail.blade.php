@@ -241,9 +241,9 @@
                                         <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Height</label>
+                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Height (cm)</label>
                                                 <br>
-                                                &nbsp;&nbsp;&nbsp;{{$data->height}}
+                                                &nbsp;&nbsp;&nbsp;{{$data->height_cm}}
 
                                             </div>
                                         </div>
@@ -253,7 +253,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Weight</label>
+                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Weight (Kg)</label>
                                                 <br>
 
                                                 &nbsp;&nbsp;&nbsp;{{$data->weight}}
@@ -280,20 +280,24 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label style="font-weight: 450 !important;" for="exampleInputPassword1">Blood
-                                                    Pressure</label>
+                                                    Pressure(mmHg)</label>
                                                 <br>
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->blood_pressure}}
+                                                &nbsp;&nbsp;Upper:&nbsp;{{$data->upper_blood_pressure}} &nbsp;Lower:&nbsp;&nbsp;{{$data->lower_blood_pressure}}
+
 
                                             </div>
                                         </div>                                            <!--/span-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">HBA1C(Last
-                                                    Date)</label>
+                                                <label style="font-weight: 450 !important;" for="exampleInputPassword1">Hba1c (mg/dl)</label>
                                                 <br>
+                                                @if(!empty($data->hba1c_value))
 
-                                                &nbsp;&nbsp;&nbsp;{{$data->hba1c}}
+                                                &nbsp;Result:{{$data->hba1c_value}} &nbsp;&nbsp;  Date:{{$data->hba1c_date}}
+                                                @else
+                                                    NO
+                                                    @endif
 
                                             </div>
                                         </div>
@@ -944,7 +948,7 @@
                                                         Follow Up
                                                     </a>
                                                 @endif
-                                                <a type="submit" class="btn btn-md btn-success" style="color:white;"> <i
+                                                <a type="submit" href="{{url('typetwopatients/edit/'.$data->id)}}" class="btn btn-md btn-success" style="color:white;"> <i
                                                         class="fa fa-edit"></i>
 
                                                     Edit

@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('dateorno-component', require('./components/DateOrNoComponent.vue').default);
 Vue.component('cmorfeet-component', require('./components/CmorFeetComponent.vue').default);
 Vue.component('bmi-component', require('./components/BmiComponent.vue').default);
+Vue.component('hba1c-component', require('./components/Hba1c.vue').default);
 Vue.component('getdatabyid-component', require('./components/GetdatabyPatientId.vue').default);
 
 /**
@@ -40,67 +41,83 @@ const app = new Vue({
         getid:'',
         cmtom: 0,
         feetinchestom: 0,
+        height_cm:0,
         poundtokg:0
     },
     mounted() {
         if(this.$refs.weight.attributes.weight.value !== null){
             this.weight=this.$refs.weight.attributes.weight.value;
         }
+        if(this.$refs.height_cm.attributes.height_cm.value !== null){
+            this.height_cm=this.$refs.height_cm.attributes.height_cm.value;
+        }
+        if(this.weight != 0 && this.height_cm != 0){
+            this.onweightchangelister();
+        }
 
     },
     methods: {
         // Triggered when `childToParent` event is emitted by the child.
          getdatafromchild(value) {
-            if (value.heightcmmodel != 0) {
-
-                this.cmtom = value.heightcmmodel / 100;
-                this.feetinchestom=0;
-                if (this.weight != 0) {
-                    this.poundtokg = this.weight / 2.205;
-                    let fixfloat=this.poundtokg / (this.cmtom * this.cmtom)
-                    this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
-
-                } else {
-                    this.resultBmi = 0;
-                }
-
-            } else {
-                  this.cmtom=0;
-                let inchestofeet = value.heightfeettwmodel / 12;
-                let allfeet = Number(value.heightfeetmodel) +Number(inchestofeet);
-                this.feetinchestom = allfeet / 3.281;
-                if (this.weight != 0) {
-                    this.poundtokg = this.weight / 2.205;
-                    let fixfloat = this.poundtokg / (this.feetinchestom * this.feetinchestom);
-                    this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
-
-
-                } else {
-                    this.resultBmi = 0;
-                }
-
-
-            }
+            // if (value.heightcmmodel != 0) {
+            //
+            //     this.cmtom = value.heightcmmodel / 100;
+            //     this.feetinchestom=0;
+            //     if (this.weight != 0) {
+            //         this.poundtokg = this.weight / 2.205;
+            //         let fixfloat=this.poundtokg / (this.cmtom * this.cmtom)
+            //         this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+            //
+            //     } else {
+            //         this.resultBmi = 0;
+            //     }
+            //
+            // } else {
+            //       this.cmtom=0;
+            //     let inchestofeet = value.heightfeettwmodel / 12;
+            //     let allfeet = Number(value.heightfeetmodel) +Number(inchestofeet);
+            //     this.feetinchestom = allfeet / 3.281;
+            //     if (this.weight != 0) {
+            //         this.poundtokg = this.weight / 2.205;
+            //         let fixfloat = this.poundtokg / (this.feetinchestom * this.feetinchestom);
+            //         this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+            //
+            //
+            //     } else {
+            //         this.resultBmi = 0;
+            //     }
+            //
+            //
+            // }
 
 
         },
         onweightchangelister() {
-            if (this.weight != 0) {
-                if (this.cmtom != 0) {
-                    this.poundtokg = this.weight / 2.205;
-                    let fixfloat = this.poundtokg / (this.cmtom * this.cmtom);
-                    this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+            this.cmtom = this.height_cm / 100;
 
-                }
-                else{
-                    this.poundtokg = this.weight / 2.205;
-                    let fixfloat = this.poundtokg / (this.feetinchestom * this.feetinchestom);
-                    this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+            // if (this.weight != 0) {
+            //     if (this.cmtom != 0) {
+            //         this.poundtokg = this.weight / 2.205;
+            //         let fixfloat = this.poundtokg / (this.cmtom * this.cmtom);
+            //         this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+            //
+            //     }
+            //     else{
+            //         this.poundtokg = this.weight / 2.205;
+            //         let fixfloat = this.poundtokg / (this.feetinchestom * this.feetinchestom);
+            //         this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+            //
+            //     }
+            // } else {
+            //     this.resultBmi = 0;
+            // }
 
-                }
-            } else {
-                this.resultBmi = 0;
-            }
+
+                    let fixfloat = this.weight / (this.cmtom * this.cmtom);
+
+            this.resultBmi = Number.parseFloat(fixfloat).toFixed(2);
+            console.log(this.weight )
+            console.log(this.height_cm )
         },
         selectchange(){
              this.$refs.fromchild.getfromserver(this.getid)

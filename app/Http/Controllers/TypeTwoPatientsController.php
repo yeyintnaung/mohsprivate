@@ -29,6 +29,7 @@ class TypeTwoPatientsController extends Controller
 
     public function create(Request $request)
     {
+//        return $request->all();
 
         $input = $request->except('_token');
 
@@ -60,6 +61,8 @@ class TypeTwoPatientsController extends Controller
             }
         }
         $input['created_at'] = Carbon::now();
+        $input['height_ft'] = 0;
+        $input['height_in'] = 0;
         $input['updated_at'] = Carbon::now();
         $input['admin_id'] = Auth::user()->id;
 

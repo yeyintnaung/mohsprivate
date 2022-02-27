@@ -63,6 +63,10 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Data Export</h4>
+                                <a href="{{url('typetwopatients/create')}}" type="button" class="btn btn-primary float-end " >Add New Patient</a>
+
+
+
                                 <div class="table-responsive m-t-40">
 
                                     <table id="example23"
@@ -102,7 +106,7 @@
                                                 <td>{{$d->age}}</td>
                                                 <td>{{$d->gender}}</td>
                                                 <td>{{$d->town}}</td>
-                                                <td>{{$d->phone}}</td>
+                                                <td>{{$d->phone_no}}</td>
 
                                                 <td> {{\Carbon\Carbon::parse($d->created_at)->toDateString()}}</td>
                                                 <td>
@@ -124,6 +128,7 @@
 
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>

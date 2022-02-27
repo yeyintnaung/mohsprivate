@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [TypeTwoPatientsController::class, 'list']);
 Route::get('/submit_others', [WaittosubmitController::class, 'get']);
 Route::get('/submit/{id}', [WaittosubmitController::class, 'submit'])->where('id', '[0-9]+');
 
