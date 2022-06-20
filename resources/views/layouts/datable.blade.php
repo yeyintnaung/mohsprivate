@@ -17,12 +17,16 @@
     <!-- This page CSS -->
     <!-- chartist CSS -->
     <link href="{{url('nm/jsgrid/jsgrid-theme.min.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css"
+          href="{{url('nm/datatables.net-bs4/css/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" type="text/css"
+          href="{{url('nm/datatables.net-bs4/css/responsive.dataTables.min.css')}}">
 {{--    <link href="{{url('nm/morrisjs/morris.css')}}" rel="stylesheet">--}}
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css" integrity="sha512-shT5e46zNSD6lt4dlJHb+7LoUko9QZXTGlmWWx0qjI9UhQrElRb+Q5DM7SVte9G9ZNmovz2qIaV7IWv0xQkBkw==" crossorigin="anonymous" />    <!--Toaster Popup message CSS -->--}}
 {{--    <link href="{{url('nm/toast-master/css/jquery.toast.css')}}" rel="stylesheet">--}}
 {{--    <!-- Custom CSS -->--}}
     <link href="{{url('dist/css/style.min.css')}}" rel="stylesheet">
+
     <!-- Dashboard 1 Page CSS -->
 {{--    <link href="{{url('dist/css/pages/dashboard1.css')}}" rel="stylesheet">--}}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -75,6 +79,7 @@
                 [2, 'desc']
             ],
             "displayLength": 25,
+
             "drawCallback": function (settings) {
                 var api = this.api();
                 var rows = api.rows({
@@ -106,6 +111,9 @@
         });
         $('#example23').DataTable({
             dom: 'B<"clear">lfrtip',
+            responsive:true,
+            autoWidth: false,
+            scrollX: true
 
             buttons: [
                // 'copy', 'csv', 'excel', 'pdf', 'print'

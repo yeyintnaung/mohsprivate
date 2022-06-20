@@ -18,7 +18,6 @@ class Submituser
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->submit !== '1') {
-            Auth::logout();
             return redirect('waittosubmit');
         }
         return $next($request);

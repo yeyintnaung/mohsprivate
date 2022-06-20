@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\traid\logtraid;
 use App\Models\Typetwofollowup;
 use App\Models\TypeTwoPatients;
 use Carbon\Carbon;
@@ -11,13 +12,15 @@ use Illuminate\Support\Facades\Validator;
 
 class TypeTwoFollowUpController extends Controller
 {
+    use logtraid;
+
     //
     //
     //
     public function __construct()
     {
         $this->middleware('auth');
-//        $this->middleware('submit');
+        $this->middleware('submit');
     }
 
     public function createform($link_patient_id = '')
@@ -62,9 +65,12 @@ class TypeTwoFollowUpController extends Controller
         $input['created_at'] = Carbon::now();
         $input['admin_id'] = Auth::user()->id;
         $input['updated_at'] = Carbon::now();
-        Typetwofollowup::create($input);
+        $addedfollowup=Typetwofollowup::create($input);
+        $getpatient=TypeTwoPatients::where('id',$addedfollowup->patient_id);
 
-
+        if($addedfollowup){
+            $this->addtolog($addedfollowup->patient_id,$getpatient->first()->name,'create follow up');
+        }
         return redirect('typetwofollowup/list');
     }
 
@@ -98,7 +104,15 @@ class TypeTwoFollowUpController extends Controller
 
     public function delete(Request $request)
     {
-        Typetwofollowup::where('id', $request->id)->delete();
+
+
+
+        $getdata=Typetwofollowup::where('id', $request->id);
+        $getpatient=TypeTwoPatients::where('id',$getdata->first()->patient_id);
+
+        $this->addtolog($getdata->first()->patient_id,$getpatient->first()->name,'delete follow up');
+        $getdata->delete();
+
         return redirect('typetwofollowup/list');
 
 

@@ -12,8 +12,8 @@ class WaittosubmitController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('submit');
+        $this->middleware('auth')->except('waittosubmit');
+        $this->middleware('submit')->except('waittosubmit');
     }
 
     public function get()
@@ -29,6 +29,11 @@ class WaittosubmitController extends Controller
             \Illuminate\Support\Facades\Session::flash('submitedmsg',$submiteduser->name.' has been submitted');
         return redirect()->back();
         }
+
+    }
+    public function waittosubmit()
+    {
+      return view('waittosubmit');
 
     }
 

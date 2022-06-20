@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\traid\logtraid;
 use App\Models\Typetwofollowup;
 use App\Models\TypeTwoPatients;
 use App\Typetworegister;
@@ -10,13 +11,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Middleware\Needtobesubmitted;
 
 class TypeTwoPatientsController extends Controller
 {
+    use logtraid;
     //
     public function __construct()
     {
         $this->middleware('auth')->except('detail_without_auth');
+        $this->middleware('submit')->except('detail_without_auth');
 //        $this->middleware('submit');
     }
 
@@ -65,8 +69,10 @@ class TypeTwoPatientsController extends Controller
         $input['height_in'] = 0;
         $input['updated_at'] = Carbon::now();
         $input['admin_id'] = Auth::user()->id;
-
-        TypeTwoPatients::create($input);
+$addedpatient=TypeTwoPatients::create($input);
+        if($addedpatient){
+            $this->addtolog($addedpatient->id,$input['name'],'create');
+        }
 
 
         return redirect('typetwopatients/list');
@@ -123,7 +129,11 @@ class TypeTwoPatientsController extends Controller
 
         }
         $input['updated_at'] = Carbon::now();
-        TypeTwoPatients::where('id',$request->id)->update($input);
+        $updatedata=TypeTwoPatients::where('id',$request->id)->update($input);
+        if($updatedata){
+            $this->addtolog($updatedata->id,$input['name'],'create');
+
+        }
         return redirect('typetwopatients/list');
 
     }

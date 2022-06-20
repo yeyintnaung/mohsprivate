@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TypeTwoPatientsController::class, 'list']);
 Route::get('/submit_others', [WaittosubmitController::class, 'get']);
+Route::get('/waittosubmit', [WaittosubmitController::class, 'waittosubmit']);
+
 Route::get('/submit/{id}', [WaittosubmitController::class, 'submit'])->where('id', '[0-9]+');
 
 
 //for type two patients routes
 Route::prefix('typetwopatients')->group(function(){
+    Route::get('/log/list', [\App\Http\Controllers\LogController::class, 'list']);
 
     Route::get('/create', [TypeTwoPatientsController::class, 'createform']);
     Route::get('/edit/{id}', [TypeTwoPatientsController::class, 'editform']);
