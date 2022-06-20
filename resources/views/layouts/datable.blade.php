@@ -107,7 +107,9 @@
         });
         // responsive table
         $('#config-table').DataTable({
-            responsive: true
+            responsive: true,
+            scrollX: true
+
         });
         $('#example23').DataTable({
             dom: 'B<"clear">lfrtip',

@@ -64,7 +64,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data Export</h4>
                                 <div class="table-responsive m-t-40">
-                                    <table id="example23"
+                                    <table id="config-table"
                                            class="display nowrap table table-hover table-striped table-bordered"
                                            cellspacing="0" width="100%">
                                         <thead>
